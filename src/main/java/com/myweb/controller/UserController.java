@@ -6,6 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
@@ -17,9 +18,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.myweb.mapper.UserMapper;
-import com.myweb.model.UserVO;
 import com.myweb.service.UserService;
 
 /**
@@ -59,9 +61,9 @@ public class UserController {
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
             con.setRequestMethod("GET");
             con.setRequestProperty("Authorization", header);
-            int responseCode1 = con.getResponseCode();
+            int responseCode = con.getResponseCode();
             BufferedReader br;
-            if(responseCode1==200) { // 정상 호출
+            if(responseCode==200) { // 정상 호출
                 br = new BufferedReader(new InputStreamReader(con.getInputStream()));
             } else {  // 에러 발생
                 br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
@@ -74,20 +76,27 @@ public class UserController {
             br.close();	            
             
             //JSON 파싱차례
-            String result1 = response.toString();	//String으로 변환
-            JSONParser parser1=new JSONParser();		//파서 생성! - JSON simple 라이브러리
-            JSONObject obj1=(JSONObject)parser1.parse(result1);
+            String result = response.toString();	//String으로 변환
+            System.out.println(result);				//값 출력
+            JSONParser parser=new JSONParser();		//파서 생성! - JSON simple 라이브러리
+            JSONObject obj=(JSONObject)parser.parse(result);
             // result의 response 값이다!
-            JSONObject afterparse1 = (JSONObject)obj1.get("response");   
+            JSONObject afterparse = (JSONObject)obj.get("response");   
             
-            String nid=(String)afterparse1.get("id");
-            String age=(String)afterparse1.get("age");
-            String gender=(String)afterparse1.get("gender");
-            String email=(String)afterparse1.get("email");
-            String name=(String)afterparse1.get("name");
-            String birthday=(String)afterparse1.get("birthday");
+            String nid=(String)afterparse.get("id");
+            String age=(String)afterparse.get("age");
+            String gender=(String)afterparse.get("gender");
+            String email=(String)afterparse.get("email");
+            String name=(String)afterparse.get("name");
+            String birthday=(String)afterparse.get("birthday");
             
             System.out.println("name : "+name);
+            
+//            ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+//            HttpServletRequest request = sra.getRequest();
+//            HttpServletRequest req = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
+//            HttpSession session=req.getSession();
+//            System.out.println("콘트롤러 : "+session.getAttribute("JSESSIONID"));
             
             //등록된 ID인지 확인하기,,
 //            int check=service.naverIdCheck(nid);

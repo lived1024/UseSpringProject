@@ -1,7 +1,5 @@
 package com.myweb.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -27,6 +25,11 @@ public class HomeController {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		return "redirect:/user/login";
+	}
+	
+	@RequestMapping("/home")
+	public void testhome() {
+		
 	}
 	
 }

@@ -14,7 +14,7 @@
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <%
-    String clientId = "";
+    String clientId = "DuX2ugMM32hJZpdFllRL";
     //아래는 콜백받을 주소!
     String redirectURI = URLEncoder.encode("http://localhost:8888/controller/user/callback", "UTF-8");
     SecureRandom random = new SecureRandom();

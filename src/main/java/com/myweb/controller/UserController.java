@@ -51,7 +51,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/checkNaverId")
-	public void checkNaverId(String token) {
+	public String checkNaverId(String token) {
 		String header = "Bearer " + token; // Bearer 다음에 공백 추가
         try {
             String apiURL = "https://openapi.naver.com/v1/nid/me";
@@ -95,6 +95,7 @@ public class UserController {
         } catch (Exception e) {
             System.out.println(e);
         }
+        return "redirect:/home";
 	}
 	
 }

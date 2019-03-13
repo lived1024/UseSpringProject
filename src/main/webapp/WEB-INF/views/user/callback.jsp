@@ -13,8 +13,8 @@
 <head>
   <%
   	String token="";	// 토큰값 다른 페이지로 넘길때 사용
-    String clientId = "";//애플리케이션 클라이언트 아이디값";
-    String clientSecret = "";//애플리케이션 클라이언트 시크릿값";
+    String clientId = "DuX2ugMM32hJZpdFllRL";//애플리케이션 클라이언트 아이디값";
+    String clientSecret = "kjZe5a6lbk";//애플리케이션 클라이언트 시크릿값";
     String code = request.getParameter("code");
     String state = request.getParameter("state");
     String redirectURI = URLEncoder.encode("http://localhost:8888/controller/user/callback", "UTF-8");
@@ -62,7 +62,7 @@
 <body>
 <!-- 	아래 내용으로 Controller로 연결! -->
 	<form action="/controller/user/checkNaverId" method="post" name="frm">
-		<input type="text" value="<%=token %>" name="token">
+		<input type="hidden" value="<%=token %>" name="token">
 	</form>
 	<script>
 		frm.submit();

@@ -7,16 +7,15 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserVO {
-	private String id;		//회원 id
-	private String nid;		//네이버 id
+	private String id;
+	private String pw;		//네이버 로그인에는 사용 x
 	private String age;		//나이 X 연령대 O
 	private String gender;
 	private String email;
 	private String name;
 	private String birthday;
+	private int lend;		// 대여 여부
 	//네이버 ID로 회원가입 할 때 추가로 입력받을 정보
 	private String tel;
 	private String addr;
-	//네이버 로그인 회원가입 or 자체회원 가입 판별
-	private int naver;	// 0:자체회원	1:네이버	2:둘다	2는 현재 구현X
 }

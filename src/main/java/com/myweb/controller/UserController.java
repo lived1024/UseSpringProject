@@ -90,7 +90,7 @@ public class UserController {
             System.out.println("name : "+name);
             
             //등록된 ID인지 확인하기,,
-            int check=service.naverIdCheck(nid);
+//            int check=service.naverIdCheck(nid);
             
         } catch (Exception e) {
             System.out.println(e);

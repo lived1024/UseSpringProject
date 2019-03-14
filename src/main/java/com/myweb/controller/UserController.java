@@ -22,6 +22,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.myweb.mapper.UserMapper;
+import com.myweb.model.UserVO;
 import com.myweb.service.UserService;
 
 /**
@@ -53,7 +54,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/checkNaverId")
-	public String checkNaverId(String token) {
+	public String checkNaverId(String token, HttpServletRequest request) {
 		String header = "Bearer " + token; // Bearer 다음에 공백 추가
         try {
             String apiURL = "https://openapi.naver.com/v1/nid/me";
@@ -92,19 +93,50 @@ public class UserController {
             
             System.out.println("name : "+name);
             
-//            ServletRequestAttributes sra = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-//            HttpServletRequest request = sra.getRequest();
-//            HttpServletRequest req = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
-//            HttpSession session=req.getSession();
-//            System.out.println("콘트롤러 : "+session.getAttribute("JSESSIONID"));
+            UserVO uv=new UserVO();
+            uv.setId(nid);
+            uv.setAge(age);
+            uv.setGender(gender);
+            uv.setEmail(email);
+            uv.setName(name);
+            uv.setBirthday(birthday);
             
-            //등록된 ID인지 확인하기,,
-//            int check=service.naverIdCheck(nid);
+            HttpSession session=request.getSession();
+            //기존 회원인지 판별
+            int check=service.naverIdCheck(nid);
+            System.out.println("check : "+check);
+            if(check==0) {
+            	//네이버 로그인 회원 회원가입
+            	service.naverUser(uv);
+            	session.setAttribute("uv", uv);
+            	request.setAttribute("msg", "첫 방문을 환영합니다!");
+            }else if(check==1) {
+            	uv=service.getNaverUser(nid);
+            	session.setAttribute("uv", uv);
+            	request.setAttribute("msg", "재방문을 환영합니다!");
+            }else {
+            	logger.info("네이버 ID 중복");
+            	request.setAttribute("msg", "ID 중복에러입니다!");
+            }
             
         } catch (Exception e) {
             System.out.println(e);
         }
-        return "redirect:/home";
+        return "home";
 	}
 	
+	@PostMapping("/create")
+	public String createUser(HttpServletRequest request, UserVO uv, String addr1, String addr2, String tel1, String tel2, String tel3) {
+		String addr = addr1 + " " + addr2;
+		String tel = tel1 + "-" + tel2 + "-" + tel3;
+		
+		uv.setAddr(addr);
+		uv.setTel(tel);
+		
+		service.createWebUser(uv);
+		HttpSession session=request.getSession();
+		session.setAttribute("uv", uv);
+		request.setAttribute("msg", uv.getName()+"님 가입이 완료되었습니다");
+		return "home";
+	}
 }

@@ -6,15 +6,14 @@
 <html>
 <head>
 	<title>Home</title>
+	<script>
+		alert("${msg}");
+	</script>
 </head>
 <body>
 <h1>
 	Hello world!  
 </h1>
-<h3>${sessionScope.JSESSIONID}</h3>
-<%
-	
-	System.out.println(session.getAttribute("JSESSIONID"));
-%>
+${sessionScope.uv.name }
 </body>
 </html>

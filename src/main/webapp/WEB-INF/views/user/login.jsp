@@ -60,11 +60,8 @@
 	     	    			alert("비밀번호가 일치하지 않습니다.");
 	     	    		}else if(data==1){
 	     	    			alert("로그인 성공!!");
-							var msg="${sessionScope.uv.name }님 재방문을 환영합니다.";
-	     	    			$("#msg").text(msg);
-// 	     	    			msgfrm.submit();
-							
-	//     	    			location.href="/controller/home";	//연결됨
+	     	    			location.href="/controller/user/getWebUserInfo?wid"+$("#wid").val();
+
 	     	    		}
 	     	    	},
 	     	    	error : function(e){
@@ -80,9 +77,6 @@
 
 <body>
     <div class="container">
-    	<form action="/controller/home" name="msgfrm">
-    		<input type="hidden" name="msg" id="msg">
-    	</form>
         <div class="row">
 			<div class="col-md-5 mx-auto">
 			<div id="first">

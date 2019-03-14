@@ -52,7 +52,7 @@ public class UserController {
 	@ResponseBody
 	public int webUserLogin(HttpServletRequest request, String wid, String pwd) {
 		int check=service.checkUserLogin(wid, pwd);
-		System.out.println("check : "+check);
+
 		if(check==1) {
 			UserVO uv=service.getWebUser(wid);
 			HttpSession session=request.getSession();
@@ -60,6 +60,12 @@ public class UserController {
 			request.setAttribute("msg", uv.getName()+"님 재방문을 환영합니다!");
 		}
 		return check;
+	}
+	
+	@RequestMapping("/getWebUserInfo")
+	public String getWebUserInfo(String wid) {
+		
+		return null;
 	}
 	
 	@GetMapping("/callback")

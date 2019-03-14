@@ -30,11 +30,24 @@
 		VALUES(#{id},#{pw},#{age},#{gender},#{email},#{name},#{birthday},#{tel},#{addr})
 	</select>
 	
-	<!-- 자체 회원 ID,PW 체크 -->
-	<select id="getWebUser" resultType="Integer">
+	<!-- 가입된 회원인지 확인 -->
+	<select id="checkId" resultType="Integer">
+		SELECT COUNT(*)
+		FROM PROJECT_WEB_USER
+		WHERE WID=#{wid}
+	</select>
+	
+	<!-- 자체 회원 ID,PW 체크  -->
+	<select id="checkLogin" resultType="Integer">
 		SELECT COUNT(*)
 		FROM PROJECT_WEB_USER
 		WHERE WID=#{wid} AND PW=#{pwd}
 	</select>
-
+	
+	<!-- 자체 회원 로그인 -->
+	<select id="getWebUser" resultType="com.myweb.model.UserVO">
+		SELECT *
+		FROM PROJECT_WEB_USER
+		WHERE WID=#{wid}
+	</select>
 </mapper>

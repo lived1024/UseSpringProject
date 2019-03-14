@@ -36,8 +36,29 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public int getWebUser(String wid, String pwd) {
-		// TODO Auto-generated method stub		
-		return mapper.getWebUser(wid,pwd);
+	public int checkUserLogin(String wid, String pwd) {
+		// TODO Auto-generated method stub
+		/* 0 : ID 없음 
+		 * 1 : 로그인 성공
+		 * 2 : 비밀번호 오류 */
+		int check=mapper.checkId(wid);
+		int result=0;
+		//0이면 ID 없음
+		if(check==0) {	// ID가 없으면 종료
+			return check;
+		}else if(check==1){
+			result=mapper.checkLogin(wid,pwd);
+			if(result == 0) {
+				result=2;	//비밀번호 불일치
+				System.out.println("result : " + result);
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public UserVO getWebUser(String wid) {
+		// TODO Auto-generated method stub
+		return mapper.getWebUser(wid);
 	}
 }

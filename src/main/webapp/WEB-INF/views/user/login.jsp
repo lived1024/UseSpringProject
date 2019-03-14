@@ -26,10 +26,63 @@
     apiURL += "&state=" + state;
     session.setAttribute("state", state);
  	%>
+ 	<script>
+ 	//로그인 유효성검사
+ 	$(function(){ 	
+	    $("form[name='login']").validate({
+	      rules: {
+	            wid: {
+	         	   required: true
+	            },
+	            pwd: {
+	         	   required: true,
+	            }
+	      },
+	      messages: {
+	     	   wid: "ID를 입력해주세요",
+	     	   pwd: {
+	     		   required: "비밀번호를 확인해주세요",
+	     	   }
+	      },
+	      submitHandler: function(form) {
+	     	    $.ajax({
+	     	    	url : "/controller/user/login",
+	     	    	type : "post",
+	     	    	data : {"wid" : $("#wid").val(),
+	     	    			"pwd" : $("#pwd").val()},
+	     	    	success : function(data){
+	     	    		/* 0 : ID 없음 
+	     	    		 * 1 : 로그인 성공
+	     	    		 * 2 : 비밀번호 오류 */
+	     	    		if(data==0){
+	     	    			alert("등록되지 않은 ID입니다.");
+	     	    		}else if(data==2){
+	     	    			alert("비밀번호가 일치하지 않습니다.");
+	     	    		}else if(data==1){
+	     	    			alert("로그인 성공!!");
+							var msg="${sessionScope.uv.name }님 재방문을 환영합니다.";
+	     	    			$("#msg").text(msg);
+// 	     	    			msgfrm.submit();
+							
+	//     	    			location.href="/controller/home";	//연결됨
+	     	    		}
+	     	    	},
+	     	    	error : function(e){
+	     	    		alert("error : " + e);
+	     	    	}
+	     	    	
+	     	    });
+	      }
+	    });
+ 	});
+ 	</script>
 </head>
 
 <body>
     <div class="container">
+    	<form action="/controller/home" name="msgfrm">
+    		<input type="hidden" name="msg" id="msg">
+    	</form>
         <div class="row">
 			<div class="col-md-5 mx-auto">
 			<div id="first">

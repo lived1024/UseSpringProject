@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -48,9 +49,17 @@ public class UserController {
 		
 	}
 	@PostMapping("/login")
-	public String webUserLogin(String wid, String pwd) {
-		int check=service.getWebUser(wid, pwd);
-		return "home";
+	@ResponseBody
+	public int webUserLogin(HttpServletRequest request, String wid, String pwd) {
+		int check=service.checkUserLogin(wid, pwd);
+		System.out.println("check : "+check);
+		if(check==1) {
+			UserVO uv=service.getWebUser(wid);
+			HttpSession session=request.getSession();
+			session.setAttribute("uv", uv);
+			request.setAttribute("msg", uv.getName()+"님 재방문을 환영합니다!");
+		}
+		return check;
 	}
 	
 	@GetMapping("/callback")
@@ -118,7 +127,7 @@ public class UserController {
             }else if(check==1) {
             	uv=service.getNaverUser(nid);
             	session.setAttribute("uv", uv);
-            	request.setAttribute("msg", "재방문을 환영합니다!");
+            	request.setAttribute("msg", uv.getName()+"님 재방문을 환영합니다!");
             }else {
             	logger.info("네이버 ID 중복");
             	request.setAttribute("msg", "ID 중복에러입니다!");

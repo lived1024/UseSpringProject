@@ -9,5 +9,7 @@ public interface UserMapper {
 	public void createNaverUser(UserVO uv);
 	public UserVO getNaverUser(String id);
 	public void createWebUser(UserVO uv);
-	public int getWebUser(@Param("nid") String nid, @Param("pwd")String pwd);
+	public int checkId(String wid);
+	public int checkLogin(@Param("wid")String wid, @Param("pwd")String pwd);
+	public UserVO getWebUser(String wid);
 }

@@ -13,27 +13,7 @@
         		});
         	});
         	
-           //로그인 유효성검사
-           $("form[name='login']").validate({
-             rules: {
-	               email: {
-	            	   required: true,
-	            	   email: true
-	               },
-	               password: {
-	            	   required: true,
-	               }
-             },
-             messages: {
-            	   email: "Please enter a valid email address",
-            	   password: {
-            		   required: "Please enter password",
-            	   }
-             },
-             submitHandler: function(form) {
-            	    form.submit();
-             }
-           });
+           
         	
         //무슨 이유인지 모르겠지만 바로 아래의 click 이벤트를 넣어야 적용이 된다.
         	$("#create").click(function(){

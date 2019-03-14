@@ -47,6 +47,11 @@ public class UserController {
 	public void userLogin() {
 		
 	}
+	@PostMapping("/login")
+	public String webUserLogin(String wid, String pwd) {
+		int check=service.getWebUser(wid, pwd);
+		return "home";
+	}
 	
 	@GetMapping("/callback")
 	public void naverLogin() {

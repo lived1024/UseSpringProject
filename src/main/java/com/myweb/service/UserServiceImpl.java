@@ -34,4 +34,10 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		mapper.createWebUser(uv);
 	}
+
+	@Override
+	public int getWebUser(String wid, String pwd) {
+		// TODO Auto-generated method stub		
+		return mapper.getWebUser(wid,pwd);
+	}
 }

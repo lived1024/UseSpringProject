@@ -29,5 +29,12 @@
 		INSERT INTO PROJECT_WEB_USER(WID, PW, AGE, GENDER, EMAIL, NAME, BIRTHDAY, TEL, ADDR)
 		VALUES(#{id},#{pw},#{age},#{gender},#{email},#{name},#{birthday},#{tel},#{addr})
 	</select>
+	
+	<!-- 자체 회원 ID,PW 체크 -->
+	<select id="getWebUser" resultType="Integer">
+		SELECT COUNT(*)
+		FROM PROJECT_WEB_USER
+		WHERE WID=#{wid} AND PW=#{pwd}
+	</select>
 
 </mapper>

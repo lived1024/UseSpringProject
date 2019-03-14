@@ -39,7 +39,7 @@
 								<h1>Login</h1>
 							 </div>
 						</div>
-        	            <form action="" method="post" name="login">
+        	            <form action="/controller/user/login" method="post" name="login">
                            <div class="form-group">
                               <label for="exampleInputEmail1">ID 입력</label>
                               <input type="text" name="wid"  class="form-control" id="wid" aria-describedby="emailHelp" placeholder="Enter Your ID">

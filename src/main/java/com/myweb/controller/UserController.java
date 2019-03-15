@@ -169,8 +169,4 @@ public class UserController {
 		return "/user/login";
 	}
 	
-	@RequestMapping("/toNaver")
-	public void toNaver() {
-		
-	}
 }

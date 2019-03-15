@@ -318,7 +318,7 @@ ul.nav li.dropdown ul li i {
   height: 60vh;
   position: relative;
 	background: url(../img/intro-background.jpg) top center;
-  background-size: cover;
+  background-size: contain;
 }
 
 @media (min-width: 1024px) {
@@ -377,7 +377,7 @@ ul.nav li.dropdown ul li i {
   transition: 0.5s;
   margin: 10px;
   color: #fff;
-	background: #84c75b;
+  background: #84c75b;
 }
 
 .btn-get-started:hover {
@@ -2803,6 +2803,10 @@ ul.the-icons {
 	outline:0;
 }
 
-
+#logout{
+	padding: 5px;
+	margin-left: 10px;
+	border-radius: 10px;
+}
 
 /* Theme Styler :: End */

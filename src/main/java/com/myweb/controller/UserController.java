@@ -156,4 +156,11 @@ public class UserController {
 		request.setAttribute("msg", uv.getName()+"님 가입이 완료되었습니다");
 		return "home";
 	}
+	
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest request) {
+		HttpSession session=request.getSession();
+		session.invalidate();
+		return "redirect:home";
+	}
 }

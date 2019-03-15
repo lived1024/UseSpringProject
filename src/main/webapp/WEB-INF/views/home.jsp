@@ -17,7 +17,7 @@
   <link href="/controller/resources/css/bootstrap-responsive.css" rel="stylesheet" />
   <link href="/controller/resources/css/prettyPhoto.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-  <link href="/controller/resources/css/style.css" rel="stylesheet">
+  <link href="/controller/resources/css/style.css?ver=1" rel="stylesheet">
 
   <!-- Theme skin -->
   <link id="t-colors" href="/controller/resources/color/default.css" rel="stylesheet" />
@@ -315,7 +315,6 @@
   <script src="/controller/resources/js/portfolio/jquery.quicksand.js"></script>
   <script src="/controller/resources/js/portfolio/setting.js"></script>
   <script src="/controller/resources/js/animate.js"></script>
-
   <!-- Template Custom JavaScript File -->
   <script src="/controller/resources/js/custom.js"></script>
   
@@ -323,7 +322,7 @@
 	<script>
 		$(function(){
 			if(${msg != null}){
-				alert("${msg}");
+				alert("${msg }");
 			}
 		})
 	</script>

@@ -52,13 +52,6 @@ public class UserController {
 	@ResponseBody
 	public int webUserLogin(HttpServletRequest request, String wid, String pwd) {
 		int check=service.checkUserLogin(wid, pwd);
-
-//		if(check==1) {
-//			UserVO uv=service.getWebUser(wid);
-//			HttpSession session=request.getSession();
-//			session.setAttribute("uv", uv);
-//			request.setAttribute("msg", uv.getName()+"님 재방문을 환영합니다!");
-//		}
 		return check;
 	}
 	

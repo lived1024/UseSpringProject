@@ -27,50 +27,53 @@
     session.setAttribute("state", state);
  	%>
  	<script>
- 	//로그인 유효성검사
+ 	/* jQuery Validation Plugin 에서 ajax를 썼을때, 
+ 	 * 외부 js파일로 사용하면 제대로 작동하지 않았다.
+ 	 * jsp파일에서는 제대로 작동한다 -> 해당 플러그인에서 callback 사용법 찾아보자*/
  	$(function(){ 	
-	    $("form[name='login']").validate({
-	      rules: {
-	            wid: {
-	         	   required: true
-	            },
-	            pwd: {
-	         	   required: true,
-	            }
-	      },
-	      messages: {
-	     	   wid: "ID를 입력해주세요",
-	     	   pwd: {
-	     		   required: "비밀번호를 확인해주세요",
-	     	   }
-	      },
-	      submitHandler: function(form) {
-	     	    $.ajax({
-	     	    	url : "/controller/user/login",
-	     	    	type : "post",
-	     	    	data : {"wid" : $("#wid").val(),
-	     	    			"pwd" : $("#pwd").val()},
-	     	    	success : function(data){
-	     	    		/* 0 : ID 없음 
-	     	    		 * 1 : 로그인 성공
-	     	    		 * 2 : 비밀번호 오류 */
-	     	    		if(data==0){
-	     	    			alert("등록되지 않은 ID입니다.");
-	     	    		}else if(data==2){
-	     	    			alert("비밀번호가 일치하지 않습니다.");
-	     	    		}else if(data==1){
-	     	    			alert("로그인 성공!!");
-	     	    			location.href="/controller/user/getWebUserInfo?wid="+$("#wid").val();
+ 		//로그인 유효성검사 및 로그인
+  	  $("form[name='login']").validate({
+  	      rules: {
+  	            wid: {
+  	         	   required: true
+  	            },
+  	            pwd: {
+  	         	   required: true,
+  	            }
+  	      },
+  	      messages: {
+  	     	   wid: "ID를 입력해주세요",
+  	     	   pwd: {
+  	     		   required: "비밀번호를 확인해주세요",
+  	     	   }
+  	      },
+  	      submitHandler: function(form) {
+  	     	    $.ajax({
+  	     	    	url : "/controller/user/login",
+  	     	    	type : "post",
+  	     	    	data : {"wid" : $("#wid").val(),
+  	     	    			"pwd" : $("#pwd").val()},
+  	     	    	success : function(data){
+  	     	    		/* 0 : ID 없음 
+  	     	    		 * 1 : 로그인 성공
+  	     	    		 * 2 : 비밀번호 오류 */
+  	     	    		if(data==0){
+  	     	    			alert("등록되지 않은 ID입니다.");
+  	     	    		}else if(data==2){
+  	     	    			alert("비밀번호가 일치하지 않습니다.");
+  	     	    		}else if(data==1){
+  	     	    			alert("로그인 성공!!");
+  	     	    			location.href="/controller/user/getWebUserInfo?wid="+$("#wid").val();
 
-	     	    		}
-	     	    	},
-	     	    	error : function(e){
-	     	    		alert("error : " + e);
-	     	    	}
-	     	    	
-	     	    });
-	      }
-	    });
+  	     	    		}
+  	     	    	},
+  	     	    	error : function(e){
+  	     	    		alert("error : " + e);
+  	     	    	}
+  	     	    	
+  	     	    });
+  	      }
+  	    });
  	});
  	</script>
 </head>
@@ -86,7 +89,7 @@
 								<h1>Login</h1>
 							 </div>
 						</div>
-        	            <form action="/controller/user/login" method="post" name="login">
+        	            <form action="#" method="post" name="login">
                            <div class="form-group">
                               <label for="exampleInputEmail1">ID 입력</label>
                               <input type="text" name="wid"  class="form-control" id="wid" aria-describedby="emailHelp" placeholder="Enter Your ID">
@@ -184,7 +187,7 @@
                               <input type="text" name="addr2"  class="form-control" id="addr2" aria-describedby="emailHelp" placeholder="상세주소를 적어주세요">
                            </div>
                            <div class="col-md-12 text-center mb-3">
-                              <button type="button" class=" btn btn-block mybtn btn-primary tx-tfm" id="create">시작하기</button>
+                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm" id="create">시작하기</button>
                            </div>
                            <div class="col-md-12 ">
                               <div class="form-group">

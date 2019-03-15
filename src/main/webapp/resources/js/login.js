@@ -1,5 +1,6 @@
 
-         $(function() {
+         $(function() {        	
+        	alert("저희 사이트는 로그인을 한 회원에게만 서비스됩니다");
         	//화면 전환
         	$("#signup").click(function() {
         		$("#first").fadeOut("fast", function() {
@@ -12,17 +13,12 @@
         			$("#first").fadeIn("fast");
         		});
         	});
-        	
-           
-        	
-        //무슨 이유인지 모르겠지만 바로 아래의 click 이벤트를 넣어야 적용이 된다.
-        	$("#create").click(function(){
-        		$("#cr").submit();
-        	})
+        
         	//회원가입 유효성검사
+        	//validate plugin은 버튼이 submit이어야 한다!
         	  $("form[name='registration']").validate({
         	    rules: {
-	        	      id: "required",
+	        	      wid: "required",
 	        	      email: {
 	        	        required: true,
 	        	        email: true

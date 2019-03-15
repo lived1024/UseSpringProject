@@ -103,8 +103,9 @@ jQuery(document).ready(function ($) {
     }, 1500, 'easeInOutExpo');
   });
 //로그아웃
-  $(document).on("click","#logout",function(){
-	  var flag = confirm("네이버 로그아웃은 공식 홈페이지에서 하셔야 됩니다.");
-	  
-  });
+//  $(document).on("click","#logout",function(){
+//	  var flag = confirm("네이버 로그아웃은 공식 홈페이지에서 하셔야 됩니다.");
+//	  
+//	  
+//  });
 });

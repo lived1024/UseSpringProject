@@ -87,3 +87,20 @@
           </div>
         </div>
       </div>
+      <script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script>
+      	$(function(){
+      		$("#logout").click(function(){      			 
+      			if(${sessionScope.uv.nid != null}){
+      				alert("네이버 로그인은 네이버 홈페이지에서 로그아웃이 가능합니다.\r\n"
+    					 +"네이버 메인페이지로 이동합니다.");
+      			}
+      			location.href="/controller/user/logout";
+      		});
+      		
+      		// 로그인 하지 않고 강제로 url 입력한다면,,
+     		if(${sessionScope.uv == null}){
+     			location.href="/controller/user/login";
+     		}
+      	});
+      </script>

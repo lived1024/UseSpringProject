@@ -320,7 +320,7 @@
   
   <!-- My script -->
 	<script>
-		$(function(){
+		$(function(){			
 			if(${msg != null}){
 				alert("${msg }");
 			}

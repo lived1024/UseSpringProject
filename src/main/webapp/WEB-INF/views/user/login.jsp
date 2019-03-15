@@ -74,6 +74,15 @@
   	     	    });
   	      }
   	    });
+  	// 로그인 후에 강제로 로그인 주소를 입력할 때
+ 	  if(${sessionScope.uv != null}){
+ 			alert("이미 로그인이 되어있습니다.");
+ 			location.href="/controller/home";
+ 	  }
+ 	// url 강제 입력 후 돌아왔을때 출력 안되게,,
+ 	  if(${sessionScope.uv == null }){
+    		alert("저희 사이트는 로그인을 한 회원에게만 서비스됩니다");        		
+      }
  	});
  	</script>
 </head>

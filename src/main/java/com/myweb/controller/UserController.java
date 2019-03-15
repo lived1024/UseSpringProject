@@ -160,7 +160,17 @@ public class UserController {
 	@RequestMapping("/logout")
 	public String logout(HttpServletRequest request) {
 		HttpSession session=request.getSession();
+		UserVO uv=(UserVO) session.getAttribute("uv");
+		if(uv.getNid() != null) {
+			session.invalidate();
+			return "redirect:http://www.naver.com";
+		}
 		session.invalidate();
-		return "redirect:home";
+		return "/user/login";
+	}
+	
+	@RequestMapping("/toNaver")
+	public void toNaver() {
+		
 	}
 }

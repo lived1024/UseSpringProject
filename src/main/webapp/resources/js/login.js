@@ -1,6 +1,6 @@
 
-         $(function() {        	
-        	alert("저희 사이트는 로그인을 한 회원에게만 서비스됩니다");
+         $(function() {
+        	
         	//화면 전환
         	$("#signup").click(function() {
         		$("#first").fadeOut("fast", function() {
@@ -45,7 +45,5 @@
         	    submitHandler: function(form) {
         	    	  form.submit();
         	    }
-        	  });
-        	  
-        	  
+        	  });        	
          });         

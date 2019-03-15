@@ -6,7 +6,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Remember - Multipurpose bootstrap site template</title>
+  <title>Laptop Forum</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Your page description here" />
   <meta name="author" content="" />
@@ -19,14 +19,14 @@
   <link href="/controller/resources/css/style.css" rel="stylesheet">
 
   <!-- Theme skin -->
-  <link id="t-colors" href="color/default.css" rel="stylesheet" />
+  <link id="t-colors" href="/controller/resources/color/default.css" rel="stylesheet" />
 
   <!-- Fav and touch icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png" />
-  <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png" />
-  <link rel="shortcut icon" href="ico/favicon.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/controller/resourcesico/apple-touch-icon-144-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/controller/resourcesico/apple-touch-icon-114-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/controller/resourcesico/apple-touch-icon-72-precomposed.png" />
+  <link rel="apple-touch-icon-precomposed" href="/controller/resourcesico/apple-touch-icon-57-precomposed.png" />
+  <link rel="shortcut icon" href="/controller/resourcesico/favicon.png" />
 
   <!-- =======================================================
     Theme Name: Remember
@@ -34,14 +34,6 @@
     Author: BootstrapMade.com
     Author URL: https://bootstrapmade.com
   ======================================================= -->
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script>
-		$(function(){
-			if(${msg != null}){
-				alert("${msg}");
-			}
-		})
-	</script>
 </head>
 
 <body>
@@ -53,9 +45,9 @@
           <div class="row">
             <div class="span6">
               <ul class="topmenu">
-                <li><a href="#">Home</a> &#47;</li>
-                <li><a href="#">Terms</a> &#47;</li>
-                <li><a href="#">Privacy policy</a></li>
+                <li><a href="/controller/home">Home</a> &#47;</li>
+                <li><a href="#">약관</a> &#47;</li>
+                <li><a href="#">정책</a></li>
               </ul>
             </div>
             <div class="span6">
@@ -73,12 +65,10 @@
         </div>
       </div>
       <div class="container">
-
-
         <div class="row nomargin">
           <div class="span4">
             <div class="logo">
-              <h1><a href="/controller/home"><i class="icon-tint"></i> Remember</a></h1>
+              <h1><a href="/controller/home"><i class="icon-tint"></i> Laptop Forum</a></h1>
             </div>
           </div>
           <div class="span8">
@@ -87,46 +77,46 @@
                 <nav>
                   <ul class="nav topnav">
                     <li class="active">
-                      <a href="index.html">Home</a>
+                      <a href="/controller/home">Home</a>
                     </li>
                     <li class="dropdown">
-                      <a href="#">Features <i class="icon-angle-down"></i></a>
+                      <a href="#">소개 <i class="icon-angle-down"></i></a>
                       <ul class="dropdown-menu">
-                        <li><a href="typography.html">Typography</a></li>
-                        <li><a href="components.html">Components</a></li>
-                        <li><a href="icons.html">Icons</a></li>
-                        <li><a href="icon-variations.html">Icon variations</a></li>
-
+                        <li><a href="#">운영 목적</a></li>
+                        <li><a href="#">운영진</a></li>
                       </ul>
                     </li>
                     <li class="dropdown">
-                      <a href="#">Pages <i class="icon-angle-down"></i></a>
+                      <a href="#">리뷰 및 후기 <i class="icon-angle-down"></i></a>
                       <ul class="dropdown-menu">
-                        <li><a href="about.html">About us</a></li>
-                        <li><a href="pricingbox.html">Pricing boxes</a></li>
-                        <li><a href="404.html">404</a></li>
+                        <li><a href="#">노트북 리뷰</a></li>
+                        <li><a href="#">AS 후기</a></li>
+                        <li><a href="#">대여 후기</a></li>
                       </ul>
                     </li>
                     <li class="dropdown">
-                      <a href="#">Portfolio <i class="icon-angle-down"></i></a>
+                      <a href="#">대여 <i class="icon-angle-down"></i></a>
                       <ul class="dropdown-menu">
-                        <li><a href="portfolio-2cols.html">Portfolio 2 columns</a></li>
-                        <li><a href="portfolio-3cols.html">Portfolio 3 columns</a></li>
-                        <li><a href="portfolio-4cols.html">Portfolio 4 columns</a></li>
-                        <li><a href="portfolio-detail.html">Portfolio detail</a></li>
+                        <li><a href="#">시스템 소개</a></li>
+                        <li><a href="#">대여 방법</a></li>
+                        <li><a href="#">대여 신청</a></li>
                       </ul>
                     </li>
                     <li class="dropdown">
-                      <a href="#">Blog <i class="icon-angle-down"></i></a>
+                      <a href="#">커뮤니티 <i class="icon-angle-down"></i></a>
                       <ul class="dropdown-menu">
-                        <li><a href="blog-left-sidebar.html">Blog left sidebar</a></li>
-                        <li><a href="blog-right-sidebar.html">Blog right sidebar</a></li>
-                        <li><a href="post-left-sidebar.html">Post left sidebar</a></li>
-                        <li><a href="post-right-sidebar.html">Post right sidebar</a></li>
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">관련 뉴스</a></li> <!-- 크롤링 뉴스 이용 예정 -->
+                        <li><a href="#">묻고 답하기</a></li>
+                        <li><a href="#">자유 게시판</a></li>
                       </ul>
                     </li>
-                    <li>
-                      <a href="contact.html">Contact </a>
+                    <li class="dropdown">
+                      <a href="#">정보관리 <i class="icon-angle-down"></i></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">내 정보</a></li>
+                        <li><a href="#">대여 현황</a></li>
+                      </ul>
                     </li>
                   </ul>
                 </nav>
@@ -142,8 +132,8 @@
     <!-- section intro -->
     <section id="intro">
       <div class="intro-content">
-        <h2>Welcome to Remember!</h2>
-        <h3>Lorem ipsum dolor sit amet, elit persecuti efficiendi</h3>
+        <h2>Welcome to Laptop Forum!</h2>
+        <h3>Laptop Forum에 오신 것을 환영합니다!</h3>
         <div>
           <a href="#content" class="btn-get-started scrollto">Get Started</a>
         </div>
@@ -153,7 +143,7 @@
 
     <section id="content">
       <div class="container">
-
+      
 
         <div class="row">
           <div class="span12">
@@ -165,7 +155,7 @@
                     <i class="ico icon-dropbox icon-5x"></i>
                   </div>
                   <div class="text">
-                    <h4><strong>Out of the box</strong></h4>
+                    <h4><strong>사이트 소개</strong></h4>
                     <p>
                       Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am anumat lib persum sea facilisis.
                     </p>
@@ -181,7 +171,7 @@
                     <i class="ico icon-bitbucket icon-5x"></i>
                   </div>
                   <div class="text">
-                    <h4><strong>New taste</strong></h4>
+                    <h4><strong>리뷰 게시판</strong></h4>
                     <p>
                       Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
                     </p>
@@ -196,7 +186,7 @@
                     <i class="ico icon-rocket icon-5x"></i>
                   </div>
                   <div class="text">
-                    <h4><strong>Faster load</strong></h4>
+                    <h4><strong>대여 시스템</strong></h4>
                     <p>
                       Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
                     </p>
@@ -211,7 +201,7 @@
                     <i class="ico icon-cut icon-5x"></i>
                   </div>
                   <div class="text">
-                    <h4><strong>Cut your times</strong></h4>
+                    <h4><strong>마이 페이지</strong></h4>
                     <p>
                       Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
                     </p>
@@ -222,30 +212,8 @@
             </div>
           </div>
         </div>
-
-
-        <div class="row">
-          <div class="span12">
-            <div class="cta-box">
-              <div class="row">
-                <div class="span8">
-                  <div class="cta-text">
-                    <h2>Special price in very <span>limited</span> times</h2>
-                  </div>
-                </div>
-                <div class="span4">
-                  <div class="cta-btn">
-                    <a href="#" class="btn btn-color">Call Action <i class="icon-caret-right"></i></a>
-                  </div>
-                </div>
-
-              </div>
-
-
-            </div>
-          </div>
-        </div>
-
+        
+        
       </div>
     </section>
 
@@ -256,7 +224,7 @@
             <div class="row">
               <div class="span12">
                 <div class="aligncenter">
-                  <h3>Our features and pricing</h3>
+                  <h3>IT 최신 정보</h3>
                   <blockquote>
                     Lorem ipsum dolor sit amet, labores dolorum scriptorem eum an, te quodsi sanctus neglegentur eam, et lorem persecuti conclusionemque mei.
                   </blockquote>
@@ -279,7 +247,7 @@
               <div class="span3">
                 <div class="pricing-box-plain">
                   <div class="heading">
-                    <h4>Standard</h4>
+                    <h4>Crawling 1</h4>
                     <span>$9 / Month</span>
                   </div>
                   <div class="desc">
@@ -298,7 +266,7 @@
               <div class="span3">
                 <div class="pricing-box-plain">
                   <div class="heading">
-                    <h4>Medium</h4>
+                    <h4>Crawling 2</h4>
                     <span>$29 / Month</span>
                   </div>
                   <div class="desc">
@@ -317,7 +285,7 @@
               <div class="span3">
                 <div class="pricing-box-plain">
                   <div class="heading">
-                    <h4>Elite</h4>
+                    <h4>Crawling 3</h4>
                     <span>$59 / Month</span>
                   </div>
                   <div class="desc">
@@ -351,11 +319,11 @@
                 <div class="span3">
                   <div class="item">
                     <figure>
-                      <div><img src="img/dummies/works/1.jpg" alt=""></div>
+                      <div><img src="/controller/resources/img/dummies/works/1.jpg" alt=""></div>
                       <figcaption>
                         <h3>Portfolio name</h3>
                         <p>
-                          <a href="img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
+                          <a href="/controller/resources/img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
                           <a href="#"><i class="icon-file icon-circled icon-bglight icon-2x active"></i></a>
                         </p>
                       </figcaption>
@@ -365,11 +333,11 @@
                 <div class="span3">
                   <div class="item">
                     <figure>
-                      <div><img src="img/dummies/works/2.jpg" alt=""></div>
+                      <div><img src="/controller/resources/img/dummies/works/2.jpg" alt=""></div>
                       <figcaption>
                         <h3>Portfolio name</h3>
                         <p>
-                          <a href="img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
+                          <a href="/controller/resources/img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
                           <a href="#"><i class="icon-file icon-circled icon-bglight icon-2x active"></i></a>
                         </p>
                       </figcaption>
@@ -379,11 +347,11 @@
                 <div class="span3">
                   <div class="item">
                     <figure>
-                      <div><img src="img/dummies/works/3.jpg" alt=""></div>
+                      <div><img src="/controller/resources/img/dummies/works/3.jpg" alt=""></div>
                       <figcaption>
                         <h3>Portfolio name</h3>
                         <p>
-                          <a href="img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
+                          <a href="/controller/resources/img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
                           <a href="#"><i class="icon-file icon-circled icon-bglight icon-2x active"></i></a>
                         </p>
                       </figcaption>
@@ -393,11 +361,11 @@
                 <div class="span3">
                   <div class="item">
                     <figure>
-                      <div><img src="img/dummies/works/4.jpg" alt=""></div>
+                      <div><img src="/controller/resources/img/dummies/works/4.jpg" alt=""></div>
                       <figcaption>
                         <h3>Portfolio name</h3>
                         <p>
-                          <a href="img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
+                          <a href="/controller/resources/img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
                           <a href="#"><i class="icon-file icon-circled icon-bglight icon-2x active"></i></a>
                         </p>
                       </figcaption>
@@ -418,13 +386,13 @@
           <div class="span4">
             <div class="widget">
               <div class="footer_logo">
-                <h3><a href="index.html"><i class="icon-tint"></i> Remember</a></h3>
+                <h3><a href="/controller/home"><i class="icon-tint"></i> Remember</a></h3>
               </div>
               <address>
 							  <strong>Remember company Inc.</strong><br>
   							Somestreet KW 101, Park Village W.01<br>
   							Jakarta 13426 Indonesia
-  						</address>
+  			  </address>
               <p>
                 <i class="icon-phone"></i> (123) 456-7890 - (123) 555-7891 <br>
                 <i class="icon-envelope-alt"></i> email@domainname.com
@@ -463,9 +431,7 @@
               <div class="copyright">
                 <p><span>&copy; Remember Inc. All right reserved</span></p>
               </div>
-
             </div>
-
             <div class="span6">
               <div class="credits">
                 <!--
@@ -487,20 +453,27 @@
   <!-- javascript
     ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="js/jquery.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/modernizr.custom.js"></script>
-  <script src="js/toucheffects.js"></script>
-  <script src="js/google-code-prettify/prettify.js"></script>
-  <script src="js/jquery.prettyPhoto.js"></script>
-  <script src="js/portfolio/jquery.quicksand.js"></script>
-  <script src="js/portfolio/setting.js"></script>
-  <script src="js/animate.js"></script>
+  <script src="/controller/resources/js/jquery.js"></script>
+  <script src="/controller/resources/js/jquery.easing.1.3.js"></script>
+  <script src="/controller/resources/js/bootstrap.js"></script>
+  <script src="/controller/resources/js/modernizr.custom.js"></script>
+  <script src="/controller/resources/js/toucheffects.js"></script>
+  <script src="/controller/resources/js/google-code-prettify/prettify.js"></script>
+  <script src="/controller/resources/js/jquery.prettyPhoto.js"></script>
+  <script src="/controller/resources/js/portfolio/jquery.quicksand.js"></script>
+  <script src="/controller/resources/js/portfolio/setting.js"></script>
+  <script src="/controller/resources/js/animate.js"></script>
 
   <!-- Template Custom JavaScript File -->
-  <script src="js/custom.js"></script>
-
+  <script src="/controller/resources/js/custom.js"></script>
+  
+  <!-- My script -->
+	<script>
+		$(function(){
+			if(${msg != null}){
+				alert("${msg}");
+			}
+		})
+	</script>
 </body>
-
 </html>

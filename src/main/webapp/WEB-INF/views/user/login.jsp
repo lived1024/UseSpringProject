@@ -60,7 +60,7 @@
 	     	    			alert("비밀번호가 일치하지 않습니다.");
 	     	    		}else if(data==1){
 	     	    			alert("로그인 성공!!");
-	     	    			location.href="/controller/user/getWebUserInfo?wid"+$("#wid").val();
+	     	    			location.href="/controller/user/getWebUserInfo?wid="+$("#wid").val();
 
 	     	    		}
 	     	    	},
@@ -129,7 +129,7 @@
                         <form action="/controller/user/create" name="registration" method="post" id="cr">
                            <div class="form-group">
                               <label for="exampleInputEmail1">ID*</label>
-                              <input type="text"  name="id" class="form-control" id="id" aria-describedby="emailHelp" placeholder="Enter ID">
+                              <input type="text"  name="wid" class="form-control" id="wid" aria-describedby="emailHelp" placeholder="Enter ID">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">비밀번호*</label>

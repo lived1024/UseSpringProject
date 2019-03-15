@@ -7,7 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserVO {
-	private String id;
+	private String wid;
+	private String nid;
 	private String pw;		//네이버 로그인에는 사용 x
 	private String age;		//나이 X 연령대 O
 	private String gender;

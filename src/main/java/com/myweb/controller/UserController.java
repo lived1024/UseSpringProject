@@ -53,19 +53,23 @@ public class UserController {
 	public int webUserLogin(HttpServletRequest request, String wid, String pwd) {
 		int check=service.checkUserLogin(wid, pwd);
 
-		if(check==1) {
-			UserVO uv=service.getWebUser(wid);
-			HttpSession session=request.getSession();
-			session.setAttribute("uv", uv);
-			request.setAttribute("msg", uv.getName()+"님 재방문을 환영합니다!");
-		}
+//		if(check==1) {
+//			UserVO uv=service.getWebUser(wid);
+//			HttpSession session=request.getSession();
+//			session.setAttribute("uv", uv);
+//			request.setAttribute("msg", uv.getName()+"님 재방문을 환영합니다!");
+//		}
 		return check;
 	}
 	
 	@RequestMapping("/getWebUserInfo")
-	public String getWebUserInfo(String wid) {
+	public String getWebUserInfo(HttpServletRequest request, String wid) {
+		UserVO uv=service.getWebUser(wid);
 		
-		return null;
+		HttpSession session=request.getSession();
+		session.setAttribute("uv", uv);
+		request.setAttribute("msg", uv.getName()+"님 재방문을 환영합니다!");
+		return "home";
 	}
 	
 	@GetMapping("/callback")
@@ -114,7 +118,7 @@ public class UserController {
             System.out.println("name : "+name);
             
             UserVO uv=new UserVO();
-            uv.setId(nid);
+            uv.setNid(nid);
             uv.setAge(age);
             uv.setGender(gender);
             uv.setEmail(email);

@@ -8,13 +8,13 @@
 	<select id="naverIdCheck" resultType="Integer">
 		SELECT COUNT(*)
 		FROM PROJECT_NAVER_USER
-		WHERE NID=#{id}
+		WHERE NID=#{nid}
 	</select>
 	
 	<!-- 네이버 회원 가입 -->
 	<insert id="createNaverUser">					
 		INSERT INTO PROJECT_NAVER_USER(NID, AGE, GENDER, EMAIL, NAME, BIRTHDAY)
-		VALUES(#{id},#{age},#{gender},#{email},#{name},#{birthday})
+		VALUES(#{nid},#{age},#{gender},#{email},#{name},#{birthday})
 	</insert>
 	
 	<!-- 네이버 회원 정보 가져오기 -->
@@ -27,7 +27,7 @@
 	<!-- 자체 회원 가입 -->
 	<select id="createWebUser">
 		INSERT INTO PROJECT_WEB_USER(WID, PW, AGE, GENDER, EMAIL, NAME, BIRTHDAY, TEL, ADDR)
-		VALUES(#{id},#{pw},#{age},#{gender},#{email},#{name},#{birthday},#{tel},#{addr})
+		VALUES(#{wid},#{pw},#{age},#{gender},#{email},#{name},#{birthday},#{tel},#{addr})
 	</select>
 	
 	<!-- 가입된 회원인지 확인 -->

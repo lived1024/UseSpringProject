@@ -91,7 +91,7 @@
       <script>
       	$(function(){
       		$("#logout").click(function(){      			 
-      			if(${sessionScope.uv.nid != null}){
+      			if(${sessionScope.uv.nid != null && sessionScope.uv.nid != ""}){
       				alert("네이버 로그인은 네이버 홈페이지에서 로그아웃이 가능합니다.\r\n"
     					 +"네이버 메인페이지로 이동합니다.");
       			}

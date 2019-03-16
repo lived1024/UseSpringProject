@@ -159,7 +159,7 @@ public class UserController {
 	public String logout(HttpServletRequest request) {
 		HttpSession session=request.getSession();
 		UserVO uv=(UserVO) session.getAttribute("uv");
-		if(uv.getNid() != null) {
+		if(uv.getNid() != null && !uv.getNid().equals("")) {
 			session.invalidate();
 			return "redirect:http://www.naver.com";
 		}

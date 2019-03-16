@@ -1,8 +1,5 @@
 package com.myweb.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
 //자체 회원, 네이버 회원 테이블 각자 생성하자!
 public class UserVO {
 	private String wid;

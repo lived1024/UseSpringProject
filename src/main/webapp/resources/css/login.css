@@ -70,3 +70,37 @@
          input.tel{
          	width : 75px;
          }
+         .checkBtn{
+         	color: #fff;
+		    background-color: #007bff;
+		    border-color: #007bff;
+		    font-weight: 400;
+		    text-align: center;
+		    white-space: nowrap;
+		    vertical-align: middle;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		    border: 1px solid transparent;
+		    padding: 0px 5px;
+		    font-size: 1rem;
+		    line-height: 1.5;
+         }
+         .checkBtn:disabled {
+			color: gray;
+		    background-color: #007bff;
+		    border-color: #007bff;
+		    font-weight: 400;
+		    text-align: center;
+		    white-space: nowrap;
+		    vertical-align: middle;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		    border: 1px solid transparent;
+		    padding: 0px 5px;
+		    font-size: 1rem;
+		    line-height: 1.5;
+		}

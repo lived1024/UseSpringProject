@@ -141,7 +141,8 @@
                         </div>
                         <form action="/controller/user/create" name="registration" method="post" id="cr">
                            <div class="form-group">
-                              <label for="exampleInputEmail1">ID*</label><input type="button" value="중복확인" id="idChecker">
+                              <label for="exampleInputEmail1">ID*</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input type="button" value="중복확인" id="idChecker" class="checkBtn">
                               <input type="text"  name="wid" class="form-control" id="cwid" aria-describedby="emailHelp" placeholder="Enter ID">
                            </div>
                            <div class="form-group">

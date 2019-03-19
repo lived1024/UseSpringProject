@@ -2803,10 +2803,47 @@ ul.the-icons {
 	outline:0;
 }
 
+/* 자체 제작 */
+
 #logout{
 	padding: 5px;
 	margin-left: 10px;
 	border-radius: 10px;
+}
+
+.selectBtnDiv{
+	padding : 50px 0px;
+}
+
+.btnSize{
+	padding : 30px 60px;
+	font-size : 50px;
+	margin : 0px 15px;
+}
+
+.btnNormal{
+	padding : 30px 60px;
+	font-size : 50px;
+	margin-right : 50px;
+}
+
+#lap{
+	text-align: center;
+}
+#laptop{
+	border : 2px solid black;
+	width : 350px;
+	height : 240px;
+}
+#laptop td,th{
+	border : 1px solid black;
+	min-width : 100px;
+	height: 40px;
+}
+#fir{
+	width: 300px;
+	height: 240px;
+	border : 1px solid gray;
 }
 
 /* Theme Styler :: End */

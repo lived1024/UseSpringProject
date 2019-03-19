@@ -60,7 +60,7 @@
                       <ul class="dropdown-menu">
                         <li><a href="#">시스템 소개</a></li>
                         <li><a href="#">대여 방법</a></li>
-                        <li><a href="#">대여 신청</a></li>
+                        <li><a href="/controller/rental/main?list=3">대여 신청</a></li>
                       </ul>
                     </li>
                     <li class="dropdown">

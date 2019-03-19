@@ -9,5 +9,5 @@ public interface UserService {
 	public void createWebUser(UserVO uv);		//자체 회원 가입
 	public int checkUserLogin(String wid, String pwd);	//자체 회원 ID체크
 	public UserVO getWebUser(String wid);		//자체 회원 정보 가져오기(세션용)
-	public int idChecker(String wid);
+	public int idChecker(String wid);			//자체 회원 ID 중복검사
 }

@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,20 +20,16 @@ public class RentalController {
 	@Inject
 	private RentalServiceImpl service;
 	
-	@GetMapping("/main")
+	@GetMapping("main")
 	public void main() {
 		
 	}
 	
-	@GetMapping("/getList")
-	@ResponseBody
-	public void moveRental(String kind, String field, Model model) {
-		System.out.println("kind : "+kind);
-		System.out.println("field : "+field);
+	@RequestMapping("getList")
+	public String moveRental(String kind, String field, Model model) {
 		ArrayList<LaptopVO> list=service.list(kind,field);
 		model.addAttribute("list", list);
+		return "/rental/getListPage";
 	}
-	
-	
 	
 }

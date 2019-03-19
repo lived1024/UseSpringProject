@@ -2845,5 +2845,18 @@ ul.the-icons {
 	height: 240px;
 	border : 1px solid gray;
 }
-
+#callAjax{
+	margin-bottom : 50px;
+}
+#firstrow{
+	height : 60px;
+	font-size: 22px;
+}
+#secCon{
+	margin-top : 50px;
+}
+a:hover{
+	cursor: pointer;
+	text-decoration: none;
+}
 /* Theme Styler :: End */

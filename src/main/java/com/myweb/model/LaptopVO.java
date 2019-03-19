@@ -10,7 +10,7 @@ public class LaptopVO {
 	private String battery;
 	private int price;
 	private int stock;
-	
+	private String img;
 	public int getLno() {
 		return lno;
 	}
@@ -37,6 +37,9 @@ public class LaptopVO {
 	}
 	public int getStock() {
 		return stock;
+	}
+	public String getImg() {
+		return img == null ? "" : img;
 	}
 	public void setLno(int lno) {
 		this.lno = lno;
@@ -65,5 +68,7 @@ public class LaptopVO {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-	
+	public void setImg(String img) {
+		this.img = img;
+	}		
 }

@@ -6,9 +6,14 @@
 <mapper namespace="com.myweb.mapper.RentalMapper">
 	<select id="list" resultType="com.myweb.model.LaptopVO">
 		SELECT * FROM PROJECT_LAPTOP
-		<if test="#{kind == 'cpu' and field != null and field.equals('')}">
-			WHERE CPU=#{field} 
-		</if>
+		<where>
+			<if test="kind == 'cpu'">
+			CPU=#{field}
+			</if> 
+			<if test="kind == 'display'">
+			DISPLAY=#{field}
+			</if>
+		</where>
 	</select>
 
 

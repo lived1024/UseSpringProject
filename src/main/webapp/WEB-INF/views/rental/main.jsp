@@ -45,6 +45,7 @@
     </header>
     <!-- end header -->
 	
+	
 	<c:if test="${param.list == 1 }">
 		<%@ include file="../rental/selectList.jsp" %>
 	</c:if>
@@ -54,6 +55,7 @@
 	<c:if test="${param.list == 3 }">
 		<%@ include file="../rental/selectList.jsp" %>
 	</c:if>
+	
     
 
 
@@ -87,7 +89,8 @@
 				data : {"kind" : kind,
 						"field" : field},
 				success : function(data){
-					$("#container").html(data);
+					$("#firCon").hide();
+					$("#secCon").html(data);
 				}
 			});
 		}

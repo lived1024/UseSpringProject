@@ -167,4 +167,10 @@ public class UserController {
 		return "/user/login";
 	}
 	
+	@RequestMapping("/checker")
+	@ResponseBody
+	public int checker(String wid) {
+		int res=service.idChecker(wid);
+		return res;
+	}
 }

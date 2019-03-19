@@ -1,3 +1,13 @@
+	function checkPw(){		//비밀번호 일치여부 출력
+		if($("#cpw").val() != $("#pw").val()){
+			$("#pwd_text").css("color","red");
+			$("#pwd_text").text("비밀번호 불일치");
+		}else{
+			$("#pwd_text").css("color","blue");
+			$("#pwd_text").text("비밀번호 일치!");
+		}
+	}
+
 
          $(function() {
         	
@@ -13,6 +23,38 @@
         			$("#first").fadeIn("fast");
         		});
         	});
+        	
+        	// ID 중복검사
+    		$("#idChecker").click(function(){
+    			$.ajax({
+    				url : "/controller/user/checker",
+    				data : {"wid" : $("#cwid").val()},
+    				success : function(data){
+    					if(data!=0){
+    						alert("이미 사용중인 ID입니다.");
+    					}else if(data == 0){
+    						alert("사용 가능한 ID입니다.")
+    						$("#cwid").attr("readonly",true);
+    						$("#idChecker").attr("disabled",true);
+    					}
+    				},
+    				error : function(e){
+    					alert("error : "+e);
+    				}
+    			});
+    		});
+    		
+    		$("#pw").keyup(function(){	//비밀번호 입력시 검사창 활성화
+    			$("#cpw").attr("disabled",false);
+    		});
+    		
+    		$("#cpw").keyup(function(){	//실시간 일치여부 출력
+    			checkPw();
+    		});
+    		
+    		$("#pw").keyup(function(){	//실시간 일치여부 출력
+    			checkPw();
+    		});
         
         	//회원가입 유효성검사
         	//validate plugin은 버튼이 submit이어야 한다!
@@ -43,7 +85,17 @@
         	    },
         	  
         	    submitHandler: function(form) {
-        	    	  form.submit();
+        	    	if($("#cwid").attr("readonly")=="readonly"){
+        	    		if($("#pw").val()==$("#cpw").val()){
+        	    			form.submit();
+        	    		}else{
+        	    			alert("비밀번호 검사를 확인해주세요");
+        	    			return;
+        	    		}
+        	    	}else{
+        	    		alert("ID 중복검사를 실행해주세요");
+        	    		return;
+        	    	}
         	    }
-        	  });        	
+        	  });	
          });         

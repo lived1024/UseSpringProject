@@ -61,4 +61,10 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		return mapper.getWebUser(wid);
 	}
+
+	@Override
+	public int idChecker(String wid) {
+		// TODO Auto-generated method stub		
+		return mapper.checkId(wid);
+	}
 }

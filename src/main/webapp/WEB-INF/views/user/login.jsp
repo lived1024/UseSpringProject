@@ -14,6 +14,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="/controller/resources/css/login.css?ver=1">
 	<script src="/controller/resources/js/login.js" type="text/javascript"></script>
+<!-- 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 	<%
     String clientId = "DuX2ugMM32hJZpdFllRL";
     //아래는 콜백받을 주소!
@@ -30,60 +31,60 @@
  	/* jQuery Validation Plugin 에서 ajax를 썼을때, 
  	 * 외부 js파일로 사용하면 제대로 작동하지 않았다.
  	 * jsp파일에서는 제대로 작동한다 -> 해당 플러그인에서 callback 사용법 찾아보자*/
- 	$(function(){ 	
+	$(function(){ 	
  		//로그인 유효성검사 및 로그인
-  	  $("form[name='login']").validate({
-  	      rules: {
-  	            wid: {
-  	         	   required: true
-  	            },
-  	            pwd: {
-  	         	   required: true,
-  	            }
-  	      },
-  	      messages: {
-  	     	   wid: "ID를 입력해주세요",
-  	     	   pwd: {
-  	     		   required: "비밀번호를 확인해주세요",
-  	     	   }
-  	      },
-  	      submitHandler: function(form) {
-  	     	    $.ajax({
-  	     	    	url : "/controller/user/login",
-  	     	    	type : "post",
-  	     	    	data : {"wid" : $("#wid").val(),
-  	     	    			"pwd" : $("#pwd").val()},
-  	     	    	success : function(data){
-  	     	    		/* 0 : ID 없음 
-  	     	    		 * 1 : 로그인 성공
-  	     	    		 * 2 : 비밀번호 오류 */
-  	     	    		if(data==0){
-  	     	    			alert("등록되지 않은 ID입니다.");
-  	     	    		}else if(data==2){
-  	     	    			alert("비밀번호가 일치하지 않습니다.");
-  	     	    		}else if(data==1){
-  	     	    			alert("로그인 성공!!");
-  	     	    			location.href="/controller/user/getWebUserInfo?wid="+$("#wid").val();
-
-  	     	    		}
-  	     	    	},
-  	     	    	error : function(e){
-  	     	    		alert("error : " + e);
-  	     	    	}
-  	     	    	
-  	     	    });
-  	      }
-  	    });
-  	// 로그인 후에 강제로 로그인 주소를 입력할 때
- 	  if(${sessionScope.uv != null}){
- 			alert("이미 로그인이 되어있습니다.");
- 			location.href="/controller/home";
- 	  }
- 	// url 강제 입력 후 돌아왔을때 출력 안되게,,
- 	  if(${sessionScope.uv == null }){
-    		alert("저희 사이트는 로그인을 한 회원에게만 서비스됩니다");        		
-      }
- 	});
+		$("form[name='login']").validate({
+			rules: {
+				wid: {
+					required: true
+				},
+				pwd: {
+					required: true,
+				}
+			},
+			messages: {
+				wid: "ID를 입력해주세요",
+				pwd: {
+					required: "비밀번호를 확인해주세요",
+				}
+			},
+			submitHandler: function(form) {
+				$.ajax({
+					url : "/controller/user/login",
+					type : "post",
+  	     	   		data : {"wid" : $("#wid").val(),
+	  	        			"pwd" : $("#pwd").val()},
+  		        	success : function(data){
+	  	        		/* 0 : ID 없음 
+	  	        		 * 1 : 로그인 성공
+	  	        		 * 2 : 비밀번호 오류 */
+	  	        		if(data==0){
+	  	        			alert("등록되지 않은 ID입니다.");
+	  	        		}else if(data==2){
+	  	        			alert("비밀번호가 일치하지 않습니다.");
+	  	        		}else if(data==1){
+	  	        			location.href="/controller/user/getWebUserInfo?wid="+$("#wid").val();
+	  	        		}
+	  	        	},
+	  	        	error : function(e){
+	  	        		alert("error : " + e);
+	  	        	}
+				});
+			}
+		});
+		
+		// 로그인 후에 강제로 로그인 주소를 입력할 때
+		if(${sessionScope.uv != null}){
+			alert("이미 로그인이 되어있습니다.");
+			location.href="/controller/home";
+		}
+		// url 강제 입력 후 돌아왔을때 출력 안되게,,
+		if(${sessionScope.uv == null }){
+			alert("저희 사이트는 로그인을 한 회원에게만 서비스됩니다");
+		} 		
+	});
+ 	 
+	
  	</script>
 </head>
 
@@ -140,13 +141,18 @@
                         </div>
                         <form action="/controller/user/create" name="registration" method="post" id="cr">
                            <div class="form-group">
-                              <label for="exampleInputEmail1">ID*</label>
-                              <input type="text"  name="wid" class="form-control" id="wid" aria-describedby="emailHelp" placeholder="Enter ID">
+                              <label for="exampleInputEmail1">ID*</label><input type="button" value="중복확인" id="idChecker">
+                              <input type="text"  name="wid" class="form-control" id="cwid" aria-describedby="emailHelp" placeholder="Enter ID">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">비밀번호*</label>
                               <input type="password" name="pw" id="pw"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
                            </div>
+                           <div>
+                              <label for="exampleInputEmail1">비밀번호 입력</label>
+                              <input type="password" id="cpw"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password Again" disabled="disabled">
+                              <span id="pwd_text"></span>
+                           </div><br>
                            <div class="form-group">
                               <label for="exampleInputEmail1">연령대 : </label>
                               <select name="age" aria-describedby="emailHelp" id="age">

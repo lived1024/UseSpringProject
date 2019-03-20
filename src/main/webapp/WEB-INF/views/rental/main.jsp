@@ -82,7 +82,6 @@
   <script src="/controller/resources/js/animate.js"></script>
   <!-- Template Custom JavaScript File -->
   <script src="/controller/resources/js/custom.js"></script>
-  <!-- 데이트피커 -->
   
   <!-- My script -->
 	<script>
@@ -116,22 +115,42 @@
 			window.open("price","","width=500 height=650 menubar=no status=no toolbar=no left=600 top=150 location=no");
 		}
 		
-		function rental(lno, surchange){			
+		//대여신청
+		function rental(lno, price){
+// 			alert($('#addPrice').text());
+// 			alert("option : "+$('#addPrice').text()+"\r\n"+
+// 					"price : "+price+"\r\n"+
+// 					"r_count : "+$('#r_count').val());
+			var total=parseInt($("#addPrice").text())+price;
+			
 			$.ajax({
 				url : "/controller/rental/apply",
 				data : {"lno" : lno,
-						"surchange" : surchange},
+						"totalprice" : total,
+						"r_count" : $("#r_count").val(),
+						"r_start" : $("#startDate").val(),
+						"r_end" : $("#endDate").val()},
 				success : function(data){
-					
+					alert("처리성공");
 				},
 				error : function(e){
 					alert("error : "+e);
-				}
+				},
+				beforeSend:beforeRental
 			});
 		}
 		
+		//대여신청 유효성 검사
+		function beforeRental(){
+			var start=$("#startDate").val();
+			if(start==""){
+				alert("대여 시작일을 선택해주세요");
+				return false;
+			}
+		}
+		
 		$(function(){
-			$("#startDate").change(function(){
+			$("#startDate").click(function(){
 				//시작날짜 제한
 				var today=new Date();
 				var dd=today.getDate();
@@ -144,45 +163,47 @@
 				today=yy+"-"+mm+"-"+dd;
 				
 				$("#startDate").attr("min",today);
-				//
-				var endDay=new Date();
-				var emm=endDay.getMonth()+2;
-				
-				if(emm<10){	emm='0'+emm	};
-				
-				if(emm>12){
-					emm=emm-12;
-					yy=yy+1;
-				}
-				
-				if(emm%12==4 || emm%12==6 || emm%12==9 || emm%12==11){	//한 달이 30일
-					if(dd>30){
-						dd=dd-30;
-						emm=emm+1;
-					}
-				}else if(emm%12==2){	//2월
-					if(dd>28){
-						dd=dd-28;
-						emm=emm+1;
-					}
-				}
-				
-				if(dd<10){	dd='0'+dd	};
-				
-				var endDate=yy+"-"+emm+"-"+dd;
-				
-				$("#endDate").attr("max",endDate);
-				$("#endDate").attr("min",$("#startDate").val());
-				
 			});
 			
-			
-			
-			
-			$("#endDate").click(function(){
-// 				alert("대여기간은 최대 1달입니다.");
+			$("#startDate").change(function(){
+				//종료날짜 설정 - 기간 : 15일
+				var sel=$("#startDate").val();
+				var selDate=sel.split("-");
+				var selYear=parseInt(selDate[0]);
+				var selMon=parseInt(selDate[1]);
+				var selDay=parseInt(selDate[2])+15;
+				
+				if(selMon%12==4 || selMon%12==6 || selMon%12==9 || selMon%12==11){	//한 달이 30일
+					if(selDay>30){
+						selDay=selDay-30;
+						selMon=selMon+1;
+					}
+				}else if(selMon%12==2){	//2월
+					if(selDay>28){
+						selDay=selDay-28;
+						selMon=selMon+1;
+					}
+				}else{
+					if(selDay>31){
+						selDay=selDay-31;
+						selMon=selMon+1;
+					}
+				}
+				
+				if(selMon>12){
+					selMon=selMon-12;
+					selYear=selYear+1;
+				}
+				
+				if(selDay<10){	selDay='0'+selDay	};
+				if(selMon<10){	selMon='0'+selMon	};
+				
+				var endDate=selYear+"-"+selMon+"-"+selDay;
+				
+				$("#endDate").val(endDate);
 			});
 			
+			//추가요금 계산, 출력
 			$("#selRam").change(function(){
 				var ram=parseInt($("#selRam option:selected").val());
 				var ssd=parseInt($("#selSsd option:selected").val());
@@ -190,7 +211,7 @@
 			});
 			$("#selSsd").change(function(){
 				var ram=parseInt($("#selRam option:selected").val());
-				var ssd=parseInt($("#selSsd option:selected").val());
+				var ssd=parseInt($("#selSsd option:selected").val())
 				$("#addPrice").text(ram+ssd);
 			})
 		});

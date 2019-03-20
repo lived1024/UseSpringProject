@@ -22,8 +22,15 @@
 	</select>
 	
 	<insert id="applyRental">
-		
+		INSERT INTO PROJECT_RENTAL(RNO,LNO,NID,WID,R_COUNT,TOTALPRICE,R_START,R_END)
+		VALUES(PROJECT_RENTAL_SEQ.NEXTVAL, #{lno}, #{nid}, #{wid}, #{r_count}, #{totalprice}, #{r_start}, #{r_end})
 	</insert>
+	
+	<update id="updateStock">
+		UPDATE PROJECT_LAPTOP
+		SET STOCK=STOCK-#{r_count}
+		WHERE LNO=#{lno}
+	</update>
 
 
 </mapper>

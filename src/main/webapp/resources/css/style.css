@@ -2884,6 +2884,17 @@ a:hover{
 #priceWin{
 	color: crimson;
 }
+#r_count{
+	width : 80px;
+	text-align : right;
+}
+#stockWarring{
+	color : red;
+}
+#addPrice{
+	font-size : large;
+	color : blue;
+}
 /* #laptop_view{ */
 /* 	margin : 50px 0px; */
 /* } */

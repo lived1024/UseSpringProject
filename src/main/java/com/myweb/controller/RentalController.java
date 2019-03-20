@@ -7,12 +7,15 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.myweb.mapper.RentalMapper;
 import com.myweb.model.LaptopVO;
+import com.myweb.model.RentalVO;
 import com.myweb.model.UserVO;
 import com.myweb.service.RentalServiceImpl;
 
@@ -21,6 +24,9 @@ import com.myweb.service.RentalServiceImpl;
 public class RentalController {
 	@Inject
 	private RentalServiceImpl service;
+	
+	@Autowired
+	private RentalMapper mapper;
 	
 	@GetMapping("main")
 	public void main() {
@@ -49,24 +55,26 @@ public class RentalController {
 	}
 	
 	@RequestMapping("apply")
-	public void applyRental(int lno, int surchange, HttpServletRequest req) {
+	public String applyRental(RentalVO rv, HttpServletRequest req) {
 		HttpSession session=req.getSession();
 		UserVO uv=(UserVO) session.getAttribute("uv");
 		String wid="";
 		String nid="";
-		if(uv.getNid().equals("")) {
-			wid=uv.getWid();
-		}
-		if(uv.getWid().equals("")) {
+		if(!uv.getNid().equals("")) {
 			nid=uv.getNid();
 		}
+		if(!uv.getWid().equals("")) {
+			wid=uv.getWid();
+		}
 		
-		HashMap<String, Object> hm = new HashMap<>();
-		hm.put("lno",lno);
-		hm.put("surchange",surchange);
-		hm.put("wid",wid);
-		hm.put("nid",nid);
+		int total=rv.getTotalprice()*rv.getR_count();
+		System.out.println(total);
 		
-		service.applyRental(hm);
+		rv.setNid(nid);
+		rv.setWid(wid);
+		rv.setTotalprice(total);
+		
+		service.applyRental(rv);
+		return "home";
 	}
 }

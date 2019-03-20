@@ -15,6 +15,15 @@
 			</if>
 		</where>
 	</select>
+	
+	<select id="getDetail" resultType="com.myweb.model.LaptopVO">
+		SELECT * FROM PROJECT_LAPTOP
+		WHERE LNO=#{lno}
+	</select>
+	
+	<insert id="applyRental">
+		
+	</insert>
 
 
 </mapper>

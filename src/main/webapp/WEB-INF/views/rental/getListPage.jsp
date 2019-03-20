@@ -13,28 +13,29 @@
 						</td>
 						<td>
 							<table id="laptop">
-									<tr>
-										<th colspan="4" id="firstrow">
-											<a onclick="">
-												모델명 : ${arr.lname }
-											</a>
-										</th>
-									</tr>
-									<tr>
-										<th>CPU</th>
-										<th>${arr.cpu }</th>
-										<th>화면</th>
-										<th>${arr.display } inch</th>
-									</tr>
-									<tr>
-										<th>배터리</th>
-										<th>${arr.battery }</th>
-										<th>무게</th>
-										<th>${arr.weight }</th>
-									</tr>
-									<tr>
-										<th colspan="4">재고 : ${arr.stock }</th>			
-									</tr>
+								<tr>
+									<th colspan="4" id="firstrow">
+<!-- 										<a onclick="javascript:location.href='/controller/rental/main?view=1'"> -->
+										<a href="/controller/rental/detail?lno=${arr.lno }&kind=${param.kind}&field=${param.field}">
+											모델명 : ${arr.lname }
+										</a>
+									</th>
+								</tr>
+								<tr>
+									<th>CPU</th>
+									<th>${arr.cpu }</th>
+									<th>화면</th>
+									<th>${arr.display } inch</th>
+								</tr>
+								<tr>
+									<th>배터리</th>
+									<th>${arr.battery }</th>
+									<th>무게</th>
+									<th>${arr.weight }</th>
+								</tr>
+								<tr>
+									<th colspan="4">재고 : ${arr.stock }</th>			
+								</tr>
 							</table>
 						</td>
 					</tr>
@@ -49,8 +50,8 @@
               <div class="widget">
                 <form>
                   <div class="input-append">
-                    <input class="span2" id="appendedInputButton" type="text" placeholder="Type here">
-                    <button class="btn btn-color" type="submit">Search</button>
+                    <input class="span2" id="appendedInputButton" type="text" placeholder="모델명">
+                    <button class="btn btn-color" type="submit">검색</button>
                   </div>
                 </form>
               </div>

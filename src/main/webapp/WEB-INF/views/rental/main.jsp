@@ -27,7 +27,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/controller/resourcesico/apple-touch-icon-114-precomposed.png" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/controller/resourcesico/apple-touch-icon-72-precomposed.png" />
   <link rel="apple-touch-icon-precomposed" href="/controller/resourcesico/apple-touch-icon-57-precomposed.png" />
-  <link rel="shortcut icon" href="/controller/resourcesico/favicon.png" />
+  <link rel="shortcut icon" href="/controller/resources/ico/favicon.png" />
 
   <!-- =======================================================
     Theme Name: Remember
@@ -55,7 +55,9 @@
 	<c:if test="${param.list == 3 }">
 		<%@ include file="../rental/selectList.jsp" %>
 	</c:if>
-	
+	<c:if test="${view == 1 }">
+		<%@ include file="../rental/viewDetail.jsp" %>
+	</c:if>
     
 
 
@@ -80,9 +82,24 @@
   <script src="/controller/resources/js/animate.js"></script>
   <!-- Template Custom JavaScript File -->
   <script src="/controller/resources/js/custom.js"></script>
+  <!-- 데이트피커 -->
   
   <!-- My script -->
 	<script>
+		function getDate(){
+			var today=new Date();
+			var dd=today.getDate();
+			var mm=today.getMonth()+1;
+			var yy=today.getFullYear();
+			
+			if(dd>10){	dd='0'+dd	};
+			if(mm>10){	mm='0'+mm	};
+			
+			today=yy+"/"+mm+"/"+dd;
+			alert(today);
+			
+		}	
+	
 		function getList(kind, field){
 			$.ajax({
 				url : "/controller/rental/getList",
@@ -94,6 +111,89 @@
 				}
 			});
 		}
+		
+		function priceWin(){
+			window.open("price","","width=500 height=650 menubar=no status=no toolbar=no left=600 top=150 location=no");
+		}
+		
+		function rental(lno, surchange){			
+			$.ajax({
+				url : "/controller/rental/apply",
+				data : {"lno" : lno,
+						"surchange" : surchange},
+				success : function(data){
+					
+				},
+				error : function(e){
+					alert("error : "+e);
+				}
+			});
+		}
+		
+		$(function(){
+			$("#startDate").change(function(){
+				//시작날짜 제한
+				var today=new Date();
+				var dd=today.getDate();
+				var mm=today.getMonth()+1;
+				var yy=today.getFullYear();
+				
+				if(dd<10){	dd='0'+dd	};
+				if(mm<10){	mm='0'+mm	};
+				
+				today=yy+"-"+mm+"-"+dd;
+				
+				$("#startDate").attr("min",today);
+				//
+				var endDay=new Date();
+				var emm=endDay.getMonth()+2;
+				
+				if(emm<10){	emm='0'+emm	};
+				
+				if(emm>12){
+					emm=emm-12;
+					yy=yy+1;
+				}
+				
+				if(emm%12==4 || emm%12==6 || emm%12==9 || emm%12==11){	//한 달이 30일
+					if(dd>30){
+						dd=dd-30;
+						emm=emm+1;
+					}
+				}else if(emm%12==2){	//2월
+					if(dd>28){
+						dd=dd-28;
+						emm=emm+1;
+					}
+				}
+				
+				if(dd<10){	dd='0'+dd	};
+				
+				var endDate=yy+"-"+emm+"-"+dd;
+				
+				$("#endDate").attr("max",endDate);
+				$("#endDate").attr("min",$("#startDate").val());
+				
+			});
+			
+			
+			
+			
+			$("#endDate").click(function(){
+// 				alert("대여기간은 최대 1달입니다.");
+			});
+			
+			$("#selRam").change(function(){
+				var ram=parseInt($("#selRam option:selected").val());
+				var ssd=parseInt($("#selSsd option:selected").val());
+				$("#addPrice").text(ram+ssd);
+			});
+			$("#selSsd").change(function(){
+				var ram=parseInt($("#selRam option:selected").val());
+				var ssd=parseInt($("#selSsd option:selected").val());
+				$("#addPrice").text(ram+ssd);
+			})
+		});
 	</script>
 </body>
 </html>

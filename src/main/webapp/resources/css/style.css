@@ -1756,7 +1756,6 @@ aside{
 	padding:0 0 0 30px;
 -webkit-box-shadow:inset 1px 0 0 0 rgba(0,0,0,.01);
 box-shadow:inset 1px 0 0 0 rgba(0,0,0,.01);
-
 }
 
 
@@ -2835,6 +2834,10 @@ ul.the-icons {
 	width : 350px;
 	height : 240px;
 }
+#laptop_view #first{
+	font-size: 25px;
+	height : 50px;
+}
 #laptop td,th{
 	border : 1px solid black;
 	min-width : 100px;
@@ -2845,6 +2848,10 @@ ul.the-icons {
 	height: 240px;
 	border : 1px solid gray;
 }
+#firImg{
+	height : 300px;
+	width : 300px;
+}
 #callAjax{
 	margin-bottom : 50px;
 }
@@ -2852,11 +2859,32 @@ ul.the-icons {
 	height : 60px;
 	font-size: 22px;
 }
-#secCon{
+#secCon,.viewDetail{
 	margin-top : 50px;
 }
 a:hover{
 	cursor: pointer;
 	text-decoration: none;
 }
+#demand td,#demand th{
+	border: none;
+	height : 40px;
+	width : 100px;
+}
+#demand #first{
+	border : 1px solid black;
+	padding-top : 10px;
+}
+#selRam,#selSsd{
+	width : 130px;
+}
+#demand{
+	min-width : 400px;
+}
+#priceWin{
+	color: crimson;
+}
+/* #laptop_view{ */
+/* 	margin : 50px 0px; */
+/* } */
 /* Theme Styler :: End */

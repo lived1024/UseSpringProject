@@ -2897,8 +2897,13 @@ a:hover{
 	color : blue;
 }
 .rentalViewTable{
-	text-align: center;
 	width : 80%;
+}
+.myInfo{
+	width : 40%;
+}
+#updateBtn{
+	width : 100%;
 }
 /* #laptop_view{ */
 /* 	margin : 50px 0px; */

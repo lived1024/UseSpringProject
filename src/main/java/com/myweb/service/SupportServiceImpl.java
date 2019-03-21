@@ -20,4 +20,10 @@ public class SupportServiceImpl implements SupportService{
 		ArrayList<RentalVO> arr=mapper.rentalState(nid,wid);
 		return arr;
 	}
+
+	@Override
+	public int confirmPass(String pass, String wid) {
+		// TODO Auto-generated method stub
+		return mapper.confirmPass(pass, wid);
+	}
 }

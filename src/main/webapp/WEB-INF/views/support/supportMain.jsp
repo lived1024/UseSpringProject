@@ -95,17 +95,10 @@
 				});
 			}
 		});
+		
+		function toUpdate(){
+			window.open("updateForm","정보수정","width=550 height=700 menubar=no status=no toolbar=no left=600 top=50 location=no");
+		}
 	</script>
 </body>
 </html>
-
-
-<!-- "WID" VARCHAR2(20 BYTE),  -->
-<!-- 	"PW" VARCHAR2(20 BYTE),  -->
-<!-- 	"AGE" VARCHAR2(6 BYTE),  -->
-<!-- 	"GENDER" VARCHAR2(6 BYTE),  -->
-<!-- 	"EMAIL" VARCHAR2(30 BYTE),  -->
-<!-- 	"NAME" VARCHAR2(20 BYTE),  -->
-<!-- 	"BIRTHDAY" VARCHAR2(5 BYTE),  -->
-<!-- 	"TEL" VARCHAR2(15 BYTE),  -->
-<!-- 	"ADDR" VARCHAR2(50 BYTE),  -->

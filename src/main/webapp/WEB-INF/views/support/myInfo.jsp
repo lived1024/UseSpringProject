@@ -25,8 +25,46 @@
 		      <div class="container">
 		        <div align="center" id="rentalDetail">
 		        	<h3>웹 회원</h3>
-		        	<table class="table table-striped rentalViewTable">
-		        		
+		        	<table class="table table-hover myInfo">
+		        		<tr>
+		        			<th>ID</th>
+		        			<th>${sessionScope.uv.wid }</th>
+		        		</tr>
+		        		<tr>
+		        			<th>연령대</th>
+		        			<th>${sessionScope.uv.age }</th>
+		        		</tr>
+		        		<tr>
+		        			<th>성별</th>
+		        			<th>${sessionScope.uv.gender }</th>
+		        		</tr>
+		        		<tr>
+		        			<th>이메일</th>
+		        			<th>${sessionScope.uv.email }</th>
+		        		</tr>
+		        		<tr>
+		        			<th>이름</th>
+		        			<th>${sessionScope.uv.name }</th>
+		        		</tr>
+		        		<tr>
+		        			<th>생일</th>
+		        			<th>${sessionScope.uv.birthday }</th>
+		        		</tr>
+		        		<tr>
+		        			<th>전화번호</th>
+		        			<th>${sessionScope.uv.tel }</th>
+		        		</tr>
+		        		<tr>
+		        			<th>주소</th>
+		        			<th>${sessionScope.uv.addr }</th>
+		        		</tr>
+		        		<tr>
+		        			<th colspan="2">
+		        				<div align="center">
+		        					<input type="button" value="수정" onclick="toUpdate()" class="btn btn-inverse" id="updateBtn">
+		        				</div>
+		        			</th>
+		        		</tr>
 		        	</table>
 		        </div>
 		

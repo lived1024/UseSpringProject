@@ -9,7 +9,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.myweb.model.RentalVO;
 import com.myweb.model.UserVO;
@@ -53,4 +55,16 @@ public class SupportController {
 		return "support/rentalView";
 	}
 	
+	@GetMapping("updateForm")
+	public void updateForm() {
+		
+	}
+	
+	@PostMapping("updateForm")
+	@ResponseBody
+	public int conPassword(String pass, HttpServletRequest req) {
+		HttpSession session=req.getSession();
+		UserVO uv=(UserVO)session.getAttribute("uv");
+		return service.confirmPass(pass,uv.getWid());
+	}
 }

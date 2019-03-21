@@ -17,7 +17,11 @@
 		</if>
 	</select>
 
-
+	<select id="confirmPass" resultType="int">		
+		SELECT COUNT(*)
+		FROM PROJECT_WEB_USER
+		WHERE WID=#{wid} AND PW=#{pass}
+	</select>
 
 </mapper>
 

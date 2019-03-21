@@ -73,10 +73,10 @@
                       </ul>
                     </li>
                     <li class="dropdown">
-                      <a href="#">정보관리 <i class="icon-angle-down"></i></a>
+                      <a href="#">고객지원<i class="icon-angle-down"></i></a>
                       <ul class="dropdown-menu">
                         <li><a href="#">내 정보</a></li>
-                        <li><a href="#">대여 현황</a></li>
+                        <li><a href="/controller/support/supportMain?list=2">대여 현황</a></li>
                       </ul>
                     </li>
                   </ul>

@@ -16,7 +16,7 @@
 	<script src="/controller/resources/js/login.js" type="text/javascript"></script>
 <!-- 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 	<%
-    String clientId = "DuX2ugMM32hJZpdFllRL";
+    String clientId = "";
     //아래는 콜백받을 주소!
     String redirectURI = URLEncoder.encode("http://localhost:8888/controller/user/callback", "UTF-8");
     SecureRandom random = new SecureRandom();

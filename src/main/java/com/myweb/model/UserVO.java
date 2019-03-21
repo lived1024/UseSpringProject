@@ -10,7 +10,6 @@ public class UserVO {
 	private String email;
 	private String name;
 	private String birthday;
-	private int lend;		// 대여 여부
 	//네이버 ID로 회원가입 할 때 추가로 입력받을 정보
 	private String tel;
 	private String addr;
@@ -37,9 +36,6 @@ public class UserVO {
 	}
 	public String getBirthday() {
 		return birthday == null ? "" : birthday;
-	}
-	public int getLend() {
-		return lend;
 	}
 	public String getTel() {
 		return tel == null ? "" : tel;
@@ -70,9 +66,6 @@ public class UserVO {
 	}
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
-	}
-	public void setLend(int lend) {
-		this.lend = lend;
 	}
 	public void setTel(String tel) {
 		this.tel = tel;

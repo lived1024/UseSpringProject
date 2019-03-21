@@ -3,17 +3,21 @@ package com.myweb.model;
 public class RentalVO {
 	private int rno;
 	private int lno;
+	private String lname;
 	private String nid;
 	private String wid;
 	private int r_count;
 	private int totalprice;
 	private String r_start;
-	
+	private String r_end;
 	public int getRno() {
 		return rno;
 	}
 	public int getLno() {
 		return lno;
+	}
+	public String getLname() {
+		return lname == null ? "" : lname;
 	}
 	public String getNid() {
 		return nid == null ? "" : nid;
@@ -39,6 +43,9 @@ public class RentalVO {
 	public void setLno(int lno) {
 		this.lno = lno;
 	}
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
 	public void setNid(String nid) {
 		this.nid = nid;
 	}
@@ -57,5 +64,5 @@ public class RentalVO {
 	public void setR_end(String r_end) {
 		this.r_end = r_end;
 	}
-	private String r_end;
+	
 }

@@ -1,32 +1,27 @@
 package com.myweb.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.myweb.mapper.RentalMapper;
 import com.myweb.model.LaptopVO;
 import com.myweb.model.RentalVO;
 import com.myweb.model.UserVO;
-import com.myweb.service.RentalServiceImpl;
+import com.myweb.service.RentalService;
 
 @Controller
 @RequestMapping("/rental/*")
 public class RentalController {
 	@Inject
-	private RentalServiceImpl service;
-	
-	@Autowired
-	private RentalMapper mapper;
+	private RentalService service;
 	
 	@GetMapping("main")
 	public void main() {
@@ -55,6 +50,7 @@ public class RentalController {
 	}
 	
 	@RequestMapping("apply")
+	@ResponseBody
 	public String applyRental(RentalVO rv, HttpServletRequest req) {
 		HttpSession session=req.getSession();
 		UserVO uv=(UserVO) session.getAttribute("uv");
@@ -68,13 +64,12 @@ public class RentalController {
 		}
 		
 		int total=rv.getTotalprice()*rv.getR_count();
-		System.out.println(total);
 		
 		rv.setNid(nid);
 		rv.setWid(wid);
 		rv.setTotalprice(total);
 		
 		service.applyRental(rv);
-		return "home";
+		return "신청 완료";
 	}
 }

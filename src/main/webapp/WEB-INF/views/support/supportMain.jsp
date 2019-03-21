@@ -46,19 +46,16 @@
     <!-- end header -->
 	
 	
+	
+	
 	<c:if test="${param.list == 1 }">
-		<%@ include file="../rental/selectList.jsp" %>
+		
 	</c:if>
 	<c:if test="${param.list == 2 }">
-		<%@ include file="../rental/selectList.jsp" %>
+		<%@ include file="../support/rentalState.jsp" %>
 	</c:if>
-	<c:if test="${param.list == 3 }">
-		<%@ include file="../rental/selectList.jsp" %>
-	</c:if>
-	<c:if test="${view == 1 }">
-		<%@ include file="../rental/viewDetail.jsp" %>
-	</c:if>
-    
+	
+	    
 
 
     <footer>
@@ -84,120 +81,8 @@
   <script src="/controller/resources/js/custom.js"></script>
   
   <!-- My script -->
-	<script>	
-		function getList(kind, field){
-			$.ajax({
-				url : "/controller/rental/getList",
-				data : {"kind" : kind,
-						"field" : field},
-				success : function(data){
-					$("#firCon").hide();
-					$("#secCon").html(data);
-				}
-			});
-		}
-		
-		function priceWin(){
-			window.open("price","","width=500 height=650 menubar=no status=no toolbar=no left=600 top=150 location=no");
-		}
-		
-		//대여신청
-		function rental(lno, price, lname){
-			var total=parseInt($("#addPrice").text())+price;
-			
-			$.ajax({
-				url : "/controller/rental/apply",
-				data : {"lno" : lno,
-						"totalprice" : total,
-						"lname" : lname,
-						"r_count" : $("#r_count").val(),
-						"r_start" : $("#startDate").val(),
-						"r_end" : $("#endDate").val()},
-				success : function(data){
-					alert("접수가 완료되었습니다.");
-				},
-				error : function(e){
-					alert("error : "+e);
-				},
-				beforeSend:beforeRental
-			});
-		}
-		
-		//대여신청 유효성 검사
-		function beforeRental(){
-			var start=$("#startDate").val();
-			if(start==""){
-				alert("대여 시작일을 선택해주세요");
-				return false;
-			}
-		}
-		
-		$(function(){
-			$("#startDate").click(function(){
-				//시작날짜 제한
-				var today=new Date();
-				var dd=today.getDate();
-				var mm=today.getMonth()+1;
-				var yy=today.getFullYear();
-				
-				if(dd<10){	dd='0'+dd	};
-				if(mm<10){	mm='0'+mm	};
-				
-				today=yy+"-"+mm+"-"+dd;
-				
-				$("#startDate").attr("min",today);
-			});
-			
-			$("#startDate").change(function(){
-				//종료날짜 설정 - 기간 : 15일
-				var sel=$("#startDate").val();
-				var selDate=sel.split("-");
-				var selYear=parseInt(selDate[0]);
-				var selMon=parseInt(selDate[1]);
-				var selDay=parseInt(selDate[2])+15;
-				
-				if(selMon%12==4 || selMon%12==6 || selMon%12==9 || selMon%12==11){	//한 달이 30일
-					if(selDay>30){
-						selDay=selDay-30;
-						selMon=selMon+1;
-					}
-				}else if(selMon%12==2){	//2월
-					if(selDay>28){
-						selDay=selDay-28;
-						selMon=selMon+1;
-					}
-				}else{
-					if(selDay>31){
-						selDay=selDay-31;
-						selMon=selMon+1;
-					}
-				}
-				
-				if(selMon>12){
-					selMon=selMon-12;
-					selYear=selYear+1;
-				}
-				
-				if(selDay<10){	selDay='0'+selDay	};
-				if(selMon<10){	selMon='0'+selMon	};
-				
-				var endDate=selYear+"-"+selMon+"-"+selDay;
-				
-				$("#endDate").val(endDate);
-			});
-			
-			//추가요금 계산, 출력
-			$("#selRam").change(function(){
-				var ram=parseInt($("#selRam option:selected").val());
-				var ssd=parseInt($("#selSsd option:selected").val());
-				$("#addPrice").text(ram+ssd);
-			});
-			$("#selSsd").change(function(){
-				var ram=parseInt($("#selRam option:selected").val());
-				var ssd=parseInt($("#selSsd option:selected").val())
-				$("#addPrice").text(ram+ssd);
-			})
-		});
+	<script>
+
 	</script>
 </body>
 </html>

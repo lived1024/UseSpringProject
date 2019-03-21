@@ -28,19 +28,17 @@ public class RentalServiceImpl implements RentalService{
 		return mapper.getDetail(lno);
 	}
 
-//	@Transactional
+	@Transactional
 	@Override
 	public void applyRental(RentalVO rv) {
 		// TODO Auto-generated method stub
 		// RENTAL에 insert
 		// LAPTOP에 update - stock
+		// USER에 update - 대여상태 
 		mapper.applyRental(rv);					//rental에 insert
 		int lno=rv.getLno();
 		int r_count=rv.getR_count();
 		mapper.updateStock(lno,r_count);		//laptop에 update
-		
 	}
-
-	
 
 }

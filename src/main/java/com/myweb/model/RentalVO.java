@@ -10,6 +10,7 @@ public class RentalVO {
 	private int totalprice;
 	private String r_start;
 	private String r_end;
+	private int state;
 	public int getRno() {
 		return rno;
 	}
@@ -36,6 +37,9 @@ public class RentalVO {
 	}
 	public String getR_end() {
 		return r_end == null ? "" : r_end;
+	}
+	public int getState() {
+		return state;
 	}
 	public void setRno(int rno) {
 		this.rno = rno;
@@ -64,5 +68,7 @@ public class RentalVO {
 	public void setR_end(String r_end) {
 		this.r_end = r_end;
 	}
-	
+	public void setState(int state) {
+		this.state = state;
+	}
 }

@@ -1,5 +1,11 @@
 package com.myweb.mapper;
 
-public interface SupportMapper {
+import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
+
+import com.myweb.model.RentalVO;
+
+public interface SupportMapper {
+	public ArrayList<RentalVO> rentalState(@Param("nid")String nid, @Param("wid")String wid);
 }

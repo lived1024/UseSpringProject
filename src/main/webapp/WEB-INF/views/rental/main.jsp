@@ -47,10 +47,10 @@
 	
 	
 	<c:if test="${param.list == 1 }">
-		<%@ include file="../rental/selectList.jsp" %>
+		
 	</c:if>
 	<c:if test="${param.list == 2 }">
-		<%@ include file="../rental/selectList.jsp" %>
+		
 	</c:if>
 	<c:if test="${param.list == 3 }">
 		<%@ include file="../rental/selectList.jsp" %>
@@ -130,6 +130,8 @@
 				alert("대여 시작일을 선택해주세요");
 				return false;
 			}
+			
+			//주소, 전화번호 미기재시 기재 페이지로 이동
 		}
 		
 		$(function(){

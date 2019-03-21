@@ -48,8 +48,8 @@
 	
 	
 	
-	<c:if test="${param.list == 1 }">
-		
+	<c:if test="${param.list == 1 or list==1}">
+		<%@ include file="../support/myInfo.jsp" %>
 	</c:if>
 	<c:if test="${param.list == 2 }">
 		<%@ include file="../support/rentalState.jsp" %>
@@ -82,7 +82,30 @@
   
   <!-- My script -->
 	<script>
-
+		$(function(){
+			if(${param.list == 2 }){
+				$.ajax({
+					url : "/controller/support/rentalState",
+					success : function(data){
+						$("#rentalList").html(data);
+					},
+					error : function(e){
+						alert("error : "+e);
+					}
+				});
+			}
+		});
 	</script>
 </body>
 </html>
+
+
+<!-- "WID" VARCHAR2(20 BYTE),  -->
+<!-- 	"PW" VARCHAR2(20 BYTE),  -->
+<!-- 	"AGE" VARCHAR2(6 BYTE),  -->
+<!-- 	"GENDER" VARCHAR2(6 BYTE),  -->
+<!-- 	"EMAIL" VARCHAR2(30 BYTE),  -->
+<!-- 	"NAME" VARCHAR2(20 BYTE),  -->
+<!-- 	"BIRTHDAY" VARCHAR2(5 BYTE),  -->
+<!-- 	"TEL" VARCHAR2(15 BYTE),  -->
+<!-- 	"ADDR" VARCHAR2(50 BYTE),  -->

@@ -5,7 +5,32 @@
           
 <mapper namespace="com.myweb.mapper.SupportMapper">
 
+	<select id="rentalState" resultType="com.myweb.model.RentalVO">
+		SELECT RNO, LNO, LNAME, NID, WID, R_COUNT, TOTALPRICE, TO_DATE(R_START,'YYYY-MM-DD') R_START, TO_DATE(R_END,'YYYY-MM-DD') R_END, STATE
+		FROM PROJECT_RENTAL
+		WHERE 
+		<if test="nid == ''">
+			WID=#{wid}
+		</if>
+		<if test="wid == ''">
+			NID=#{nid}
+		</if>
+	</select>
 
 
 
 </mapper>
+
+
+
+
+<!-- 	"RNO" NUMBER,  -->
+<!-- 	"LNO" NUMBER,  -->
+<!-- 	"LNAME" VARCHAR2(25 BYTE),  -->
+<!-- 	"NID" VARCHAR2(20 BYTE),  -->
+<!-- 	"WID" VARCHAR2(20 BYTE),  -->
+<!-- 	"R_COUNT" NUMBER,  -->
+<!-- 	"TOTALPRICE" NUMBER,  -->
+<!-- 	"R_START" DATE,  -->
+<!-- 	"R_END" DATE,  -->
+<!-- 	"STATE" NUMBER DEFAULT 1,  -->

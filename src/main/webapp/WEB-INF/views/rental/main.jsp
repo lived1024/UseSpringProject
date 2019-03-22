@@ -84,7 +84,8 @@
   <script src="/controller/resources/js/custom.js"></script>
   
   <!-- My script -->
-	<script>	
+	<script>
+		//상품 리스트
 		function getList(kind, field){
 			$.ajax({
 				url : "/controller/rental/getList",
@@ -97,6 +98,7 @@
 			});
 		}
 		
+		//가격표
 		function priceWin(){
 			window.open("price","","width=500 height=650 menubar=no status=no toolbar=no left=600 top=150 location=no");
 		}
@@ -128,6 +130,13 @@
 			var start=$("#startDate").val();
 			if(start==""){
 				alert("대여 시작일을 선택해주세요");
+				return false;
+			}
+			
+			if(${sessionScope.uv.tel == "--"} || ${sessionScope.uv.addr == " / "}){
+				if(confirm("주소 또는 전화번호가 등록되어 있지 않습니다.\r\n정보확인 페이지로 이동합니다")){
+					location.href="/controller/support/supportMain?list=1";
+				}
 				return false;
 			}
 			

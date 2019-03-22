@@ -22,19 +22,22 @@
 		FROM PROJECT_WEB_USER
 		WHERE WID=#{wid} AND PW=#{pass}
 	</select>
+	
+	<update id="updateInfo">
+		UPDATE PROJECT_WEB_USER
+		SET PW=#{pw}, AGE=#{age}, GENDER=#{gender}, EMAIL=#{email}, NAME=#{name}, BIRTHDAY=#{birthday}, TEL=#{tel}, ADDR=#{addr} 
+		WHERE WID=#{wid}
+	</update>
 
 </mapper>
 
 
-
-
-<!-- 	"RNO" NUMBER,  -->
-<!-- 	"LNO" NUMBER,  -->
-<!-- 	"LNAME" VARCHAR2(25 BYTE),  -->
-<!-- 	"NID" VARCHAR2(20 BYTE),  -->
 <!-- 	"WID" VARCHAR2(20 BYTE),  -->
-<!-- 	"R_COUNT" NUMBER,  -->
-<!-- 	"TOTALPRICE" NUMBER,  -->
-<!-- 	"R_START" DATE,  -->
-<!-- 	"R_END" DATE,  -->
-<!-- 	"STATE" NUMBER DEFAULT 1,  -->
+<!-- 	"PW" VARCHAR2(20 BYTE),  -->
+<!-- 	"AGE" VARCHAR2(6 BYTE),  -->
+<!-- 	"GENDER" VARCHAR2(6 BYTE),  -->
+<!-- 	"EMAIL" VARCHAR2(30 BYTE),  -->
+<!-- 	"NAME" VARCHAR2(20 BYTE),  -->
+<!-- 	"BIRTHDAY" VARCHAR2(5 BYTE),  -->
+<!-- 	"TEL" VARCHAR2(15 BYTE),  -->
+<!-- 	"ADDR" VARCHAR2(50 BYTE),  -->

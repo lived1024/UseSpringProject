@@ -89,7 +89,7 @@
         	    		if($("#pw").val()==$("#cpw").val()){
         	    			form.submit();
         	    		}else{
-        	    			alert("비밀번호 검사를 확인해주세요");
+        	    			alert("비밀번호 일치여부를 확인해주세요");
         	    			return;
         	    		}
         	    	}else{

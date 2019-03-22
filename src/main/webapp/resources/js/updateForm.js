@@ -9,35 +9,19 @@
 	}
 
          $(function() {
-//        	$("#second").show();
-        	//화면 전환
-        	$("#signup").click(function() {
-        		$("#first").fadeOut("fast", function() {
-        			$("#second").fadeIn("fast");
-        			alert("*이 있는 항목은 필수항목입니다.");
-        		});
-        	});
-        	$("#signin").click(function() {
-        		$("#second").fadeOut("fast", function() {
-        			$("#first").fadeIn("fast");
-        		});
-        	});
     		
     		$("#pw").keyup(function(){	//비밀번호 입력시 검사창 활성화
     			$("#cpw").attr("disabled",false);
+    			checkPw();
     		});
     		
     		$("#cpw").keyup(function(){	//실시간 일치여부 출력
     			checkPw();
     		});
-    		
-    		$("#pw").keyup(function(){	//실시간 일치여부 출력
-    			checkPw();
-    		});
         
         	//회원가입 유효성검사
         	//validate plugin은 버튼이 submit이어야 한다!
-        	  $("form[name='registration']").validate({
+        	  $("form[name='updateMyInfo']").validate({
         	    rules: {
 	        	      wid: "required",
 	        	      email: {
@@ -64,10 +48,24 @@
         	    },
         	  
         	    submitHandler: function(form) {
+        	    	//serialize를 이용하여 form의 내용을 자동변환할 수 있다!
+        	    	var formData=$("#cr").serialize();
+        	    	
         	    	if($("#pw").val()==$("#cpw").val()){
-        	    		form.submit();
+        	    		$.ajax({
+        	    			type : "post",
+        	    			url : "/controller/support/update",
+        	    			data : formData,
+        	    			success : function(data){
+        	    				opener.location.reload();
+        	    				window.close();
+        	    			},
+        	    			error : function(e){
+        	    				alert("error : "+e);
+        	    			}
+        	    		});
         	    	}else{
-        	    		alert("비밀번호 검사를 확인해주세요");
+        	    		alert("비밀번호 일치여부를 확인해주세요");
         	    		return;
         	    	}
         	    }

@@ -65,6 +65,25 @@ public class SupportController {
 	public int conPassword(String pass, HttpServletRequest req) {
 		HttpSession session=req.getSession();
 		UserVO uv=(UserVO)session.getAttribute("uv");
-		return service.confirmPass(pass,uv.getWid());
+		int res=service.confirmPass(pass,uv.getWid());
+		return res;
+	}
+	
+	@PostMapping("update")
+	@ResponseBody
+	public int updateInfo(UserVO uv, HttpServletRequest req, String addr1, String addr2, String tel1, String tel2, String tel3) {
+		String addr = addr1 + " / " + addr2;
+		String tel = tel1 + "-" + tel2 + "-" + tel3;
+		
+		uv.setAddr(addr);
+		uv.setTel(tel);		
+		
+		service.updateInfo(uv);
+		
+		HttpSession session=req.getSession();
+		session.setAttribute("uv", uv);
+//		UserVO suv=(UserVO) session.getAttribute("uv");
+		
+		return 0;
 	}
 }

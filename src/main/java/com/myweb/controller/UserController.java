@@ -142,7 +142,7 @@ public class UserController {
 	
 	@PostMapping("/create")
 	public String createUser(HttpServletRequest request, UserVO uv, String addr1, String addr2, String tel1, String tel2, String tel3) {
-		String addr = addr1 + " " + addr2;
+		String addr = addr1 + " / " + addr2;
 		String tel = tel1 + "-" + tel2 + "-" + tel3;
 		
 		uv.setAddr(addr);

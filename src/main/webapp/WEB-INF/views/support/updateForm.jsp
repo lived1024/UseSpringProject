@@ -40,32 +40,30 @@
 								<h1>Confirm</h1>
 							 </div>
 						</div>
-        	            <form action="#" method="post" name="login">
                            <div class="form-group">
                               <input type="password" name="pwd"  class="form-control" id="pwd" aria-describedby="emailHelp" placeholder="Enter Your Password">
                            </div>
                            
                            <div class="col-md-12 text-center ">
-                              <button type="button" class=" btn btn-block mybtn btn-primary tx-tfm" onclick="pwCon()">확인</button>
+<!--                            	  <input type="button" class=" btn btn-block mybtn btn-primary tx-tfm" onclick="pwCon()" id="btnCon" value="확인"> -->
+                              <button type="button" class=" btn btn-block mybtn btn-primary tx-tfm" onclick="pwCon()" id="btnCon">확인</button>
                            </div>
-                           
-                        </form>
 					</div>
 				</div>
 			  <div id="second">
 			      <div class="myform form ">
                         <div class="logo mb-3">
                            <div class="col-md-12 text-center">
-                              <h1 >Sign up</h1>
+                              <h1 >Infomation</h1>
                            </div>
                         </div>
-                        <form action="/controller/user/create" name="registration" method="post" id="cr">
+                        <form action="#" name="updateMyInfo" method="post" id="cr">
                            <div class="form-group">
                               <label for="exampleInputEmail1">ID*</label>
                               <input type="text"  name="wid" class="form-control" id="cwid" aria-describedby="emailHelp" placeholder="Enter ID" value="${sessionScope.uv.wid }" readonly="readonly">
                            </div>
                            <div class="form-group">
-                              <label for="exampleInputEmail1">비밀번호</label>
+                              <label for="exampleInputEmail1">비밀번호*</label>
                               <input type="password" name="pw" id="pw"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
                            </div>
                            <div>
@@ -95,39 +93,34 @@
                               </select>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               <label for="exampleInputEmail1">성별 : </label>&nbsp;&nbsp;
-                              <input type="radio" name="gender" value="남" checked="checked">남자&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input type="radio" name="gender" value="남">남자&nbsp;&nbsp;&nbsp;&nbsp;
                               <input type="radio" name="gender" value="여">여자
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Email 주소*</label>
-                              <input type="text" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email">
+                              <input type="text" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email" value="${sessionScope.uv.email }">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">이름*</label>
-                              <input type="text" name="name"  class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name">
+                              <input type="text" name="name"  class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name" value="${sessionScope.uv.name }">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">생일</label>
-                              <input type="text" name="birthday"  class="form-control" id="birthday" aria-describedby="emailHelp" placeholder="월-일   Ex) 01-30">
+                              <input type="text" name="birthday"  class="form-control" id="birthday" aria-describedby="emailHelp" placeholder="월-일   Ex) 01-30" value="${sessionScope.uv.birthday }">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">전화번호</label>
-                              <input type="text" name="tel1" class="tel" >-
-                              <input type="text" name="tel2" class="tel" >-
-                              <input type="text" name="tel3" class="tel" >
+                              <input type="text" name="tel1" class="tel" id="tel1">-
+                              <input type="text" name="tel2" class="tel" id="tel2">-
+                              <input type="text" name="tel3" class="tel" id="tel3">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">주소</label>
-                              <input type="text" name="addr1"  class="form-control" id="addr1" aria-describedby="emailHelp">
-                              <input type="text" name="addr2"  class="form-control" id="addr2" aria-describedby="emailHelp" placeholder="상세주소를 적어주세요">
+                              <input type="text" name="addr1"  class="form-control" id="addr1" aria-describedby="emailHelp" id="addr1">
+                              <input type="text" name="addr2"  class="form-control" id="addr2" aria-describedby="emailHelp" placeholder="상세주소를 적어주세요" id="addr2">
                            </div>
                            <div class="col-md-12 text-center mb-3">
-                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm" id="create">시작하기</button>
-                           </div>
-                           <div class="col-md-12 ">
-                              <div class="form-group">
-                                 <p class="text-center"><a href="#" id="signin">로그인으로 돌아가기</a></p>
-                              </div>
+                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm" id="create">수정하기</button>
                            </div>
                         </form>
                       </div>
@@ -137,18 +130,41 @@
       </div>
 	<script>
 	function pwCon(){	// DB 비밀번호 검사
-		alert($("#pwd").val());
 		//else 쓰는 순간 에러  - pass 값이 null로 넘어간다
 		$.ajax({
 			type : "post",
-			data : {"pass" : $("#pwd").val()},
 			url : "/controller/support/updateForm",
+			data : {"pass" : $("#pwd").val()},
 			success : function(data){
-				alert(data);
 				if(data==1){
 					$("#first").fadeOut("fast", function() {
+						alert("대여신청시 주소와 전화번호를 입력해주셔야 합니다");
 	        			$("#second").fadeIn("fast");
+	        			var a="${sessionScope.uv.tel}";
+	        			var tel=a.split("-");
+	        			var tel1=tel[0];
+	        			var tel2=tel[1];
+	        			var tel3=tel[2];
+	        			
+	        			var b="${sessionScope.uv.addr}";
+	        			var addr=b.split(" / ");
+	        			var addr1=addr[0];
+	        			var addr2=addr[1];
+	        			
+	        			$("#tel1").val(tel1);
+	        			$("#tel2").val(tel2);
+	        			$("#tel3").val(tel3);
+	        			$("#addr1").val(addr1);
+	        			$("#addr2").val(addr2);
+	        			
+	        			$("#age").val("${sessionScope.uv.age}").prop("selected",true);
+	        			
+	        			$("input:radio[name='gender']:radio[value='${sessionScope.uv.gender}']").attr("checked",true);
 	        		});
+					
+				}else{
+					alert("비밀번호가 일치하지 않습니다.");
+					return;
 				}
 			},
 			error : function(e){

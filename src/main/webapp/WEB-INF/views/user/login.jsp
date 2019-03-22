@@ -176,7 +176,7 @@
                               </select>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               <label for="exampleInputEmail1">성별 : </label>&nbsp;&nbsp;
-                              <input type="radio" name="gender" value="남" checked="checked">남자&nbsp;&nbsp;&nbsp;&nbsp;
+                              <input type="radio" name="gender" value="남">남자&nbsp;&nbsp;&nbsp;&nbsp;
                               <input type="radio" name="gender" value="여">여자
                            </div>
                            <div class="form-group">

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.myweb.mapper.SupportMapper;
 import com.myweb.model.RentalVO;
+import com.myweb.model.UserVO;
 
 @Service
 public class SupportServiceImpl implements SupportService{
@@ -25,5 +26,11 @@ public class SupportServiceImpl implements SupportService{
 	public int confirmPass(String pass, String wid) {
 		// TODO Auto-generated method stub
 		return mapper.confirmPass(pass, wid);
+	}
+
+	@Override
+	public void updateInfo(UserVO uv) {
+		// TODO Auto-generated method stub
+		mapper.updateInfo(uv);
 	}
 }

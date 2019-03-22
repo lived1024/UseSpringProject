@@ -20,6 +20,7 @@ import com.myweb.service.RentalService;
 @Controller
 @RequestMapping("/rental/*")
 public class RentalController {
+	
 	@Inject
 	private RentalService service;
 	

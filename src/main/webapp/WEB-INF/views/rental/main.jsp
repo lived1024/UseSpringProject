@@ -127,13 +127,14 @@
 		
 		//대여신청 유효성 검사
 		function beforeRental(){
-			var start=$("#startDate").val();
-			if(start==""){
+			if($("#startDate").val()==""){
 				alert("대여 시작일을 선택해주세요");
 				return false;
 			}
 			
-			if(${sessionScope.uv.tel == "--"} || ${sessionScope.uv.addr == " / "}){
+			//주소, 전화번호 미등록시
+			if(${sessionScope.uv.tel == "--"} || ${sessionScope.uv.addr == " / "}
+				|| ${empty sessionScope.uv.tel } || ${empty sessionScope.uv.addr }){
 				if(confirm("주소 또는 전화번호가 등록되어 있지 않습니다.\r\n정보확인 페이지로 이동합니다")){
 					location.href="/controller/support/supportMain?list=1";
 				}

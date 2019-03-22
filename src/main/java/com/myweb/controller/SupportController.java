@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.myweb.model.RentalVO;
 import com.myweb.model.UserVO;
 import com.myweb.service.SupportService;
+import com.myweb.service.UserService;
 
 @Controller
 @RequestMapping("/support/*")
@@ -23,6 +24,9 @@ public class SupportController {
 	
 	@Inject
 	private SupportService service;
+	
+	@Inject
+	private UserService uservice;
 	
 	@GetMapping("supportMain")
 	public void main() {
@@ -76,14 +80,23 @@ public class SupportController {
 		String tel = tel1 + "-" + tel2 + "-" + tel3;
 		
 		uv.setAddr(addr);
-		uv.setTel(tel);		
-		
-		service.updateInfo(uv);
+		uv.setTel(tel);	
 		
 		HttpSession session=req.getSession();
-		session.setAttribute("uv", uv);
-//		UserVO suv=(UserVO) session.getAttribute("uv");
+		UserVO suv=(UserVO) session.getAttribute("uv");		//이전 세션 내용을 suv에 저장
+		session.removeAttribute("uv");						//이전 세션 삭제
 		
+		if(!suv.getNid().equals("") && suv.getNid()!=null) {	//이전 세션이 네이버 로그인일 경우
+			uv.setNid(suv.getNid());
+		}
+		
+		service.updateInfo(uv);		//업데이트 실행
+		
+		if(!suv.getNid().equals("") && suv.getNid()!=null) {	//이전 세션이 네이버 로그인일 경우
+			uv=uservice.getNaverUser(suv.getNid());			//uv에 가져온 값을 다시 설정
+		}
+		
+		session.setAttribute("uv", uv);
 		return 0;
 	}
 }

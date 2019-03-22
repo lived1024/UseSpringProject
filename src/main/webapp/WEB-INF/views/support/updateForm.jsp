@@ -58,6 +58,7 @@
                            </div>
                         </div>
                         <form action="#" name="updateMyInfo" method="post" id="cr">
+                          <c:if test="${empty sessionScope.uv.nid }">
                            <div class="form-group">
                               <label for="exampleInputEmail1">ID*</label>
                               <input type="text"  name="wid" class="form-control" id="cwid" aria-describedby="emailHelp" placeholder="Enter ID" value="${sessionScope.uv.wid }" readonly="readonly">
@@ -70,7 +71,13 @@
                               <label for="exampleInputEmail1">비밀번호 입력</label>
                               <input type="password" id="cpw"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password Again" disabled="disabled">
                               <span id="pwd_text"></span>
-                           </div><br>
+                           </div>
+                          </c:if>
+                           <br>
+                           <div class="form-group">
+                              <label for="exampleInputEmail1">이름*</label>
+                              <input type="text" name="name"  class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name" value="${sessionScope.uv.name }">
+                           </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">연령대 : </label>
                               <select name="age" aria-describedby="emailHelp" id="age">
@@ -93,16 +100,18 @@
                               </select>
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               <label for="exampleInputEmail1">성별 : </label>&nbsp;&nbsp;
-                              <input type="radio" name="gender" value="남">남자&nbsp;&nbsp;&nbsp;&nbsp;
-                              <input type="radio" name="gender" value="여">여자
+                              <c:if test="${empty sessionScope.uv.nid }">
+	                              <input type="radio" name="gender" value="남">남자&nbsp;&nbsp;&nbsp;&nbsp;
+	                              <input type="radio" name="gender" value="여">여자
+                              </c:if>
+                              <c:if test="${!empty sessionScope.uv.nid }">
+	                              <input type="radio" name="gender" value="M">남자&nbsp;&nbsp;&nbsp;&nbsp;
+	                              <input type="radio" name="gender" value="F">여자
+                              </c:if>
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Email 주소*</label>
                               <input type="text" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email" value="${sessionScope.uv.email }">
-                           </div>
-                           <div class="form-group">
-                              <label for="exampleInputEmail1">이름*</label>
-                              <input type="text" name="name"  class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Name" value="${sessionScope.uv.name }">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">생일</label>
@@ -129,6 +138,37 @@
 		</div>
       </div>
 	<script>
+	$(function(){
+		if(${sessionScope.uv.wid == ""}){
+    		$("#first").hide();
+    		$("#second").show();
+    		
+    		$("#age").val("${sessionScope.uv.age }").prop("selected",true);
+			if(${sessionScope.uv.gender == "M"}){
+				$("input:radio[name='gender']:radio[value='M']").attr("checked",true);
+			}else if(${sessionScope.uv.gender == "F"}){
+				$("input:radio[name='gender']:radio[value='F']").attr("checked",true);
+			}
+			
+			var a="${sessionScope.uv.tel}";
+			var tel=a.split("-");
+			var tel1=tel[0];
+			var tel2=tel[1];
+			var tel3=tel[2];
+			
+			var b="${sessionScope.uv.addr}";
+			var addr=b.split(" / ");
+			var addr1=addr[0];
+			var addr2=addr[1];
+			
+			$("#tel1").val(tel1);
+			$("#tel2").val(tel2);
+			$("#tel3").val(tel3);
+			$("#addr1").val(addr1);
+			$("#addr2").val(addr2); 			
+    	};
+	});
+	
 	function pwCon(){	// DB 비밀번호 검사
 		//else 쓰는 순간 에러  - pass 값이 null로 넘어간다
 		$.ajax({

@@ -94,6 +94,12 @@
 					}
 				});
 			}
+			
+			if(${param.list == 1}){
+				var a='${sessionScope.uv.addr }';
+				var addr=a.replace(" / ","  ");
+				$(".addrText").text(addr);
+			}
 		});
 		
 		function toUpdate(){

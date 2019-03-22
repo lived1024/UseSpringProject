@@ -24,16 +24,24 @@
 	</select>
 	
 	<update id="updateInfo">
-		UPDATE PROJECT_WEB_USER
-		SET PW=#{pw}, AGE=#{age}, GENDER=#{gender}, EMAIL=#{email}, NAME=#{name}, BIRTHDAY=#{birthday}, TEL=#{tel}, ADDR=#{addr} 
-		WHERE WID=#{wid}
+		<choose>
+			<when test="nid == '' or nid == null">
+				UPDATE PROJECT_WEB_USER
+				SET PW=#{pw}, AGE=#{age}, GENDER=#{gender}, EMAIL=#{email}, NAME=#{name}, BIRTHDAY=#{birthday}, TEL=#{tel}, ADDR=#{addr} 
+				WHERE WID=#{wid}
+			</when>
+			<when test="wid == '' or wid == null">
+				UPDATE PROJECT_NAVER_USER
+				SET AGE=#{age}, GENDER=#{gender}, EMAIL=#{email}, NAME=#{name}, BIRTHDAY=#{birthday}, TEL=#{tel}, ADDR=#{addr} 
+				WHERE NID=#{nid}
+			</when>
+		</choose>
 	</update>
 
 </mapper>
 
 
-<!-- 	"WID" VARCHAR2(20 BYTE),  -->
-<!-- 	"PW" VARCHAR2(20 BYTE),  -->
+<!-- 	"NID" VARCHAR2(20 BYTE),  -->
 <!-- 	"AGE" VARCHAR2(6 BYTE),  -->
 <!-- 	"GENDER" VARCHAR2(6 BYTE),  -->
 <!-- 	"EMAIL" VARCHAR2(30 BYTE),  -->

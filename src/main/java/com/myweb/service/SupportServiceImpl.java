@@ -31,6 +31,10 @@ public class SupportServiceImpl implements SupportService{
 	@Override
 	public void updateInfo(UserVO uv) {
 		// TODO Auto-generated method stub
-		mapper.updateInfo(uv);
+//		if(uv.getNid().equals("")) {
+			mapper.updateInfo(uv);
+//		}else {
+//			mapper.updateNaverUser(uv);
+//		}
 	}
 }

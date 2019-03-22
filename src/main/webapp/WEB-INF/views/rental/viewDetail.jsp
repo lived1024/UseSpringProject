@@ -111,7 +111,7 @@
 				</tr>
 				<tr>
 					<th colspan="2">
-						<input type="button" value="대여신청" class="btn btn-warning" onclick='rental(${lv.lno}, ${lv.price }, "${lv.lname }")'>
+						<input type="button" value="대여신청" class="btn btn-warning" onclick='rental(${lv.lno}, ${lv.price }, "${lv.lname }")' id="btnRental">
 						&nbsp;&nbsp;&nbsp;&nbsp;
 						<input type="button" value="이전" class="btn btn-warning" onclick="getList('${param.kind }', '${param.field }')">
 					</th>

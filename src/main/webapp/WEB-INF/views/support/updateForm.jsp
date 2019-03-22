@@ -144,6 +144,8 @@
     		$("#second").show();
     		
     		$("#age").val("${sessionScope.uv.age }").prop("selected",true);
+    		
+    		//네이버 회원은 성별이 M 또는 F로 등록되어있다.
 			if(${sessionScope.uv.gender == "M"}){
 				$("input:radio[name='gender']:radio[value='M']").attr("checked",true);
 			}else if(${sessionScope.uv.gender == "F"}){

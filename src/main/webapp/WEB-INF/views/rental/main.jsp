@@ -116,7 +116,9 @@
 						"r_start" : $("#startDate").val(),
 						"r_end" : $("#endDate").val()},
 				success : function(data){
-					alert("접수가 완료되었습니다.");
+					if(confirm("신청이 완료되었습니다.\r\n대여 현황을 확인하겠습니까?")){
+						location.href="/controller/support/supportMain?list=2";
+					}
 				},
 				error : function(e){
 					alert("error : "+e);
@@ -129,6 +131,16 @@
 		function beforeRental(){
 			if($("#startDate").val()==""){
 				alert("대여 시작일을 선택해주세요");
+				return false;
+			}
+			//재고초과
+			if($("#r_count").val() > $("#r_count").attr("max")){
+				alert("재고를 다시 확인해주세요");
+				return false;
+			}
+			//0개 이하 신청 불가
+			if($("#r_count").val() <= 0){
+				alert("최소 대여 수량은 1개입니다.");
 				return false;
 			}
 			
@@ -145,6 +157,11 @@
 		}
 		
 		$(function(){
+			//노트북 재고가 0일때 버튼 비활성화
+			if(${lv.stock == 0}){
+				$("#btnRental").attr("disabled",true);
+			}
+			
 			$("#startDate").click(function(){
 				//시작날짜 제한
 				var today=new Date();

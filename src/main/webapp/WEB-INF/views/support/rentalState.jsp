@@ -32,6 +32,7 @@
 							<th>반납일</th>
 							<th>총 가격</th>
 							<th>현재 상태</th>
+							<th></th>
 	        			</tr>
 	        		</thead>
 	        		<tbody id="rentalList">

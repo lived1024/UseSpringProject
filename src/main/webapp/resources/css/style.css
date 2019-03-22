@@ -2905,6 +2905,9 @@ a:hover{
 #updateBtn{
 	width : 100%;
 }
+#btnRental:disabled {
+	background-color: gray;
+}
 /* #laptop_view{ */
 /* 	margin : 50px 0px; */
 /* } */

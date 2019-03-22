@@ -3236,7 +3236,6 @@ button.close {
 .btn:focus,
 .btn:active,
 .btn.active,
-.btn.disabled,
 .btn[disabled] {
   color: #333333;
   background-color: #e6e6e6;

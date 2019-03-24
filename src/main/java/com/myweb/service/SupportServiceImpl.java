@@ -31,10 +31,18 @@ public class SupportServiceImpl implements SupportService{
 	@Override
 	public void updateInfo(UserVO uv) {
 		// TODO Auto-generated method stub
-//		if(uv.getNid().equals("")) {
-			mapper.updateInfo(uv);
-//		}else {
-//			mapper.updateNaverUser(uv);
-//		}
+		mapper.updateInfo(uv);
+	}
+
+	@Override
+	public int confirmRental(String wid) {
+		// TODO Auto-generated method stub
+		return mapper.confirmRental(wid);
+	}
+
+	@Override
+	public void deleteUser(String wid) {
+		// TODO Auto-generated method stub
+		mapper.deleteUser(wid);
 	}
 }

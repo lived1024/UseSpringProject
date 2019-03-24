@@ -99,4 +99,25 @@ public class SupportController {
 		session.setAttribute("uv", uv);
 		return 0;
 	}
+	
+	@PostMapping("deleteUser")
+	@ResponseBody
+	public int deleteUser(HttpServletRequest req) {
+		int res=99;
+		
+		HttpSession session=req.getSession();		
+		UserVO uv=(UserVO) session.getAttribute("uv");
+		
+		//´ë¿©ÁßÀÎÁö ¾Æ´ÑÁö È®ÀÎ
+		int check = service.confirmRental(uv.getWid());
+		
+		if(check != 0) {	//´ë¿©Áß -> Å»Åð ºÒ°¡
+			res=1;
+		}else if(check == 0){	//´ë¿©Áß ¾Æ´Ô -> Å»Åð Ã³¸®
+			service.deleteUser(uv.getWid());
+			session.invalidate();
+			res=2;
+		}
+		return res;
+	}
 }

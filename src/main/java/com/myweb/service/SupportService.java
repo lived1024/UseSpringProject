@@ -9,4 +9,6 @@ public interface SupportService {
 	public ArrayList<RentalVO> rentalState(String nid, String wid);
 	public int confirmPass(String pass, String wid);
 	public void updateInfo(UserVO uv);
+	public int confirmRental(String wid);
+	public void deleteUser(String wid);
 }

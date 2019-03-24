@@ -7,6 +7,33 @@
 			$("#pwd_text").text("비밀번호 일치!");
 		}
 	}
+	
+	//회원 탈퇴
+	function deleteUser(){
+		if(!confirm("회원 탈퇴를 진행할까요?")){
+			return false;
+		}
+		
+		$.ajax({
+			url : "/controller/support/deleteUser",
+			type : "post",
+			success : function(data){
+				if(data==1){
+					alert("상품 반납 후 탈퇴할 수 있습니다.\r\n" +
+							"대여 현황으로 이동합니다");
+					opener.location.href="/controller/support/supportMain?list=2";
+					window.close();
+				}if(data==2){
+					alert("탈퇴가 완료되었습니다.\r\n로그인 페이지로 이동합니다.");
+					opener.location.href="/controller/user/login";
+					window.close();
+				}
+			},
+			error : function(e){
+				alert(e);
+			}
+		})
+	}
 
          $(function() {
     		
@@ -19,7 +46,7 @@
     			checkPw();
     		});
         
-        	//회원가입 유효성검사
+        	//정보수정
         	//validate plugin은 버튼이 submit이어야 한다!
         	  $("form[name='updateMyInfo']").validate({
         	    rules: {

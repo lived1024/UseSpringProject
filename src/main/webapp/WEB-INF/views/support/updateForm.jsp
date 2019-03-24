@@ -131,6 +131,11 @@
                            <div class="col-md-12 text-center mb-3">
                               <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm" id="create">수정하기</button>
                            </div>
+                           <c:if test="${empty sessionScope.uv.nid }">
+	                           <div class="col-md-12 text-center mb-3">
+	                              <button type="button" class=" btn btn-block mybtn btn-primary tx-tfm" onclick="deleteUser()">회원탈퇴</button>
+	                           </div>
+                           </c:if>
                         </form>
                       </div>
                      </div>

@@ -37,6 +37,22 @@
 			</when>
 		</choose>
 	</update>
+	
+	<select id="confirmRental" resultType="Integer">
+		SELECT COUNT(*)
+		FROM (
+			  SELECT *
+			  FROM PROJECT_RENTAL
+			  WHERE STATE=3
+    			OR STATE=-1
+    			OR STATE=11)
+		WHERE WID=#{wid}
+	</select>
+	
+	<delete id="deleteUser">
+		DELETE FROM PROJECT_WEB_USER
+		WHERE WID=#{wid}
+	</delete>
 
 </mapper>
 

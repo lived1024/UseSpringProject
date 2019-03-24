@@ -105,6 +105,7 @@
 		function toUpdate(){
 			window.open("updateForm","정보수정","width=550 height=700 menubar=no status=no toolbar=no left=600 top=50 location=no");
 		}
+
 	</script>
 </body>
 </html>

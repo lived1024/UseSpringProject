@@ -13,8 +13,8 @@
 <body>
 
 <div class="container">
-  <h2>Input Sizing</h2>
-  <p>The form below shows input elements with different heights using .input-lg and .input-sm:</p>
+  <h2>자유 게시판</h2>
+  <p>회원 탈퇴 이후에도 게시글은 삭제되지 않습니다.<br>바른말 고운말을 사용해주세요</p>
 <!--   <form action="/controller/board/writeForm" method="post" enctype="multipart/form-data"> -->
   <form action="#" method="post"  id="wr" >
     <div class="form-group">
@@ -31,8 +31,8 @@
     </div>
     <div class="form-group" align="center">
 <!--       <input type="submit" value="작성완료"> -->
-      <input type="button" value="작성완료" id="write">
-      <input type="reset" value="재작성">
+      <input type="button" value="작성완료" id="write" class="btn btn-primary">
+      <input type="reset" value="재작성" class="btn btn-primary">
     </div>
   </form>
 </div>
@@ -51,6 +51,7 @@
 			formData.append("b_file",b_file);
 			formData.append("b_subject",$("#b_subject").val());
 			formData.append("b_content",$("#b_content").val());
+			formData.append("b_kind",3);
 			
 			//ajax에서 data로 가상의 form 태그를 넘긴다
 			//이때 processData 와 contentType을 false로 꼭 지정해줘야한다!
@@ -61,7 +62,9 @@
 				type : "post",
 				data :  formData,
 				success : function(data){
-					alert("aa");
+					alert("정상적으로 등록되었습니다");
+					opener.location.reload();
+					window.close();
 				},
 				error : function(e){
 					alert("error : "+e);

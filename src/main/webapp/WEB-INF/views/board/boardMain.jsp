@@ -76,6 +76,20 @@
 		function writeForm(){
 			window.open("writeForm","","width=700 height=700 top=100 left=500");
 		}
+		
+		$(function(){
+			$.ajax({
+				url : "/controller/board/boardList",
+				type : "post",
+				data : {"kind" : ${list}},
+				success : function(data){
+					$("#boardTBody").html(data);
+				},
+				error : function(e){
+					alert("error : " + e);
+				}
+			});
+		});
 	</script>
 </body>
 </html>

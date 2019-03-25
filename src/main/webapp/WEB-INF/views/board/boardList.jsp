@@ -48,7 +48,7 @@
 	        			<c:if test="${list == 3 }">
 			        		<tr>
 			        			<th colspan="4">
-			        				<input type="button" onclick="writeForm()" value="글쓰기">
+			        				<input type="button" onclick="writeForm()" value="글쓰기" class="btn btn-success">
 			        			</th>
 			        		</tr>
 	        			</c:if>

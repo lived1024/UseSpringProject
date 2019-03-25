@@ -5,8 +5,14 @@
           
 <mapper namespace="com.myweb.mapper.BoardMapper">
 	<insert id="writeBoard">
-		INSERT INTO PROJECT_BOARD(B_NUM, WID, NID, B_SUBJECT, B_CONTENT, B_FILE, B_REGDATE, B_GROUP)
-		VALUES(PROJECT_BOARD_SEQ.NEXTVAL, #{wid}, #{nid}, #{b_subject}, #{b_content}, #{b_file}, SYSDATE, PROJECT_BOARD_SEQ.NEXTVAL)
+		INSERT INTO PROJECT_BOARD(B_NUM, WID, EMAIL, B_SUBJECT, B_CONTENT, B_FILE, B_KIND, B_REGDATE, B_GROUP)
+		VALUES(PROJECT_BOARD_SEQ.NEXTVAL, #{wid}, #{email}, #{b_subject}, #{b_content}, #{b_file}, #{b_kind}, SYSDATE, PROJECT_BOARD_SEQ.NEXTVAL)
 	</insert>
+	
+	<select id="getList" resultType="com.myweb.model.BoardVO">
+		SELECT * 
+		FROM PROJECT_BOARD
+		WHERE B_KIND=#{kind}
+	</select>
 
 </mapper>

@@ -3,7 +3,7 @@ package com.myweb.model;
 public class BoardVO {
 	private int b_num;
 	private String wid;
-	private String nid;
+	private String email;
 	private String b_subject;
 	private String b_content;
 	private int readcount;
@@ -19,8 +19,8 @@ public class BoardVO {
 	public String getWid() {
 		return wid == null ? "" : wid;
 	}
-	public String getNid() {
-		return nid == null ? "" : nid;
+	public String getEmail() {
+		return email == null ? "" : email;
 	}
 	public String getB_subject() {
 		return b_subject == null ? "" : b_subject;
@@ -55,8 +55,8 @@ public class BoardVO {
 	public void setWid(String wid) {
 		this.wid = wid;
 	}
-	public void setNid(String nid) {
-		this.nid = nid;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public void setB_subject(String b_subject) {
 		this.b_subject = b_subject;

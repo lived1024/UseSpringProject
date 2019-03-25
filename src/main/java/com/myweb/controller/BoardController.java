@@ -1,6 +1,7 @@
 package com.myweb.controller;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -34,10 +35,13 @@ public class BoardController {
 	}
 	
 	@PostMapping("writeForm")
-	public void writeBoard(MultipartFile b_file, String b_subject, String b_content, HttpServletRequest req) {
+	public void writeBoard(MultipartFile b_file, String b_subject, String b_content, int b_kind, HttpServletRequest req) {
 		BoardVO bv=new BoardVO();
-		bv.setB_file(b_file.getOriginalFilename());
+		if(b_file != null) {
+			bv.setB_file(b_file.getOriginalFilename());
+		}
 		bv.setB_subject(b_subject);
+		bv.setB_kind(b_kind);			// 자유게시판 분류 3
 		
 		b_content=b_content.replace("\r\n", "<br>");
 		
@@ -46,17 +50,36 @@ public class BoardController {
 		HttpSession session=req.getSession();
 		UserVO uv=(UserVO) session.getAttribute("uv");
 		
-		bv.setWid(uv.getWid());
-		bv.setNid(uv.getNid());
+		if(uv.getWid()==null || uv.getWid()=="") {
+			bv.setEmail(uv.getEmail());
+		}else if(uv.getWid()!=null || uv.getWid() != "") {
+			bv.setWid(uv.getWid());
+		}
 		
 		service.writeBoard(bv);
-		
-		String uploadFolder="c:\\SpringImg";
-		File saveFile = new File(uploadFolder, b_file.getOriginalFilename());
-		try {
-			b_file.transferTo(saveFile);
-		}catch(Exception e) {
-			System.out.println(e.getMessage());
+		if(b_file != null) {			
+			String uploadFolder="c:\\SpringImg";
+			File saveFile = new File(uploadFolder, b_file.getOriginalFilename());
+			try {
+				b_file.transferTo(saveFile);
+			}catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
 		}
+	}
+	
+	@PostMapping("boardList")
+	public String boardList(int kind, Model model) {
+		ArrayList<BoardVO> arr=service.getList(kind);
+		for(int i=0;i<arr.size();i++) {
+			if(arr.get(i).getWid()==null || arr.get(i).getWid()=="") {
+				//네이버 로그인의 경우 이메일의 아이디로 글을 남기도록 한다!
+				String[] email=arr.get(i).getEmail().split("@");
+				String nickname=email[0];
+				arr.get(i).setEmail(nickname);
+			}
+		}
+		model.addAttribute("arr",arr);
+		return "/board/boardListView";
 	}
 }

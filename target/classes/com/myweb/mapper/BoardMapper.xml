@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+          "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+          
+<mapper namespace="com.myweb.mapper.BoardMapper">
+	<insert id="writeBoard">
+		INSERT INTO PROJECT_BOARD(B_NUM, WID, NID, B_SUBJECT, B_CONTENT, B_FILE, B_REGDATE, B_GROUP)
+		VALUES(PROJECT_BOARD_SEQ.NEXTVAL, #{wid}, #{nid}, #{b_subject}, #{b_content}, #{b_file}, SYSDATE, PROJECT_BOARD_SEQ.NEXTVAL)
+	</insert>
+
+</mapper>

@@ -13,7 +13,9 @@
 	<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="/controller/resources/css/login.css?ver=1">
+	<link rel="shortcut icon" href="/controller/resources/ico/favicon.png" />
 	<script src="/controller/resources/js/login.js" type="text/javascript"></script>
+	<title>로그인</title>
 <!-- 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 	<%
     String clientId = "";

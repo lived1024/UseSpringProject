@@ -66,10 +66,9 @@
                     <li class="dropdown">
                       <a href="#">커뮤니티 <i class="icon-angle-down"></i></a>
                       <ul class="dropdown-menu">
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">관련 뉴스</a></li> <!-- 크롤링 뉴스 이용 예정 -->
-                        <li><a href="#">묻고 답하기</a></li>
-                        <li><a href="#">자유 게시판</a></li>
+                        <li><a href="/controller/board/boardMain?list=1">공지사항</a></li>
+                        <li><a href="/controller/board/boardMain?list=2">관련 뉴스</a></li> <!-- 크롤링 뉴스 이용 예정 -->
+                        <li><a href="/controller/board/boardMain?list=3">자유 게시판</a></li>
                       </ul>
                     </li>
                     <li class="dropdown">

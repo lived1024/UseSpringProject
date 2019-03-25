@@ -14,6 +14,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="/controller/resources/css/login.css?ver=1">
 	<script src="/controller/resources/js/updateForm.js" type="text/javascript"></script>
+	<script src="/controller/resources/js/login.js" type="text/javascript"></script>
+	<title>정보수정</title>
 <!-- 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 	<%
     String clientId = "";

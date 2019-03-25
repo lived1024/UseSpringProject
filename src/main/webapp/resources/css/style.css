@@ -2908,6 +2908,30 @@ a:hover{
 #btnRental:disabled {
 	background-color: gray;
 }
+#boardListDiv{
+	width : 80%;
+}
+#boardListTable thead tr th{
+	text-align: center;
+}
+.boardFirst{
+	width : 10%;
+}
+.boardSecond{
+	width : 60%;
+}
+.boardThird{
+	width : 10%;
+}
+.boardFour{
+	width : 10%;
+}
+.boardFive{
+	width : 10%;
+}
+#boardListDiv{
+	margin-top : 50px;
+}
 /* #laptop_view{ */
 /* 	margin : 50px 0px; */
 /* } */

@@ -37,4 +37,10 @@ public class BoardServiceImpl implements BoardService{
 		// TODO Auto-generated method stub
 		return mapper.countBoard(kind, cri);
 	}
+
+	@Override
+	public BoardVO boardView(int b_num) {
+		// TODO Auto-generated method stub
+		return mapper.boardView(b_num);
+	}
 }

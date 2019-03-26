@@ -2910,6 +2910,8 @@ a:hover{
 }
 #boardListDiv{
 	width : 80%;
+	margin-top : 50px;
+	height : 700px;
 }
 #boardListTable thead tr th{
 	text-align: center;
@@ -2929,17 +2931,21 @@ a:hover{
 .boardFive{
 	width : 10%;
 }
-#boardListDiv{
-	margin-top : 50px;
-}
-#boardListDiv{
-	height : 700px;
-}
 #where{
 	width : 100px;
 }
 #where, #field{
 	margin-top:10px;
+}
+#viewTable{
+	width : 70%;
+}
+#boardViewDiv{
+	margin-top : 50px;
+}
+#txtfield{
+	width : 500px;
+	min-height : 400px;
 }
 /* #laptop_view{ */
 /* 	margin : 50px 0px; */

@@ -35,5 +35,11 @@
 			AND B_SUBJECT LIKE '%'||#{cri.field}||'%'
 		</if>
 	</select>
+	
+	<select id="boardView" resultType="com.myweb.model.BoardVO">
+		SELECT *
+		FROM PROJECT_BOARD
+		WHERE B_NUM=#{b_num}
+	</select>
 
 </mapper>

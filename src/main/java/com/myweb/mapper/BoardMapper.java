@@ -12,4 +12,5 @@ public interface BoardMapper {
 	public void writeBoard(BoardVO bv);
 	public ArrayList<BoardVO> getList(HashMap<String, Object> hm);
 	public int countBoard(@Param("kind")int kind, @Param("cri")Criteria cri);
+	public BoardVO boardView(int b_num);
 }

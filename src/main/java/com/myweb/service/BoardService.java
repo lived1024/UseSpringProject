@@ -9,4 +9,5 @@ public interface BoardService {
 	public void writeBoard(BoardVO bv);
 	public ArrayList<BoardVO> getList(int kind, Criteria cri, int start, int end);
 	public int countBoard(int kind, Criteria cri);
+	public BoardVO boardView(int b_num);
 }

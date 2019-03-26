@@ -108,4 +108,12 @@ public class BoardController {
 		
 		return "/board/boardListView";
 	}
+	
+	@GetMapping("view")
+	public String boardView(int b_num, Criteria cri, Model model) {
+		BoardVO bv=service.boardView(b_num);
+		model.addAttribute("bv",bv);
+		model.addAttribute("cri",cri);
+		return "/board/boardView";
+	}
 }

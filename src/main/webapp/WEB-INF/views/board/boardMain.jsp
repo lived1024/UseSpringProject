@@ -77,6 +77,7 @@
 			window.open("writeForm","","width=700 height=700 top=100 left=500");
 		}
 		
+		//검색, 페이지에 적용
 		function showBoardList(pageNum){			
 			$.ajax({
 				url : "/controller/board/boardList",
@@ -94,7 +95,29 @@
 			});
 		}
 		
+		//글 내용 보기
+		function boardView(b_num, pageNum, where, field){
+			if(${empty pageNum}){
+				pageNum=1;
+			}
+			$.ajax({
+				url : "/controller/board/view",
+				type : "get",
+				data : {"b_num" : b_num,
+						"where" : where,
+						"field" : field,
+						"pageNum" : pageNum},
+				success : function(data){
+					$("#resultDiv").html(data);
+				},
+				error : function(e){
+					alert("error : "+e);
+				}
+			});
+		}
+		
 		$(function(){
+			//첫 화면 로드시 게시판 출력
 			$.ajax({
 				url : "/controller/board/boardList",
 				type : "get",

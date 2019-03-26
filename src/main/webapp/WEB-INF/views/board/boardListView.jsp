@@ -23,7 +23,7 @@
 			        	<c:forEach items="${arr }" var="list">
 			        		<tr>
 			        			<td class="boardFirst">${list.b_num }</td>
-			        			<td class="boardSecond">${list.b_subject }</td>
+			        			<td class="boardSecond"><a onclick="boardView(${list.b_num },${param.pageNum },'${param.where }','${param.field }')">${list.b_subject }</a></td>
 			        			<c:choose>
 			        				<c:when test="${!empty list.wid or list.wid != ''}">
 					        			<td class="boardThird">${list.wid }</td>	        				
@@ -45,12 +45,12 @@
 		        		<option value="b_subject">제목</option>
 		        	</select>
 		        	<input type="text" name="field" id="field" value="${cri.field }">
-		        	<input type="button" value="검색" onclick="showBoardList(${pageNum})" class="btn btn-inverse">
+		        	<input type="button" value="검색" onclick="showBoardList(1)" class="btn btn-inverse">
 	        	</form>
 	        	<br>
 	        <!-- 페이지 설정 -->
 	        	<c:if test="${cri.pageNum > 1 }">
-	        		<input type="button" value="≪" onclick="showBoardList(${pageNum-blockpage})" class="btn btn-info">
+	        		<input type="button" value="≪" onclick="showBoardList(${param.pageNum-blockpage})" class="btn btn-info">
 	        	</c:if>
 	        	<c:forEach begin="${startPage }" end="${endPage }" var="i">
 	        		<c:if test="${cri.pageNum == i }">
@@ -61,7 +61,7 @@
 	        		</c:if>
 	        	</c:forEach>
 	        	<c:if test="${cri.pageNum < endPage }">
-	        		<input type="button" value="≫" onclick="showBoardList(${pageNum+blockpage})" class="btn btn-info">
+	        		<input type="button" value="≫" onclick="showBoardList(${param.pageNum+blockpage})" class="btn btn-info">
 	        	</c:if>
 	        </div>
 

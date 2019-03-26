@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.myweb.model.BoardVO;
+import com.myweb.model.Criteria;
 import com.myweb.model.UserVO;
 import com.myweb.service.BoardService;
 
@@ -68,9 +69,26 @@ public class BoardController {
 		}
 	}
 	
-	@PostMapping("boardList")
-	public String boardList(int kind, Model model) {
-		ArrayList<BoardVO> arr=service.getList(kind);
+	@GetMapping("boardList")
+	public String boardList(int kind, Criteria cri, Model model) {
+		//페이지 설정
+		int count=service.countBoard(kind,cri);
+		int totpage=count/cri.getAmount()+(count%cri.getAmount()==0?0:1);
+		
+		if(cri.getPageNum()<=1) { cri.setPageNum(1);	}
+		if(cri.getPageNum()>=totpage) {	cri.setPageNum(totpage);	}
+		
+		int start=(cri.getPageNum()-1)*cri.getAmount()+1;
+		int end=cri.getPageNum()*cri.getAmount();
+		
+		int blockpage=5;		//페이지 출력 갯수
+		int startPage=cri.getPageNum()-2;
+		if(startPage<=1) {	startPage=1;	}
+		
+		int endPage=startPage+blockpage-1;
+		if(endPage>totpage) {	endPage=totpage;	}
+		
+		ArrayList<BoardVO> arr=service.getList(kind, cri, start, end);
 		for(int i=0;i<arr.size();i++) {
 			if(arr.get(i).getWid()==null || arr.get(i).getWid()=="") {
 				//네이버 로그인의 경우 이메일의 아이디로 글을 남기도록 한다!
@@ -79,7 +97,15 @@ public class BoardController {
 				arr.get(i).setEmail(nickname);
 			}
 		}
+		
 		model.addAttribute("arr",arr);
+		model.addAttribute("cri",cri);
+		model.addAttribute("startPage",startPage);
+		model.addAttribute("endPage",endPage);
+		model.addAttribute("totpage",totpage);
+		model.addAttribute("blockpage",blockpage);
+		model.addAttribute("list",kind);
+		
 		return "/board/boardListView";
 	}
 }

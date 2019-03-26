@@ -42,28 +42,9 @@
     </section>
 	<section id="firCon">
 		<div class="container">
-			<div id="boardListDiv">
-		        <table class="table table-hover boardListTable">
-		        	<thead>
-	        			<c:if test="${list == 3 }">
-			        		<tr>
-			        			<th colspan="4">
-			        				<input type="button" onclick="writeForm()" value="글쓰기" class="btn btn-success">
-			        			</th>
-			        		</tr>
-	        			</c:if>
-			        	<tr>
-			        		<th class="boardFirst">번호</th>
-							<th class="boardSecond">제목</th>
-							<th class="boardThird">작성자</th>
-							<th class="boardFour">작성일</th>
-							<th class="boardFive">조회수</th>
-			        	</tr>
-		        	</thead>
-		        	<tbody id="boardTBody"></tbody>
+		  <div id="resultDiv">
 
-		        </table>
-	        </div>
+	      </div>
 		</div>
     </section>
 </div>

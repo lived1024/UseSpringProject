@@ -2932,6 +2932,15 @@ a:hover{
 #boardListDiv{
 	margin-top : 50px;
 }
+#boardListDiv{
+	height : 700px;
+}
+#where{
+	width : 100px;
+}
+#where, #field{
+	margin-top:10px;
+}
 /* #laptop_view{ */
 /* 	margin : 50px 0px; */
 /* } */

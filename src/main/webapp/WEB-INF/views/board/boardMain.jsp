@@ -77,13 +77,30 @@
 			window.open("writeForm","","width=700 height=700 top=100 left=500");
 		}
 		
+		function showBoardList(pageNum){			
+			$.ajax({
+				url : "/controller/board/boardList",
+				type : "get",
+				data : {"pageNum" : pageNum,
+						"where" : $("#where").val(),
+						"field" : $("#field").val(),
+						"kind" : ${list}},
+				success : function(data){
+					$("#resultDiv").html(data);
+				},
+				error : function(e){
+					alert("error : " + e);
+				}
+			});
+		}
+		
 		$(function(){
 			$.ajax({
 				url : "/controller/board/boardList",
-				type : "post",
+				type : "get",
 				data : {"kind" : ${list}},
 				success : function(data){
-					$("#boardTBody").html(data);
+					$("#resultDiv").html(data);
 				},
 				error : function(e){
 					alert("error : " + e);

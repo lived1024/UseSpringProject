@@ -9,10 +9,31 @@
 		VALUES(PROJECT_BOARD_SEQ.NEXTVAL, #{wid}, #{email}, #{b_subject}, #{b_content}, #{b_file}, #{b_kind}, SYSDATE, PROJECT_BOARD_SEQ.NEXTVAL)
 	</insert>
 	
-	<select id="getList" resultType="com.myweb.model.BoardVO">
-		SELECT * 
+	<select id="getList" resultType="com.myweb.model.BoardVO">		
+		SELECT *
+		FROM(
+		    SELECT ROWNUM RN, B.*
+		    FROM (
+		        SELECT *
+		        FROM PROJECT_BOARD
+		        <where>
+					<if test="cri.field != '' and cri.where == 'b_subject'">
+						B_SUBJECT LIKE '%'||#{cri.field}||'%'
+					</if>
+				</where>
+			ORDER BY B_GROUP DESC, B_LEVEL) B)
+		<![CDATA[
+		WHERE RN>=#{start} AND RN<=#{end}
+		]]>
+	</select>
+	
+	<select id="countBoard" resultType="Integer">
+		SELECT COUNT(*)
 		FROM PROJECT_BOARD
 		WHERE B_KIND=#{kind}
+		<if test="cri.field != '' and cri.where == 'b_subject'">
+			AND B_SUBJECT LIKE '%'||#{cri.field}||'%'
+		</if>
 	</select>
 
 </mapper>

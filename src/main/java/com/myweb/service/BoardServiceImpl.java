@@ -1,12 +1,14 @@
 package com.myweb.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.myweb.mapper.BoardMapper;
 import com.myweb.model.BoardVO;
+import com.myweb.model.Criteria;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -20,8 +22,19 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public ArrayList<BoardVO> getList(int kind) {
+	public ArrayList<BoardVO> getList(int kind, Criteria cri, int start, int end) {
 		// TODO Auto-generated method stub
-		return mapper.getList(kind);
+		HashMap<String, Object> hm=new HashMap<>();
+		hm.put("kind",kind);
+		hm.put("cri",cri);
+		hm.put("start", start);
+		hm.put("end",end);
+		return mapper.getList(hm);
+	}
+
+	@Override
+	public int countBoard(int kind, Criteria cri) {
+		// TODO Auto-generated method stub
+		return mapper.countBoard(kind, cri);
 	}
 }

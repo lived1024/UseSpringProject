@@ -1,7 +1,7 @@
 package com.myweb.model;
 
 public class Criteria {
-	private int pageNum=1;
+	private int pageNum;
 	private int amount=5;	//한 페이지당 출력할 목록의 갯수
 	private String where;	//검색 select
 	private String field;	//검색 키워드

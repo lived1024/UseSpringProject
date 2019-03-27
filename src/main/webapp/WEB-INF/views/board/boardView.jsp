@@ -5,7 +5,11 @@
 		<table id="viewTable" class="table">
 			<tr>
 				<td>제목</td>
-				<td>${bv.b_subject }</td>
+				<td>
+					${bv.b_subject }
+					<input type="hidden" id="where" value="${cri.where }">
+					<input type="hidden" id="field" value="${cri.field }">
+				</td>
 			</tr>
 			<tr>
 				<td>작성자</td>
@@ -36,7 +40,7 @@
 			</tr>
 			<tr>
 				<td colspan=2>
-					<input type="button" value="목록" onclick="showBoardList(${param.pageNum })" class="btn btn-inverse">
+					<input type="button" value="목록" onclick="showBoardList(${cri.pageNum })" class="btn btn-inverse">
 				</td>
 			</tr>
 		</table>

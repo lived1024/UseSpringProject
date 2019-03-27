@@ -97,9 +97,9 @@
 		
 		//글 내용 보기
 		function boardView(b_num, pageNum, where, field){
-			if(${empty pageNum}){
-				pageNum=1;
-			}
+// 			if(${empty pageNum}){
+// 				pageNum=1;
+// 			}
 			$.ajax({
 				url : "/controller/board/view",
 				type : "get",

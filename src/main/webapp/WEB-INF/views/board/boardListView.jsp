@@ -20,20 +20,20 @@
 			        	</tr>
 		        	</thead>
 		        	<tbody id="boardTBody">
-			        	<c:forEach items="${arr }" var="list">
+			        	<c:forEach items="${arr }" var="arr">
 			        		<tr>
-			        			<td class="boardFirst">${list.b_num }</td>
-			        			<td class="boardSecond"><a onclick="boardView(${list.b_num },${param.pageNum },'${param.where }','${param.field }')">${list.b_subject }</a></td>
+			        			<td class="boardFirst">${arr.b_num }</td>
+			        			<td class="boardSecond"><a onclick="boardView(${arr.b_num }, ${cri.pageNum }, '${param.where }','${param.field }')">${arr.b_subject }</a></td>
 			        			<c:choose>
-			        				<c:when test="${!empty list.wid or list.wid != ''}">
-					        			<td class="boardThird">${list.wid }</td>	        				
+			        				<c:when test="${!empty arr.wid or arr.wid != ''}">
+					        			<td class="boardThird">${arr.wid }</td>	        				
 			        				</c:when>
-			        				<c:when test="${empty list.wid or list.wid == '' }">
-			        					<td class="boardThird">${list.email }</td>
+			        				<c:when test="${empty arr.wid or arr.wid == '' }">
+			        					<td class="boardThird">${arr.email }</td>
 			        				</c:when>
 			        			</c:choose>
-			        			<td class="boardFour">${list.b_regdate }</td>
-			        			<td class="boardFive">${list.readcount }</td>
+			        			<td class="boardFour">${arr.b_regdate }</td>
+			        			<td class="boardFive">${arr.readcount }</td>
 			        		</tr>
 			        	</c:forEach>
 		        	</tbody>
@@ -50,7 +50,7 @@
 	        	<br>
 	        <!-- 페이지 설정 -->
 	        	<c:if test="${cri.pageNum > 1 }">
-	        		<input type="button" value="≪" onclick="showBoardList(${param.pageNum-blockpage})" class="btn btn-info">
+	        		<input type="button" value="≪" onclick="showBoardList(${cri.pageNum-blockpage})" class="btn btn-info">
 	        	</c:if>
 	        	<c:forEach begin="${startPage }" end="${endPage }" var="i">
 	        		<c:if test="${cri.pageNum == i }">
@@ -61,7 +61,7 @@
 	        		</c:if>
 	        	</c:forEach>
 	        	<c:if test="${cri.pageNum < endPage }">
-	        		<input type="button" value="≫" onclick="showBoardList(${param.pageNum+blockpage})" class="btn btn-info">
+	        		<input type="button" value="≫" onclick="showBoardList(${cri.pageNum+blockpage})" class="btn btn-info">
 	        	</c:if>
 	        </div>
 

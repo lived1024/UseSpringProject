@@ -10,5 +10,5 @@ public interface AdminService {
 	public UserVO adminSession();					//	관리자 세션
 	public ArrayList<RentalVO> rentalList();		// 대여 목록
 	public int confirmCancel(int rno);				// 취소 완료 처리 
-	public int accept(int rno);
+	public int accept(int rno);						// 대여 승인
 }

@@ -66,6 +66,7 @@ public class AdminController {
 	}
 	
 	@PostMapping("accept")
+	@ResponseBody
 	public int accept(int rno) {
 		return service.accept(rno);
 	}

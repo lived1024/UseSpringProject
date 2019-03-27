@@ -13,7 +13,7 @@
 	<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 	<link type="text/css" rel="stylesheet" href="/controller/resources/css/login.css?ver=1">
-	<link rel="shortcut icon" href="/controller/resources/ico/favicon.png" />
+	<link rel="shortcut icon" href="/controller/resources/ico/logo.png" />
 	<script src="/controller/resources/js/login.js" type="text/javascript"></script>
 	<title>로그인</title>
 <!-- 	<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script> -->
@@ -51,6 +51,11 @@
 				}
 			},
 			submitHandler: function(form) {
+				if($("#wid").val() == 'admin' && $("#pwd").val() == 'admin'){
+					window.open("/controller/admin/adminMain","","width=300 height=300 left=800 top=300");
+					return false;
+				}
+				
 				$.ajax({
 					url : "/controller/user/login",
 					type : "post",
@@ -73,18 +78,18 @@
 	  	        	}
 				});
 			}
-		});
+		})
 		
 		// 로그인 후에 강제로 로그인 주소를 입력할 때
-		if(${sessionScope.uv != null}){
+		if(${!empty sessionScope.uv }){
 			alert("이미 로그인이 되어있습니다.");
 			location.href="/controller/home";
 		}
 		// url 강제 입력 후 돌아왔을때 출력 안되게,,
-		if(${sessionScope.uv == null }){
+		if(${empty sessionScope.uv }){
 			alert("저희 사이트는 로그인을 한 회원에게만 서비스됩니다");
 		} 		
-	});
+	})
  	 
 	
  	</script>

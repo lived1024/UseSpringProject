@@ -37,6 +37,13 @@
 		WHERE WID=#{wid}
 	</select>
 	
+	<!-- 네이버 회원의 ID와 같은 값이 있는지 체크 -->
+	<select id="checkNaverId" resultType="Integer">
+		SELECT COUNT(*)
+		FROM PROJECT_NAVER_USER
+		WHERE NID=#{wid}
+	</select>
+	
 	<!-- 자체 회원 ID,PW 체크  -->
 	<select id="checkLogin" resultType="Integer">
 		SELECT COUNT(*)

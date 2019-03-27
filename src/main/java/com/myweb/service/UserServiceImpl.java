@@ -64,7 +64,18 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public int idChecker(String wid) {
-		// TODO Auto-generated method stub		
-		return mapper.checkId(wid);
+		// TODO Auto-generated method stub
+		int res=99;
+		
+		if(wid.equals("admin")){
+			return -1;
+		}
+		
+		res=mapper.checkId(wid);
+		if(res==0) {
+			//네이버 테이블에 중복 ID가 있는지 검사
+			res=mapper.checkNaverId(wid);
+		}
+		return res;
 	}
 }

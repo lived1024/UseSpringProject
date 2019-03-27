@@ -170,15 +170,14 @@ public class BoardController {
 		}
 		//댓글 입력
 		service.insertComment(cv);
-		
-		//댓글 불러오기
-		return "/board/callCommentList";
+		//댓글 불러오기로 연결!	콘트롤러로 바로 연결하기때문에 파라미터값을 수동으로 설정해준다!
+		return "redirect:/board/callCommentList?b_num="+b_num;
 	}
 	
 	@GetMapping("callCommentList")
-	public String callCommentList(int b_num, Model model) {
-		ArrayList<CommentVO> carr=service.commentList(b_num);
-//		req.setAttribute("carr", carr);
+	public String callCommentList(String b_num, Model model) {
+		int bnum=Integer.parseInt(b_num);
+		ArrayList<CommentVO> carr=service.commentList(bnum);
 		model.addAttribute("carr", carr);
 		return "/board/commentList";
 	}

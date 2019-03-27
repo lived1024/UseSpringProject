@@ -5,7 +5,7 @@
           <div class="span4">
             <div class="widget">
               <div class="footer_logo">
-                <h3><a href="/controller/home"><i class="icon-tint"></i> Laptop Forum</a></h3>
+                <h3><a href="/controller/home"><img src="/controller/resources/ico/logo.png"></a></h3>
               </div>
               <address>
 							  <strong>Laptop Forum Inc.</strong><br>

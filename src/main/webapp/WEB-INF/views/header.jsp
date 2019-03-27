@@ -29,7 +29,7 @@
         <div class="row nomargin">
           <div class="span4">
             <div class="logo">
-              <h1><a href="/controller/home"><i class="icon-tint"></i> Laptop Forum</a></h1>
+              <h1><a href="/controller/home"><img src="/controller/resources/ico/logo.png"></a></h1>
             </div>
           </div>
           <div class="span8">
@@ -98,7 +98,7 @@
       		});
       		
       		// 로그인 하지 않고 강제로 url 입력한다면,,
-     		if(${sessionScope.uv == null}){
+     		if(${empty sessionScope.uv }){
      			location.href="/controller/user/login";
      		}
       	});

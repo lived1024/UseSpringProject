@@ -12,4 +12,5 @@ public interface UserMapper {
 	public int checkId(String wid);
 	public int checkLogin(@Param("wid")String wid, @Param("pwd")String pwd);
 	public UserVO getWebUser(String wid);
+	public int checkNaverId(String wid);
 }

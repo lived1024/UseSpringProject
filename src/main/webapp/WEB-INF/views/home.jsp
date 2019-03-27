@@ -27,7 +27,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/controller/resourcesico/apple-touch-icon-114-precomposed.png" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/controller/resourcesico/apple-touch-icon-72-precomposed.png" />
   <link rel="apple-touch-icon-precomposed" href="/controller/resourcesico/apple-touch-icon-57-precomposed.png" />
-  <link rel="shortcut icon" href="/controller/resources/ico/favicon.png" />
+  <link rel="shortcut icon" href="/controller/resources/ico/logo.png" />
 
   <!-- =======================================================
     Theme Name: Remember
@@ -50,9 +50,6 @@
       <div class="intro-content">
         <h2>Welcome to Laptop Forum!</h2>
         <h3>Laptop Forum에 오신 것을 환영합니다!</h3>
-        <div>
-          <a href="#content" class="btn-get-started scrollto">Get Started</a>
-        </div>
       </div>
     </section>
     <!-- /section intro -->
@@ -66,63 +63,55 @@
             <div class="row">
               <div class="span3">
                 <div class="box aligncenter">
+                 <label>
                   <div class="icon">
                     <span class="badge badge-info badge-circled">1</span>
                     <i class="ico icon-dropbox icon-5x"></i>
                   </div>
                   <div class="text">
                     <h4><strong>사이트 소개</strong></h4>
-                    <p>
-                      Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am anumat lib persum sea facilisis.
-                    </p>
-                    <a href="#">Learn More</a>
                   </div>
+                 </label>
                 </div>
               </div>
 
               <div class="span3">
                 <div class="box aligncenter">
+                 <a href="/controller/board/boardMain?list=3">
                   <div class="icon">
                     <span class="badge badge-success badge-circled">2</span>
-                    <i class="ico icon-bitbucket icon-5x"></i>
+                    <i class="ico icon-edit icon-5x"></i>
                   </div>
                   <div class="text">
-                    <h4><strong>리뷰 게시판</strong></h4>
-                    <p>
-                      Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
-                    </p>
-                    <a href="#">Learn More</a>
+                    <h4><strong>자유 게시판</strong></h4>
                   </div>
+                 </a>
                 </div>
               </div>
               <div class="span3">
                 <div class="box aligncenter">
+                 <a href="/controller/rental/main?list=3">
                   <div class="icon">
                     <span class="badge badge-warning badge-circled">3</span>
-                    <i class="ico icon-rocket icon-5x"></i>
+                    <i class="ico icon-5x icon-check"></i>
                   </div>
                   <div class="text">
-                    <h4><strong>대여 시스템</strong></h4>
-                    <p>
-                      Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
-                    </p>
-                    <a href="#">Learn More</a>
+                    <h4><strong>대여 신청</strong></h4>
                   </div>
+                 </a>
                 </div>
               </div>
               <div class="span3">
                 <div class="box aligncenter">
+               	 <a href="/controller/support/supportMain?list=1">
                   <div class="icon">
                     <span class="badge badge-important badge-circled">4</span>
-                    <i class="ico icon-cut icon-5x"></i>
+                    <i class="ico icon-user icon-5x"></i>
                   </div>
                   <div class="text">
-                    <h4><strong>마이 페이지</strong></h4>
-                    <p>
-                      Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
-                    </p>
-                    <a href="#">Learn More</a>
+                    <h4><strong>대여 현황</strong></h4>
                   </div>
+                 </a>
                 </div>
               </div>
             </div>

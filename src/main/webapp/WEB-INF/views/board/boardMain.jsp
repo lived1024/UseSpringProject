@@ -175,9 +175,10 @@
 				}
 			});
 		}
-// 		boardView(b_num, pageNum, where, field)
+		
 		//댓글 입력하기
 		function inputComment(b_num, pageNum){
+	
 			var where=$("#where").val();
 			var field=$("#field").val();
 			
@@ -224,7 +225,7 @@
 					alert("error : " + e);
 				}
 			});
-		});
+		})
 	</script>
 </body>
 </html>

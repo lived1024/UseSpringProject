@@ -59,6 +59,9 @@ a:active {
 	outline:0;
 	text-decoration:none;
 }
+a:hover{
+	cursor: pointer;
+}
 
 
 .clear {

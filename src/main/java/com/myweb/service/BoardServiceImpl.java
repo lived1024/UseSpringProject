@@ -46,4 +46,12 @@ public class BoardServiceImpl implements BoardService{
 		mapper.addCount(b_num);
 		return mapper.boardView(b_num);
 	}
+
+	@Override
+	public void deleteBoard(int b_num) {
+		// TODO Auto-generated method stub
+		mapper.deleteBoard(b_num);
+	}
+	
+	
 }

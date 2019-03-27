@@ -41,6 +41,16 @@
 			<tr>
 				<td colspan=2>
 					<input type="button" value="목록" onclick="showBoardList(${cri.pageNum })" class="btn btn-inverse">
+					<c:if test="${sessionScope.uv.wid == bv.wid }">
+						<input type="button" value="수정"	 onclick="updateBoard(${bv.b_num})" class="btn btn-inverse">
+						<input type="button" value="삭제" onclick="deleteBoard(${bv.b_num})" class="btn btn-inverse">
+					</c:if>
+					<c:if test="${empty sessionScope.uv.wid }">
+						<c:if test="${sessionScope.uv.email == bv.email }">
+							<input type="button" value="수정"	 onclick="updateBoard(${bv.b_num})" class="btn btn-inverse">
+							<input type="button" value="삭제" onclick="deleteBoard(${bv.b_num})" class="btn btn-inverse">
+						</c:if>
+					</c:if>
 				</td>
 			</tr>
 		</table>

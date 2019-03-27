@@ -14,4 +14,5 @@ public interface BoardMapper {
 	public int countBoard(@Param("kind")int kind, @Param("cri")Criteria cri);
 	public BoardVO boardView(int b_num);
 	public void addCount(int b_num);
+	public void deleteBoard(int b_num);
 }

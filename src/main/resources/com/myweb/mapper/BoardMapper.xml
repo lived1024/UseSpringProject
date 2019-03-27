@@ -47,5 +47,10 @@
 		SET READCOUNT=READCOUNT+1
 		WHERE B_NUM=#{b_num}
 	</select>
+	
+	<delete id="deleteBoard">
+		DELETE FROM PROJECT_BOARD
+		WHERE B_NUM=#{b_num}
+	</delete>
 
 </mapper>

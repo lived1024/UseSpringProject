@@ -116,6 +116,10 @@
 			});
 		}
 		
+		function deleteBoard(b_num){
+			location.href="/controller/board/deleteBoard?b_num="+b_num+"&kind="+${list};
+		}
+		
 		$(function(){
 			//첫 화면 로드시 게시판 출력
 			$.ajax({

@@ -116,4 +116,11 @@ public class BoardController {
 		model.addAttribute("cri",cri);
 		return "/board/boardView";
 	}
+	
+	@GetMapping("deleteBoard")
+	public String deleteBoard(int b_num, int kind, Model model) {
+		service.deleteBoard(b_num);
+		model.addAttribute("list", kind);
+		return "/board/boardMain";
+	}
 }

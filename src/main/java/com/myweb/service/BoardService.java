@@ -10,4 +10,5 @@ public interface BoardService {
 	public ArrayList<BoardVO> getList(int kind, Criteria cri, int start, int end);
 	public int countBoard(int kind, Criteria cri);
 	public BoardVO boardView(int b_num);
+	public void deleteBoard(int b_num);
 }

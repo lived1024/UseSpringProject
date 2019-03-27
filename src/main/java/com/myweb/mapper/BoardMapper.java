@@ -15,4 +15,5 @@ public interface BoardMapper {
 	public BoardVO boardView(int b_num);
 	public void addCount(int b_num);
 	public void deleteBoard(int b_num);
+	public void updateBoard(BoardVO bv);
 }

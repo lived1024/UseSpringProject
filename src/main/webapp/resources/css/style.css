@@ -2947,6 +2947,9 @@ a:hover{
 	width : 500px;
 	min-height : 400px;
 }
+#upfile, .confirmBtn, .updateCancle{
+	display: none;
+}
 /* #laptop_view{ */
 /* 	margin : 50px 0px; */
 /* } */

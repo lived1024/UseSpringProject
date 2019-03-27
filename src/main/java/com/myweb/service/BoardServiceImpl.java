@@ -3,6 +3,9 @@ package com.myweb.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.myweb.mapper.BoardMapper;
 import com.myweb.model.BoardVO;
 import com.myweb.model.Criteria;
+import com.myweb.model.UserVO;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -41,16 +45,35 @@ public class BoardServiceImpl implements BoardService{
 
 	@Transactional
 	@Override
-	public BoardVO boardView(int b_num) {
+	public BoardVO boardView(int b_num, HttpServletRequest req) {
 		// TODO Auto-generated method stub
-		mapper.addCount(b_num);
-		return mapper.boardView(b_num);
+		BoardVO bv=mapper.boardView(b_num);
+		
+		//작성자가 아닐 경우에만 조회수 +1
+		HttpSession session=req.getSession();
+		UserVO uv=(UserVO) session.getAttribute("uv");
+		if(uv.getWid() != null || uv.getWid() != "") {
+			if(uv.getWid() != bv.getWid()) {
+				mapper.addCount(b_num);
+			}
+		}else if(uv.getNid() != null || uv.getNid() != ""){
+			if(uv.getEmail() != bv.getEmail()) {
+				mapper.addCount(b_num);
+			}
+		}
+		return bv;
 	}
 
 	@Override
 	public void deleteBoard(int b_num) {
 		// TODO Auto-generated method stub
 		mapper.deleteBoard(b_num);
+	}
+
+	@Override
+	public void updateBoard(BoardVO bv) {
+		// TODO Auto-generated method stub
+		mapper.updateBoard(bv);
 	}
 	
 	

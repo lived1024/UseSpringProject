@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.myweb.model.BoardVO;
@@ -110,8 +111,8 @@ public class BoardController {
 	}
 	
 	@GetMapping("view")
-	public String boardView(int b_num, Criteria cri, Model model) {
-		BoardVO bv=service.boardView(b_num);
+	public String boardView(int b_num, Criteria cri, Model model, HttpServletRequest req) {
+		BoardVO bv=service.boardView(b_num, req);
 		model.addAttribute("bv",bv);
 		model.addAttribute("cri",cri);
 		return "/board/boardView";
@@ -122,5 +123,33 @@ public class BoardController {
 		service.deleteBoard(b_num);
 		model.addAttribute("list", kind);
 		return "/board/boardMain";
+	}
+	
+	@PostMapping("updateBoard")
+	@ResponseBody
+	public int updateBoard(MultipartFile b_file, String b_subject, String b_content, int b_kind, int b_num) {
+		BoardVO bv=new BoardVO();
+		if(b_file != null) {
+			bv.setB_file(b_file.getOriginalFilename());
+		}
+		bv.setB_num(b_num);
+		bv.setB_subject(b_subject);
+		bv.setB_kind(b_kind);			// 자유게시판 분류 3
+		
+		b_content=b_content.replace("\r\n", "<br>");
+		
+		bv.setB_content(b_content);
+		
+		service.updateBoard(bv);
+		if(b_file != null) {			
+			String uploadFolder="c:\\SpringImg";
+			File saveFile = new File(uploadFolder, b_file.getOriginalFilename());
+			try {
+				b_file.transferTo(saveFile);
+			}catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		return 1;
 	}
 }

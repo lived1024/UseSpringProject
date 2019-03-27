@@ -52,5 +52,11 @@
 		DELETE FROM PROJECT_BOARD
 		WHERE B_NUM=#{b_num}
 	</delete>
+	
+	<update id="updateBoard">
+		UPDATE PROJECT_BOARD
+		SET B_SUBJECT=#{b_subject}, B_CONTENT=#{b_content}, B_FILE=#{b_file}
+		WHERE B_NUM=#{b_num}
+	</update>
 
 </mapper>

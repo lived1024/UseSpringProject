@@ -116,8 +116,64 @@
 			});
 		}
 		
+		//글 삭제
 		function deleteBoard(b_num){
 			location.href="/controller/board/deleteBoard?b_num="+b_num+"&kind="+${list};
+		}
+		
+		//글 수정 버튼
+		function updateFormBoard(){
+			$("#b_subject").attr("readonly",false);
+			$("#txtfield").attr("readonly",false);
+			$("#fileArea").hide();
+			$("#upfile").show();
+			$("#btnupdateBtn").hide();
+			$(".confirmBtn").show();
+			$(".deleteBtn").hide();
+			$(".updateCancle").show();
+		}
+		
+		//글 수정 취소 버튼
+		function updateBtnCancle(){
+			$("#b_subject").attr("readonly",true);
+			$("#txtfield").attr("readonly",true);
+			$("#fileArea").show();
+			$("#upfile").hide();
+			$("#btnupdateBtn").show();
+			$(".confirmBtn").hide();
+			$(".deleteBtn").show();
+			$(".updateCancle").hide();
+		}
+		
+		//글 수정 확인 버튼
+		function updateConfirm(b_num, pageNum){
+			var formData=new FormData();
+			
+			var b_file=$("input[name='b_file']")[0].files[0];
+			
+			formData.append("b_file",b_file);
+			formData.append("b_subject",$("#b_subject").val());
+			formData.append("b_content",$("#txtfield").val());
+			formData.append("b_kind",${list});
+			formData.append("b_num",b_num);
+			
+			var where=$("#where").val();
+			var field=$("#field").val();
+			
+			$.ajax({
+				url : "/controller/board/updateBoard",
+				processData : false,
+				contentType : false,
+				type : "post",
+				data : formData,
+				success : function(data){
+					alert(data);
+					boardView(b_num, pageNum, where, field);
+				},
+				error : function(e){
+					alert("error : "+e);
+				}
+			});
 		}
 		
 		$(function(){

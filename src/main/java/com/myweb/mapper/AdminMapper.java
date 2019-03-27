@@ -15,4 +15,5 @@ public interface AdminMapper {
 	public void cancelLaptop(@Param("lno")int lno, @Param("r_count")int r_count);
 	public int confirmCancel(int rno);
 	public int accept(int rno);
+	public int rconfirm(int rno);
 }

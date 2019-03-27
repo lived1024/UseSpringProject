@@ -70,4 +70,10 @@ public class AdminController {
 	public int accept(int rno) {
 		return service.accept(rno);
 	}
+	
+	@PostMapping("rconfirm")
+	@ResponseBody
+	public int rconfirm(int rno) {
+		return service.rconfirm(rno);
+	}
 }

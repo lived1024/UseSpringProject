@@ -105,6 +105,22 @@
 				});
 			}
 		}
+		
+		function Rconfirm(rno){
+			if(confirm("고객님께서 제품을 수령했습니까?")){
+				$.ajax({
+					url : "/controller/admin/rconfirm",
+					type : "post",
+					data : {"rno" : rno},
+					success : function(data){
+						location.reload();
+					},
+					error : function(e){
+						alert("error : "+e);
+					}
+				});
+			}
+		}
 	</script>
 </body>
 </html>

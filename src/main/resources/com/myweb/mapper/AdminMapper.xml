@@ -44,4 +44,10 @@
 		SET STATE = 2
 		WHERE RNO=#{rno}
 	</update>
+	
+	<update id="rconfirm">
+		UPDATE PROJECT_RENTAL
+		SET STATE = 3
+		WHERE RNO=#{rno}
+	</update>
 </mapper>

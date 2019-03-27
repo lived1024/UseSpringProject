@@ -75,7 +75,19 @@
 		});
 		
 		function conCancel(rno){
-			
+			if(confirm("취소 처리를 완료하시겠습니까?")){
+				$.ajax({
+					url : "/controller/admin/confirmCancel",
+					type : "post",
+					data : {"rno" : rno},
+					success : function(data){
+						location.reload();
+					},
+					error : function(e){
+						alert("error : "+e);
+					}
+				});
+			}
 		}
 	</script>
 </body>

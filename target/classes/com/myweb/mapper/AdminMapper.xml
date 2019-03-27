@@ -21,4 +21,21 @@
 		FROM PROJECT_RENTAL
 	</select>
 	
+	<select id="rental" resultType="com.myweb.model.RentalVO">
+		SELECT *
+		FROM PROJECT_RENTAL
+		WHERE RNO=#{rno}
+	</select>
+	
+	<update id="cancelLaptop">
+		UPDATE PROJECT_LAPTOP
+		SET STOCK=STOCK+#{r_count}
+		WHERE LNO=#{lno}
+	</update>
+	
+	<update id="confirmCancel">
+		UPDATE PROJECT_RENTAL
+		SET STATE = 12
+		WHERE RNO=#{rno}
+	</update>
 </mapper>

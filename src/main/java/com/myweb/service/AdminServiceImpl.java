@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.myweb.mapper.AdminMapper;
 import com.myweb.model.RentalVO;
@@ -30,5 +31,16 @@ public class AdminServiceImpl implements AdminService {
 	public ArrayList<RentalVO> rentalList() {
 		// TODO Auto-generated method stub
 		return mapper.rentalList();
+	}
+	
+	@Transactional
+	@Override
+	public int confirmCancel(int rno) {
+		// TODO Auto-generated method stub
+		RentalVO rv=mapper.rental(rno);
+		int lno=rv.getLno();
+		int r_count=rv.getR_count();
+		mapper.cancelLaptop(lno, r_count);
+		return mapper.confirmCancel(rno);
 	}
 }

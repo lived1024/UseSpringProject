@@ -58,4 +58,11 @@ public class AdminController {
 		model.addAttribute("arr", arr);
 		return "/admin/RentalList";
 	}
+	
+	@PostMapping("confirmCancel")
+	@ResponseBody
+	public int confirmCancel(int rno) {
+		
+		return service.confirmCancel(rno);
+	}
 }

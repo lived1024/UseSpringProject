@@ -56,4 +56,10 @@
 		SET STATE = 4
 		WHERE RNO=#{rno}
 	</update>
+	
+	<update id="checkLaptop">
+		UPDATE PROJECT_RENTAL
+		SET STATE = 5
+		WHERE RNO=#{rno}
+	</update>
 </mapper>

@@ -19,7 +19,7 @@
 									<c:when test="${list.state == 3 }">
 										<th>대 여 중</th>
 									</c:when>
-									<c:when test="${list.state == 4 }">
+									<c:when test="${list.state == 4 or list.state == 5 }">
 										<th>반납 완료</th>
 									</c:when>
 									<c:when test="${list.state == -1 }">

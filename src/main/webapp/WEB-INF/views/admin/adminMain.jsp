@@ -137,6 +137,22 @@
 				});
 			}
 		}
+		
+		function checkLaptop(rno){
+			if(confirm("점검이 끝나 정상정으로 이용이 가능한지 확인했습니까?")){
+				$.ajax({
+					url : "/controller/admin/checkLaptop",
+					type : "post",
+					data : {"rno" : rno},
+					success : function(data){
+						location.reload();
+					},
+					error : function(e){
+						alert("error : "+e);
+					}
+				});
+			}
+		}
 	</script>
 </body>
 </html>

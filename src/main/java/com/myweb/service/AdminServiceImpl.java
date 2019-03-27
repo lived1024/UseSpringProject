@@ -40,7 +40,7 @@ public class AdminServiceImpl implements AdminService {
 		RentalVO rv=mapper.rental(rno);
 		int lno=rv.getLno();
 		int r_count=rv.getR_count();
-		mapper.cancelLaptop(lno, r_count);
+		mapper.cancelLaptop(lno, r_count);		//수량 원상복귀
 		return mapper.confirmCancel(rno);
 	}
 
@@ -60,5 +60,16 @@ public class AdminServiceImpl implements AdminService {
 	public int confirmReturn(int rno) {
 		// TODO Auto-generated method stub
 		return mapper.confirmReturn(rno);
+	}
+
+	@Transactional
+	@Override
+	public int checkLaptop(int rno) {
+		// TODO Auto-generated method stub
+		RentalVO rv=mapper.rental(rno);
+		int lno=rv.getLno();
+		int r_count=rv.getR_count();
+		mapper.cancelLaptop(lno, r_count);		//취소에 이용했던 수량 원상복귀 이용
+		return mapper.checkLaptop(rno);
 	}
 }

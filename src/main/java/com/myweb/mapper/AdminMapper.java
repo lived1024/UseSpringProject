@@ -17,4 +17,5 @@ public interface AdminMapper {
 	public int accept(int rno);
 	public int rconfirm(int rno);
 	public int confirmReturn(int rno);
+	public int checkLaptop(int rno);
 }

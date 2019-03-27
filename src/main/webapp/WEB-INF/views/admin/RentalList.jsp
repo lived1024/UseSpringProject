@@ -19,7 +19,10 @@
 						<th>대 여 중</th>
 					</c:when>
 					<c:when test="${list.state == 4 }">
-						<th>반납 완료</th>
+						<th>상품 점검</th>
+					</c:when>
+					<c:when test="${list.state == 5 }">
+						<th>정상 처리 완료</th>
 					</c:when>
 					<c:when test="${list.state == -1 }">
 						<th>연 체 중</th>
@@ -48,9 +51,14 @@
 							<input type="button" value="반납 확인" onclick="confirmReturn(${list.rno})">
 						</th>
 					</c:when>
-					<c:when test="${list.state == 11}">
+					<c:when test="${list.state == 11 }">
 						<th>
 							<input type="button" value="취소 확인" onclick="conCancel(${list.rno})">
+						</th>
+					</c:when>
+					<c:when test="${list.state == 4 }">
+						<th>
+							<input type="button" value="점검 완료" onclick="checkLaptop(${list.rno})">
 						</th>
 					</c:when>
 				</c:choose>

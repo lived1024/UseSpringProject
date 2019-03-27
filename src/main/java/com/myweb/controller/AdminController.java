@@ -82,4 +82,10 @@ public class AdminController {
 	public int confirmReturn(int rno) {
 		return service.confirmReturn(rno);
 	}
+	
+	@PostMapping("checkLaptop")
+	@ResponseBody
+	public int checkLaptop(int rno) {
+		return service.checkLaptop(rno);
+	}
 }

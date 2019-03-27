@@ -36,7 +36,7 @@
 								<c:choose>
 									<c:when test="${list.state == 1 or list.state == 2 }">
 										<th>
-											<input type="button" value="신청 취소">
+											<input type="button" value="신청 취소" onclick="rentalCancel(${list.rno})">
 										</th>
 									</c:when>
 									<c:when test="${list.state != 1 and list.state != 2 }">

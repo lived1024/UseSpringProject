@@ -53,6 +53,12 @@
 		DELETE FROM PROJECT_WEB_USER
 		WHERE WID=#{wid}
 	</delete>
+	
+	<update id="rentalCancel">
+		UPDATE PROJECT_RENTAL
+		SET STATE=11
+		WHERE RNO=#{rno}
+	</update>
 
 </mapper>
 

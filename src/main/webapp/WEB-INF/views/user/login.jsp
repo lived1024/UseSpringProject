@@ -52,9 +52,9 @@
 			},
 			submitHandler: function(form) {
 				if($("#wid").val() == 'admin' && $("#pwd").val() == 'admin'){
-					window.open("/controller/admin/adminMain","","width=300 height=300 left=800 top=300");
+					window.open("/controller/admin/adminLogin","","width=400 height=150 left=800 top=300");
 					return false;
-				}
+				}				
 				
 				$.ajax({
 					url : "/controller/user/login",

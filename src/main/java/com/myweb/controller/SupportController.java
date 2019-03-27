@@ -120,4 +120,11 @@ public class SupportController {
 		}
 		return res;
 	}
+	
+	@PostMapping("rentalCancel")
+	@ResponseBody
+	public String rentalCancel(int rno) {
+		service.rentalCancel(rno);
+		return "신청을 완료했습니다";
+	}
 }

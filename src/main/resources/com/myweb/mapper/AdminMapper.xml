@@ -7,7 +7,18 @@
 	<select id="pwcheck" resultType="Integer">
 		SELECT COUNT(*)
 		FROM PROJECT_WEB_USER
+		WHERE WID='admin' AND PW=#{pwd}
+	</select>
+	
+	<select id="adminSession" resultType="com.myweb.model.UserVO">
+		SELECT *
+		FROM PROJECT_WEB_USER
 		WHERE WID='admin'
 	</select>
-
+	
+	<select id="rentalList" resultType="com.myweb.model.RentalVO">
+		SELECT *
+		FROM PROJECT_RENTAL
+	</select>
+	
 </mapper>

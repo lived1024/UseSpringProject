@@ -11,4 +11,5 @@ public interface SupportService {
 	public void updateInfo(UserVO uv);
 	public int confirmRental(String wid);
 	public void deleteUser(String wid);
+	public void rentalCancel(int rno);
 }

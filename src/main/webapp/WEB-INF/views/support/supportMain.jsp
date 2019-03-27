@@ -100,10 +100,29 @@
 				var addr=a.replace(" / ","  ");
 				$(".addrText").text(addr);
 			}
-		});
+		})
 		
 		function toUpdate(){
 			window.open("updateForm","정보수정","width=550 height=700 menubar=no status=no toolbar=no left=600 top=50 location=no");
+		}
+		
+		function rentalCancel(rno){
+			if(confirm("대여 취소 신청을 하시겠습니까?")){
+				$.ajax({
+					url : "/controller/support/rentalCancel",
+					type : "post",
+					data : {"rno" : rno},
+					success : function(data){
+						alert(data);
+						location.reload();
+					},
+					error : function(e){
+						alert("error : "+e);
+					}
+				});
+			}else{
+				alert("ㅁㅁ");
+			}
 		}
 
 	</script>

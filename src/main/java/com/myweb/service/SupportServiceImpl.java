@@ -45,4 +45,10 @@ public class SupportServiceImpl implements SupportService{
 		// TODO Auto-generated method stub
 		mapper.deleteUser(wid);
 	}
+
+	@Override
+	public void rentalCancel(int rno) {
+		// TODO Auto-generated method stub
+		mapper.rentalCancel(rno);
+	}
 }

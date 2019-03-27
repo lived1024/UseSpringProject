@@ -41,5 +41,11 @@
 		FROM PROJECT_BOARD
 		WHERE B_NUM=#{b_num}
 	</select>
+	
+	<select id="addCount">
+		UPDATE PROJECT_BOARD
+		SET READCOUNT=READCOUNT+1
+		WHERE B_NUM=#{b_num}
+	</select>
 
 </mapper>

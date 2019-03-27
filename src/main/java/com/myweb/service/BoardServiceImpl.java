@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.myweb.mapper.BoardMapper;
 import com.myweb.model.BoardVO;
@@ -38,9 +39,11 @@ public class BoardServiceImpl implements BoardService{
 		return mapper.countBoard(kind, cri);
 	}
 
+	@Transactional
 	@Override
 	public BoardVO boardView(int b_num) {
 		// TODO Auto-generated method stub
+		mapper.addCount(b_num);
 		return mapper.boardView(b_num);
 	}
 }

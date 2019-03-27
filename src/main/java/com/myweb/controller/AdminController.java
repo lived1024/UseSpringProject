@@ -62,7 +62,11 @@ public class AdminController {
 	@PostMapping("confirmCancel")
 	@ResponseBody
 	public int confirmCancel(int rno) {
-		
 		return service.confirmCancel(rno);
+	}
+	
+	@PostMapping("accept")
+	public int accept(int rno) {
+		return service.accept(rno);
 	}
 }

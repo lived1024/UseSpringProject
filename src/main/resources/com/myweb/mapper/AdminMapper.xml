@@ -38,4 +38,10 @@
 		SET STATE = 12
 		WHERE RNO=#{rno}
 	</update>
+	
+	<update id="accept">
+		UPDATE PROJECT_RENTAL
+		SET STATE = 2
+		WHERE RNO=#{rno}
+	</update>
 </mapper>

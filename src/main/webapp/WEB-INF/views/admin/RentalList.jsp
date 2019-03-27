@@ -33,9 +33,14 @@
 				</c:choose>
 				
 				<c:choose>
-					<c:when test="${list.state == 1 or list.state == 2 }">
+					<c:when test="${list.state == 1 }">
 						<th>
-							<input type="button" value="대여 승인" onclick="">
+							<input type="button" value="대여 승인" onclick="Raccept(${list.rno})">
+						</th>
+					</c:when>
+					<c:when test="${list.state == 2 }">
+						<th>
+							<input type="button" value="수령 완료" onclick="">
 						</th>
 					</c:when>
 					<c:when test="${list.state == 3 or list.state == -1 }">

@@ -43,4 +43,10 @@ public class AdminServiceImpl implements AdminService {
 		mapper.cancelLaptop(lno, r_count);
 		return mapper.confirmCancel(rno);
 	}
+
+	@Override
+	public int accept(int rno) {
+		// TODO Auto-generated method stub
+		return mapper.accept(rno);
+	}
 }

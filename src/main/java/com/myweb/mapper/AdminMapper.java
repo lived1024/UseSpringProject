@@ -14,4 +14,5 @@ public interface AdminMapper {
 	public RentalVO rental(int rno);
 	public void cancelLaptop(@Param("lno")int lno, @Param("r_count")int r_count);
 	public int confirmCancel(int rno);
+	public int accept(int rno);
 }

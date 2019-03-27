@@ -89,6 +89,22 @@
 				});
 			}
 		}
+		
+		function Raccept(rno){
+			if(confirm("제품이 준비 되었나요?")){
+				$.ajax({
+					url : "/controller/admin/accept",
+					type : "post",
+					data : {"rno" : rno},
+					success : function(data){
+						location.reload();
+					},
+					error : function(e){
+						alert("error : "+e);
+					}
+				});
+			}
+		}
 	</script>
 </body>
 </html>

@@ -16,4 +16,5 @@ public interface AdminMapper {
 	public int confirmCancel(int rno);
 	public int accept(int rno);
 	public int rconfirm(int rno);
+	public int confirmReturn(int rno);
 }

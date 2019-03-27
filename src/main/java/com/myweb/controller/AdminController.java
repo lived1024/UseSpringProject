@@ -76,4 +76,10 @@ public class AdminController {
 	public int rconfirm(int rno) {
 		return service.rconfirm(rno);
 	}
+	
+	@PostMapping("confirmReturn")
+	@ResponseBody
+	public int confirmReturn(int rno) {
+		return service.confirmReturn(rno);
+	}
 }

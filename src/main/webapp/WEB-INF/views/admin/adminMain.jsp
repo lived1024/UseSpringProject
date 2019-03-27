@@ -121,6 +121,22 @@
 				});
 			}
 		}
+		
+		function confirmReturn(rno){
+			if(confirm("제품 반납이 완료됐습니까?")){
+				$.ajax({
+					url : "/controller/admin/confirmReturn",
+					type : "post",
+					data : {"rno" : rno},
+					success : function(data){
+						location.reload();
+					},
+					error : function(e){
+						alert("error : "+e);
+					}
+				});
+			}
+		}
 	</script>
 </body>
 </html>

@@ -45,7 +45,7 @@
 					</c:when>
 					<c:when test="${list.state == 3 or list.state == -1 }">
 						<th>
-							<input type="button" value="반납 확인">
+							<input type="button" value="반납 확인" onclick="confirmReturn(${list.rno})">
 						</th>
 					</c:when>
 					<c:when test="${list.state == 11}">

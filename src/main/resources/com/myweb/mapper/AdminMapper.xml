@@ -50,4 +50,10 @@
 		SET STATE = 3
 		WHERE RNO=#{rno}
 	</update>
+	
+	<update id="confirmReturn">
+		UPDATE PROJECT_RENTAL
+		SET STATE = 4
+		WHERE RNO=#{rno}
+	</update>
 </mapper>

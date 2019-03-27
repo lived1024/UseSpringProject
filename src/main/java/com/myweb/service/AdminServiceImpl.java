@@ -55,4 +55,10 @@ public class AdminServiceImpl implements AdminService {
 		// TODO Auto-generated method stub
 		return mapper.rconfirm(rno);
 	}
+
+	@Override
+	public int confirmReturn(int rno) {
+		// TODO Auto-generated method stub
+		return mapper.confirmReturn(rno);
+	}
 }

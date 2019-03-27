@@ -2937,7 +2937,7 @@ a:hover{
 #where, #field{
 	margin-top:10px;
 }
-#viewTable{
+#viewTable, #commentTable{
 	width : 70%;
 }
 #boardViewDiv{
@@ -2949,6 +2949,27 @@ a:hover{
 }
 #upfile, .confirmBtn, .updateCancle{
 	display: none;
+}
+#firstTr .cfir, #firstTr .csec, #firstTr .cthi, tr .cfir, tr .cthi{
+	text-align: center;
+}
+.cfir{
+	width : 15%;
+}
+.csec{
+	width : 70%;
+}
+.cthi{
+	width : 15%;
+}
+#commentText{
+	margin-top : 10px;
+	width : 85%;
+	height : 100px;
+}
+#commentBtn{
+	width : 10%;
+	height : 100px;
 }
 /* #laptop_view{ */
 /* 	margin : 50px 0px; */

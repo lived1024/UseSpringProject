@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<div align="center" id="boardViewDiv">
-	  <form>
-		<table id="viewTable" class="table">
+		<table id="viewTable" class="table table-bordered">
 			<tr>
 				<td>제목</td>
 				<td>
@@ -42,8 +41,8 @@
 				<td>내용</td>
 				<td><textarea id="txtfield" readonly="readonly">${bv.b_content }</textarea></td>
 			</tr>
-			<tr>
-				<td colspan=2>
+			<tr id="btnTr">
+				<th colspan=2>
 					<input type="button" value="목록" onclick="showBoardList(${cri.pageNum })" class="btn btn-inverse">
 					<c:if test="${sessionScope.uv.wid == bv.wid }">
 						<input type="button" value="수정"	 onclick="updateFormBoard()" id="btnupdateBtn" class="btn btn-inverse">
@@ -59,8 +58,23 @@
 							<input type="button" value="취소" onclick="updateBtnCancle()" class="btn btn-inverse updateCancle">
 						</c:if>
 					</c:if>
-				</td>
+				</th>
 			</tr>
 		</table>
-	  </form>
+		<table id="commentTable" class="table">
+			<thead>
+				<tr>
+					<td colspan="3">
+						<textarea id="commentText"></textarea>
+						<input type="button" value="등록" id="commentBtn" onclick="inputComment(${bv.b_num},${cri.pageNum })" class="btn btn-color">
+					</td>
+				</tr>
+				<tr id="firstTr">
+					<th class="cfir">작성자</th>
+					<th class="csec">내용</th>
+					<th class="cthi">작성시간</th>
+				</tr>
+			</thead>
+			<tbody id="commentBody"></tbody>
+		</table>
 	</div>

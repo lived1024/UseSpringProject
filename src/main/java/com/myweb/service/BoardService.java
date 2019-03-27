@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 import com.myweb.model.BoardVO;
+import com.myweb.model.CommentVO;
 import com.myweb.model.Criteria;
 
 public interface BoardService {
@@ -14,4 +15,6 @@ public interface BoardService {
 	public BoardVO boardView(int b_num, HttpServletRequest req);
 	public void deleteBoard(int b_num);
 	public void updateBoard(BoardVO bv);
+	public void insertComment(CommentVO cv);
+	public ArrayList<CommentVO> commentList(int b_num);
 }

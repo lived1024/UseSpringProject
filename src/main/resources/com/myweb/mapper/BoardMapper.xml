@@ -58,5 +58,17 @@
 		SET B_SUBJECT=#{b_subject}, B_CONTENT=#{b_content}, B_FILE=#{b_file}
 		WHERE B_NUM=#{b_num}
 	</update>
+	
+	<insert id="insertComment">
+		INSERT INTO PROJECT_COMMENT(C_NUM, B_NUM, WID, EMAIL, C_COMMENT, C_REGDATE)
+		VALUES(PROJECT_COMMENT_SEQ.NEXTVAL, #{b_num}, #{wid}, #{email}, #{c_comment}, SYSDATE)
+	</insert>
+	
+	<select id="commentList" resultType="com.myweb.model.CommentVO">
+		SELECT *
+		FROM PROJECT_COMMENT
+		WHERE B_NUM=#{b_num}
+		ORDER BY C_REGDATE DESC
+	</select>
 
 </mapper>

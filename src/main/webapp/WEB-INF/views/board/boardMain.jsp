@@ -109,6 +109,7 @@
 						"pageNum" : pageNum},
 				success : function(data){
 					$("#resultDiv").html(data);
+					callCommentList(b_num,pageNum);
 				},
 				error : function(e){
 					alert("error : "+e);
@@ -167,8 +168,42 @@
 				type : "post",
 				data : formData,
 				success : function(data){
-					alert(data);
 					boardView(b_num, pageNum, where, field);
+				},
+				error : function(e){
+					alert("error : "+e);
+				}
+			});
+		}
+// 		boardView(b_num, pageNum, where, field)
+		//댓글 입력하기
+		function inputComment(b_num, pageNum){
+			var where=$("#where").val();
+			var field=$("#field").val();
+			
+			$.ajax({
+				url : "/controller/board/insertComment",
+				type : "get",
+				data : {"c_comment" : $("#commentText").val(),
+						"b_num" : b_num},
+				success : function(data){
+					alert("댓글 등록 완료");
+					boardView(b_num, pageNum, where, field);
+				},
+				error : function(e){
+					alert("error : "+e);
+				}
+			});
+		}
+		
+		//댓글 로드
+		function callCommentList(b_num, pageNum){
+			$.ajax({
+				url : "/controller/board/callCommentList",
+				type : "get",
+				data : {"b_num" : b_num},
+				success : function(data){
+					$("#commentBody").html(data);
 				},
 				error : function(e){
 					alert("error : "+e);

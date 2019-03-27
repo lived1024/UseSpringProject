@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.myweb.model.BoardVO;
+import com.myweb.model.CommentVO;
 import com.myweb.model.Criteria;
 import com.myweb.model.UserVO;
 import com.myweb.service.BoardService;
@@ -151,5 +152,34 @@ public class BoardController {
 			}
 		}
 		return 1;
+	}
+	
+	@GetMapping("insertComment")
+	public String insertComment(int b_num, String c_comment, HttpServletRequest req) {
+		CommentVO cv=new CommentVO();
+		cv.setB_num(b_num);
+		cv.setC_comment(c_comment);
+		
+		HttpSession session=req.getSession();
+		UserVO uv=(UserVO) session.getAttribute("uv");
+		
+		if(uv.getWid()==null || uv.getWid()=="") {
+			cv.setEmail(uv.getEmail());
+		}else if(uv.getWid()!=null || uv.getWid() != "") {
+			cv.setWid(uv.getWid());
+		}
+		//´ñ±Û ÀÔ·Â
+		service.insertComment(cv);
+		
+		//´ñ±Û ºÒ·¯¿À±â
+		return "/board/callCommentList";
+	}
+	
+	@GetMapping("callCommentList")
+	public String callCommentList(int b_num, Model model) {
+		ArrayList<CommentVO> carr=service.commentList(b_num);
+//		req.setAttribute("carr", carr);
+		model.addAttribute("carr", carr);
+		return "/board/commentList";
 	}
 }

@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.myweb.mapper.BoardMapper;
 import com.myweb.model.BoardVO;
+import com.myweb.model.CommentVO;
 import com.myweb.model.Criteria;
 import com.myweb.model.UserVO;
 
@@ -74,6 +75,18 @@ public class BoardServiceImpl implements BoardService{
 	public void updateBoard(BoardVO bv) {
 		// TODO Auto-generated method stub
 		mapper.updateBoard(bv);
+	}
+
+	@Override
+	public void insertComment(CommentVO cv) {
+		// TODO Auto-generated method stub
+		mapper.insertComment(cv);
+	}
+
+	@Override
+	public ArrayList<CommentVO> commentList(int b_num) {
+		// TODO Auto-generated method stub
+		return mapper.commentList(b_num);
 	}
 	
 	

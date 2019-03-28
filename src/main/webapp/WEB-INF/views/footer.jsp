@@ -23,9 +23,9 @@
               <h5 class="widgetheading">Browse pages</h5>
               <ul class="link-list">
                 <li><a href="#">사이트 소개</a></li>
-                <li><a href="#">노트북 리뷰</a></li>
-                <li><a href="#">대여 시스템</a></li>
-                <li><a href="#">공 지 사 항</a></li>
+                <li><a href="/controller/rental/main?list=3">대여 신청</a></li>
+                <li><a href="/controller/board/boardMain?list=3">자유 게시판</a></li>
+                <li><a href="/controller/support/supportMain?list=1">내 정보</a></li>
               </ul>
 
             </div>

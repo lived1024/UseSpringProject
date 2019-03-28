@@ -121,7 +121,7 @@ public class SupportController {
 		return res;
 	}
 	
-	@PostMapping("rentalCancel")
+	@PostMapping(value="rentalCancel",produces="text/plain;charset=utf-8")
 	@ResponseBody
 	public String rentalCancel(int rno) {
 		service.rentalCancel(rno);

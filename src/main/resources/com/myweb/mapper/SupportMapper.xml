@@ -61,13 +61,3 @@
 	</update>
 
 </mapper>
-
-
-<!-- 	"NID" VARCHAR2(20 BYTE),  -->
-<!-- 	"AGE" VARCHAR2(6 BYTE),  -->
-<!-- 	"GENDER" VARCHAR2(6 BYTE),  -->
-<!-- 	"EMAIL" VARCHAR2(30 BYTE),  -->
-<!-- 	"NAME" VARCHAR2(20 BYTE),  -->
-<!-- 	"BIRTHDAY" VARCHAR2(5 BYTE),  -->
-<!-- 	"TEL" VARCHAR2(15 BYTE),  -->
-<!-- 	"ADDR" VARCHAR2(50 BYTE),  -->

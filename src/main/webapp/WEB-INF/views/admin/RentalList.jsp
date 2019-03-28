@@ -38,29 +38,32 @@
 				<c:choose>
 					<c:when test="${list.state == 1 }">
 						<th>
-							<input type="button" value="대여 승인" onclick="Raccept(${list.rno})">
+							<input type="button" value="대여 승인" onclick="Raccept(${list.rno})" class="btn btn-warning">
 						</th>
 					</c:when>
 					<c:when test="${list.state == 2 }">
 						<th>
-							<input type="button" value="대여 완료" onclick="Rconfirm(${list.rno})">
+							<input type="button" value="대여 완료" onclick="Rconfirm(${list.rno})" class="btn btn-warning">
 						</th>
 					</c:when>
 					<c:when test="${list.state == 3 or list.state == -1 }">
 						<th>
-							<input type="button" value="반납 확인" onclick="confirmReturn(${list.rno})">
+							<input type="button" value="반납 확인" onclick="confirmReturn(${list.rno})" class="btn btn-danger">
 						</th>
 					</c:when>
 					<c:when test="${list.state == 11 }">
 						<th>
-							<input type="button" value="취소 확인" onclick="conCancel(${list.rno})">
+							<input type="button" value="취소 확인" onclick="conCancel(${list.rno})" class="btn btn-warning">
 						</th>
 					</c:when>
 					<c:when test="${list.state == 4 }">
 						<th>
-							<input type="button" value="점검 완료" onclick="checkLaptop(${list.rno})">
+							<input type="button" value="점검 완료" onclick="checkLaptop(${list.rno})" class="btn btn-danger">
 						</th>
 					</c:when>
+					<c:otherwise>
+						<th></th>
+					</c:otherwise>
 				</c:choose>
 			</tr>
 			</c:forEach>

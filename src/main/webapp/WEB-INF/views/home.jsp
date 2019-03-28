@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -130,78 +131,51 @@
               <div class="span12">
                 <div class="aligncenter">
                   <h3>IT 최신 정보</h3>
-                  <blockquote>
-                    Lorem ipsum dolor sit amet, labores dolorum scriptorem eum an, te quodsi sanctus neglegentur eam, et lorem persecuti conclusionemque mei.
-                  </blockquote>
                 </div>
               </div>
             </div>
 
             <div class="row">
 
-              <div class="span3">
-                <h5>Choose package and start grow</h5>
-                <p>
-                  Per an putent audiam adolescens, mel ceteros fierent democritum te. No ubique malorum euismod usu.
-                </p>
-                <p>
-                  Movet facilis democritum ea quo. Est ei illum consulatu accommodare, nam dicta expetenda suavitate ad.
-                </p>
-              </div>
+<!--               <div class="span3"> -->
+<!--                 <h5>Choose package and start grow</h5> -->
+<!--                 <p> -->
+<!--                   Per an putent audiam adolescens, mel ceteros fierent democritum te. No ubique malorum euismod usu. -->
+<!--                 </p> -->
+<!--                 <p> -->
+<!--                   Movet facilis democritum ea quo. Est ei illum consulatu accommodare, nam dicta expetenda suavitate ad. -->
+<!--                 </p> -->
+<!--               </div> -->
 
-              <div class="span3">
+              <div class="span3  crawlingDiv">
                 <div class="pricing-box-plain">
                   <div class="heading">
-                    <h4>Crawling 1</h4>
-                    <span>$9 / Month</span>
+                    <a href="http://www.betanews.net/"><h4>베타뉴스</h4></a>
+                    최신 뉴스
                   </div>
-                  <div class="desc">
-                    <ul>
-                      <li>For 1 Application</li>
-                      <li>Free one year support</li>
-                      <li>Unlimited disk spaces</li>
-                    </ul>
-                  </div>
-                  <div class="action">
-                    <a href="#" class="btn btn-inverse">Sign Up</a>
+                  <div class="action" id="betanews">
                   </div>
                 </div>
               </div>
 
-              <div class="span3">
+              <div class="span3 crawlingDiv">
                 <div class="pricing-box-plain">
                   <div class="heading">
-                    <h4>Crawling 2</h4>
-                    <span>$29 / Month</span>
+                    <a href="http://www.itworld.co.kr/main/"><h4>IT WORLD</h4></a>
+                    최신 뉴스
                   </div>
-                  <div class="desc">
-                    <ul>
-                      <li>For 10 Applications</li>
-                      <li>Free life time support</li>
-                      <li>Unlimited disk spaces</li>
-                    </ul>
-                  </div>
-                  <div class="action">
-                    <a href="#" class="btn btn-inverse">Sign Up</a>
+                  <div class="action" id="itworld">
                   </div>
                 </div>
               </div>
 
-              <div class="span3">
+              <div class="span3 crawlingDiv">
                 <div class="pricing-box-plain">
                   <div class="heading">
-                    <h4>Crawling 3</h4>
-                    <span>$59 / Month</span>
+                    <a href="https://www.notebookcheck.net/"><h4>NotebookCheck</h4></a>
+                    최신 리뷰
                   </div>
-                  <div class="desc">
-                    <ul>
-                      <li>For unlimited appliacations</li>
-                      <li>Free life time support</li>
-                      <li>Unlimited disk spaces</li>
-                    </ul>
-                  </div>
-                  <div class="action">
-                    <a href="#" class="btn btn-color">Sign Up</a>
+                  <div class="action" id="notebookcheck">
                   </div>
                 </div>
               </div>
@@ -212,78 +186,7 @@
 
       </div>
     </section>
-
-    <section id="works">
-      <div class="container">
-        <div class="row">
-          <div class="span12">
-            <h3>Recent works</h3>
-            <div class="row">
-
-              <div class="grid cs-style-3">
-                <div class="span3">
-                  <div class="item">
-                    <figure>
-                      <div><img src="/controller/resources/img/dummies/works/1.jpg" alt=""></div>
-                      <figcaption>
-                        <h3>Portfolio name</h3>
-                        <p>
-                          <a href="/controller/resources/img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
-                          <a href="#"><i class="icon-file icon-circled icon-bglight icon-2x active"></i></a>
-                        </p>
-                      </figcaption>
-                    </figure>
-                  </div>
-                </div>
-                <div class="span3">
-                  <div class="item">
-                    <figure>
-                      <div><img src="/controller/resources/img/dummies/works/2.jpg" alt=""></div>
-                      <figcaption>
-                        <h3>Portfolio name</h3>
-                        <p>
-                          <a href="/controller/resources/img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
-                          <a href="#"><i class="icon-file icon-circled icon-bglight icon-2x active"></i></a>
-                        </p>
-                      </figcaption>
-                    </figure>
-                  </div>
-                </div>
-                <div class="span3">
-                  <div class="item">
-                    <figure>
-                      <div><img src="/controller/resources/img/dummies/works/3.jpg" alt=""></div>
-                      <figcaption>
-                        <h3>Portfolio name</h3>
-                        <p>
-                          <a href="/controller/resources/img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
-                          <a href="#"><i class="icon-file icon-circled icon-bglight icon-2x active"></i></a>
-                        </p>
-                      </figcaption>
-                    </figure>
-                  </div>
-                </div>
-                <div class="span3">
-                  <div class="item">
-                    <figure>
-                      <div><img src="/controller/resources/img/dummies/works/4.jpg" alt=""></div>
-                      <figcaption>
-                        <h3>Portfolio name</h3>
-                        <p>
-                          <a href="/controller/resources/img/dummies/works/big.png" data-pretty="prettyPhoto[gallery1]" title="Portfolio caption here"><i class="icon-zoom-in icon-circled icon-bglight icon-2x active"></i></a>
-                          <a href="#"><i class="icon-file icon-circled icon-bglight icon-2x active"></i></a>
-                        </p>
-                      </figcaption>
-                    </figure>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     <footer>
       <%@ include file="footer.jsp" %>
@@ -309,11 +212,44 @@
   
   <!-- My script -->
 	<script>
-		$(function(){			
+		$(function(){
 			if(${msg != null}){
 				alert("${msg }");
 			}
-		})
+			//베타뉴스
+			$.ajax({
+				url : "/controller/main/betanewsCrawling",
+				type : "post",
+				success : function(data){
+					$("#betanews").html(data);
+				},
+				error : function(e){
+					alert("베타뉴스 에러 : "+e);
+				}
+			});
+			
+			$.ajax({
+				url : "/controller/main/itWorldCrawling",
+				type : "post",
+				success : function(data){
+					$("#itworld").html(data);
+				},
+				error : function(e){
+					alert("IT WORLD 에러 : "+e);
+				}
+			});
+			
+			$.ajax({
+				url : "/controller/main/notebookcheck",
+				type : "post",
+				success : function(data){
+					$("#notebookcheck").html(data);
+				},
+				error : function(e){
+					alert("노트포럼 에러 : "+e);
+				}
+			});
+		});
 	</script>
 </body>
 </html>

@@ -35,25 +35,39 @@
     Author: BootstrapMade.com
     Author URL: https://bootstrapmade.com
   ======================================================= -->
+  <style>
+  	#rentalProcess{
+  		width : 70%;
+  		margin : 50px;
+  	}
+  	#title{
+  		text-align: center;
+  	}
+  </style>
 </head>
 
 <body>
-	<table id="rentalProcess" class="table">
-		<thead>
-	        <tr>
-	        	<th>모델명</th>
-				<th>개수</th>
-				<th>대여 시작일</th>
-				<th>반납일</th>
-				<th>총 가격</th>
-				<th>현재 상태</th>
-				<th></th>
-	        </tr>
-		</thead>
-		<tbody id="rentalResult">
-
-		</tbody>
-	</table>
+	<div align="center">
+		<table id="rentalProcess" class="table">
+			<thead>
+				<tr>
+					<th colspan="7" id="title"><h3>대여 관리</h3></th>
+				</tr>
+		        <tr>
+		        	<th>모델명</th>
+					<th>개수</th>
+					<th>대여 시작일</th>
+					<th>반납일</th>
+					<th>총 가격</th>
+					<th>현재 상태</th>
+					<th></th>
+		        </tr>
+			</thead>
+			<tbody id="rentalResult">
+	
+			</tbody>
+		</table>
+	</div>
 	<script src="/controller/resources/js/jquery.js"></script>
 	<script>
 		$(function(){

@@ -2974,6 +2974,15 @@ a:hover{
 	width : 10%;
 	height : 100px;
 }
+.crawlingView{
+	width : 100%;
+}
+.crawlingDiv{
+	width : 30%;
+}
+#betanews, #itworld, #notebookcheck{
+	text-decoration: underline;
+}
 /* #laptop_view{ */
 /* 	margin : 50px 0px; */
 /* } */

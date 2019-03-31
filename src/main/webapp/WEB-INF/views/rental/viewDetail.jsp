@@ -107,7 +107,7 @@
 				</tr>
 				<tr>
 					<th><font size=4>추가요금</font></th>
-					<th><span id="addPrice">0</th>
+					<th><span id="addPrice">0</span>(개당)</th>
 				</tr>
 				<tr>
 					<th colspan="2">

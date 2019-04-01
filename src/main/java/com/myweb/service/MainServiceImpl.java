@@ -111,7 +111,7 @@ public class MainServiceImpl implements MainService {
 				title[i] = title[i].substring(4);
 				CrawlingVO cv=new CrawlingVO();
 				cv.setTitle(title[i]);
-				cv.setTitle(title[i]);
+				cv.setAddress(href[i]);
 				arr.add(cv);
 			}
 		} catch (IOException e) {

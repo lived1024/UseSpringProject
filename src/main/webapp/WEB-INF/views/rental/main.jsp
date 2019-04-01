@@ -103,59 +103,6 @@
 			window.open("price","","width=500 height=650 menubar=no status=no toolbar=no left=600 top=150 location=no");
 		}
 		
-		//대여신청
-		function rental(lno, price, lname){
-			var total=parseInt($("#addPrice").text())+price;
-			
-			$.ajax({
-				url : "/controller/rental/apply",
-				data : {"lno" : lno,
-						"totalprice" : total,
-						"lname" : lname,
-						"r_count" : $("#r_count").val(),
-						"r_start" : $("#startDate").val(),
-						"r_end" : $("#endDate").val()},
-				success : function(data){
-					if(confirm("신청이 완료되었습니다.\r\n대여 현황을 확인하겠습니까?")){
-						location.href="/controller/support/supportMain?list=2";
-					}
-				},
-				error : function(e){
-					alert("error : "+e);
-				},
-				beforeSend:beforeRental
-			});
-		}
-		
-		//대여신청 유효성 검사
-		function beforeRental(){
-			if($("#startDate").val()==""){
-				alert("대여 시작일을 선택해주세요");
-				return false;
-			}
-			//재고초과
-			if($("#r_count").val() > $("#r_count").attr("max")){
-				alert("재고를 다시 확인해주세요");
-				return false;
-			}
-			//0개 이하 신청 불가
-			if($("#r_count").val() <= 0){
-				alert("최소 대여 수량은 1개입니다.");
-				return false;
-			}
-			
-			//주소, 전화번호 미등록시
-			if(${sessionScope.uv.tel == "--"} || ${sessionScope.uv.addr == " / "}
-				|| ${empty sessionScope.uv.tel } || ${empty sessionScope.uv.addr }){
-				if(confirm("주소 또는 전화번호가 등록되어 있지 않습니다.\r\n정보확인 페이지로 이동합니다")){
-					location.href="/controller/support/supportMain?list=1";
-				}
-				return false;
-			}
-			
-			//주소, 전화번호 미기재시 기재 페이지로 이동
-		}
-		
 		$(function(){
 			//노트북 재고가 0일때 버튼 비활성화
 			if(${lv.stock == 0}){
